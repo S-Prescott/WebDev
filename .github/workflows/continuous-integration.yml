@@ -1,6 +1,8 @@
 name: Continuous Deployment
 
 on:
+  push:
+    branches: [ continuous-deployment ]
   pull_request:
     types: [closed]
     branches:
@@ -26,6 +28,7 @@ jobs:
 
       - name: Install Dependencies
         run: npm install
+        working-directory: webdevapp
 
       - name: Build
         run: npm run build
