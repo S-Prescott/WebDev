@@ -32,10 +32,11 @@ jobs:
 
       - name: Build
         run: npm run build
+        working-directory: webdevapp
 
       - name: Deploy
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
-          publish_dir: ./build
+          publish_dir: ./webdevapp/build
           publish_branch: gh-pages # deploying branch
