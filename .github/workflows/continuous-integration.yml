@@ -2,11 +2,12 @@ name: Continuous Deployment
 
 on:
   push:
-    branches: [ continuous-deployment ]
+    branches: 
+      - main 
   pull_request:
-    types: [closed]
+    types: [opened, closed]
     branches:
-      - master
+      - main
 
 jobs:
   buildAndTest:
@@ -35,6 +36,7 @@ jobs:
         working-directory: webdevapp
 
       - name: Deploy
+        if: github.event.pull_request.merged == true
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.GITHUB_TOKEN }}
