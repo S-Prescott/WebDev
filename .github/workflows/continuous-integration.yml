@@ -1,0 +1,44 @@
+name: Continuous Deployment
+
+on:
+  push:
+    branches: 
+      - main 
+  pull_request:
+    types: [opened, closed]
+    branches:
+      - main
+
+jobs:
+  buildAndTest:
+    name: Deploy on Merge
+
+    runs-on: ubuntu-latest
+
+    strategy:
+      matrix:
+        node-version: [16.x]
+    
+    steps:
+      - uses: actions/checkout@v1
+
+      - name: Set up Node.js ${{ matrix.node-version }}
+        uses: actions/setup-node@v1
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Install Dependencies
+        run: npm install
+        working-directory: webdevapp
+
+      - name: Build
+        run: npm run build
+        working-directory: webdevapp
+
+      - name: Deploy
+        if: github.event.pull_request.merged == true
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.GITHUB_TOKEN }}
+          publish_dir: ./webdevapp/build
+          publish_branch: gh-pages # deploying branch
