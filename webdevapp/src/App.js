@@ -5,8 +5,8 @@ import { getdata } from './getdata.service.js';
 
 
 function App() {
+  getdata();
   return (
-    console.log(getdata().data.result.length),
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
