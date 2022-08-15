@@ -1,11 +1,11 @@
 import logo from './logo.svg';
 import './App.css';
-import { getdata } from './getdata.service.js';
-
-
+import { getdata,getminmaxdata,hightrade } from './getdata.service.js';
 
 function App() {
   getdata();
+  getminmaxdata();
+  hightrade();
   return (
     <div className="App">
       <header className="App-header">
