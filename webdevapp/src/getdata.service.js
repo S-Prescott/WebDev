@@ -39,20 +39,23 @@ export function hightrade() {
     })
   }
 
-export function getminmaxdata() {
-  axios.post(url,
-    {arguments:{sd:'2022.08.15'},
-    function_name:'.qrestfunc.getmaxeachsym'
-    },
-    {headers:{
-      accept, authorization
-    }})
-    .then(response => {
-      const minmax = response
-      console.log(minmax);
-      return minmax
-    })
-    .catch(error => {
-      console.log(error)
-    })
+export async function getminmaxdata() {
+  try{
+    let res = await axios.post(url,
+      {arguments:{sd:'2022.08.15'},
+      function_name:'.qrestfunc.getmaxeachsym'
+      },
+      {headers:{
+        accept, authorization
+      }})
+      return res.data.result
+    }
+    // .then(response => {
+    //   const minmax = response
+    //   //console.log(minmax);
+    //   return minmax
+    // })
+    catch(error) {
+      console.error(error)
+    }
   }
