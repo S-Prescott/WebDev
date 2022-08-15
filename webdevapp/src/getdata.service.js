@@ -39,7 +39,7 @@ export function hightrade() {
     })
   }
 
-export async function getminmaxdata() {
+export async function getminmaxdata(date) {
   try{
     let res = await axios.post(url,
       {arguments:{sd:'2022.08.15'},

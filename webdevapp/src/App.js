@@ -1,16 +1,23 @@
 import logo from './logo.svg';
 import './App.css';
-import React, { useState, useEffect } from 'react';
+import * as React from 'react';
 import { getdata,getminmaxdata,hightrade } from './getdata.service.js';
 
 function App() {
-  const [data, getData] = useState([])
-  useEffect(() => {
-    getminmaxdata()
+  const [data, getData] = React.useState([])
+  React.useEffect(() => {
+    getminmaxdata(value)
     .then((response) => {
+      console.log(response);
       getData(response);
   })
   }, [])
+  const [value, setValue] = React.useState('2022.08.15');
+
+  const handleChange = (event) => {
+    setValue(event.target.value);
+  };
+  console.log(value);
   //getdata();
   //hightrade();
   return (
@@ -18,6 +25,11 @@ function App() {
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>WebDevApp</h1>
+        <select className="form-select" value={value} onChange={handleChange}>
+          <option value='2022.08.15'>Today</option>
+          <option value='2022.08.14'>Yesterday</option>
+          <option value='2022.08.13'>Two Days Ago</option>
+        </select>
         <tbody>
                 <tr>
                     <th>Sym</th>
