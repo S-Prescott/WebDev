@@ -1,7 +1,7 @@
 import logo from './logo.svg';
 import './App.css';
 import * as React from 'react';
-import { getdata,getminmaxdata,hightrade } from './getdata.service.js';
+import { getdata,getminmaxdata,hightrade,rAvgTimeSeries } from './getdata.service.js';
 
 function App() {
   const [data, getData] = React.useState([])
@@ -12,7 +12,7 @@ function App() {
       getData(response);
   })
   }, [])
-  const [value, setValue] = React.useState('2022.08.15');
+  const [value, setValue] = React.useState('2022.08.16');
 
   const handleChange = (event) => {
     setValue(event.target.value);
@@ -20,15 +20,16 @@ function App() {
   console.log(value);
   //getdata();
   //hightrade();
+  // rAvgTimeSeries();
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
         <h1>WebDevApp</h1>
         <select className="form-select" value={value} onChange={handleChange}>
-          <option value='2022.08.15'>Today</option>
-          <option value='2022.08.14'>Yesterday</option>
-          <option value='2022.08.13'>Two Days Ago</option>
+          <option value='2022.08.16'>Today</option>
+          <option value='2022.08.15'>Yesterday</option>
+          <option value='2022.08.14'>Two Days Ago</option>
         </select>
         <tbody>
                 <tr>
