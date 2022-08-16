@@ -15,10 +15,23 @@
 
 .App-header {
   background-color: #07080a;
-  min-height: 100vh;
+  min-height: 5vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+  font-size: calc(10px + 2vmin);
+  color: white;
+}
+
+.App-body {
+  padding-top: 5vh;
+  padding-left: 5vh;
+  background-color: #18a8cc;
+  min-height: 100vh;
+  /* display: flex; */
+  flex-direction: column;
+  /* align-items: center; */
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;

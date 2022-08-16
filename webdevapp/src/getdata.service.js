@@ -54,7 +54,7 @@ export async function getminmaxdata(date) {
     let res = await axios.post(
       url,
       {
-        arguments: { sd: "2022.08.16" },
+        arguments: { sd: date },
         function_name: ".qrestfunc.getmaxeachsym",
       },
       {
@@ -66,17 +66,13 @@ export async function getminmaxdata(date) {
     );
     return res.data.result;
   } catch (error) {
-    // .then(response => {
-    //   const minmax = response
-    //   //console.log(minmax);
-    //   return minmax
-    // })
     console.error(error);
   }
 }
 
-export function rAvgTimeSeries() {
-  axios
+export async function rAvgTimeSeries() {
+  try{
+  let res = await axios
     .post(
       url,
       {
@@ -89,14 +85,12 @@ export function rAvgTimeSeries() {
           authorization,
         },
       }
-    )
-    .then((response) => {
-      console.log(response);
-      return response;
-    })
-    .catch((error) => {
+    );
+    return res.data.result[0].rAvg
+  }
+    catch (error) {
       console.log(error);
-    });
+    }
 }
 
 export function PriceChange() {
