@@ -42,7 +42,7 @@ export const Minmax = () => {
             <div className="card">
               <h3>{item.sym}</h3>
               <p>
-                Max:${item.Max} Min:${item.Min}
+                Max:£{item.Max.toFixed(2)} Min:£{item.Min.toFixed(2)}
               </p>
               {/* <p>{item.Min}</p> */}
             </div>
