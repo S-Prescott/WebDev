@@ -1,45 +1,32 @@
-import logo from './logo.svg';
 import './App.css';
 import * as React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import { getdata,getminmaxdata,hightrade,rAvgTimeSeries } from './getdata.service.js';
-// import { ApexChart } from './movingaverage.js';
-
+import { getminmaxdata,rAvgTimeSeries } from './getdata.service.js';
 
 function App() {
-  const [data, getData] = React.useState([])
-  React.useEffect(() => {
-    getminmaxdata(value)
-    .then((response) => {
-      console.log(response);
-      getData(response);
-    })
-  }, [])
-  var day = new Date();
+  let day = new Date();
   const today = day.getFullYear()+'.'+(day.getMonth()+1)+'.'+day.getDate();
   const yesterday = day.getFullYear()+'.'+(day.getMonth()+1)+'.'+(day.getDate()-1);
   const twodaysago = day.getFullYear()+'.'+(day.getMonth()+1)+'.'+(day.getDate()-2);
+  
+  const [date, setdate] = React.useState(today);
+  const [data, getData] = React.useState([]);
 
-  const [value, setValue] = React.useState(today);
-
-  const handleChange = (event) => {
-    setValue(event.target.value);
-    getminmaxdata(value)
+  React.useEffect(() => {
+    getminmaxdata(date)
     .then((response) => {
       console.log(response);
       getData(response);
     })
-  };
-  console.log(value);
+  }, [date])
+
+  console.log(date);
 
   rAvgTimeSeries()
   .then((response) => {
     console.log(response);
   })
-  // ApexChart()
-  //getdata();
-  //hightrade();
-  // rAvgTimeSeries();
+
   return (
     <div className="App">
       <header className="App-header">
@@ -58,7 +45,7 @@ function App() {
       </ul>
       </div>
       <div class="col">
-        <select class="form-select" value={value} onChange={handleChange}>
+        <select class="form-select" value={date} onChange={(event) => {setdate(event.target.value)}}>
           <option value={today}>{today}</option>
           <option value={yesterday}>{yesterday}</option>
           <option value={twodaysago}>{twodaysago}</option>
