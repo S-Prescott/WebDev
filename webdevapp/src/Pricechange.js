@@ -11,11 +11,11 @@ export const Lastvalue = () => {
   const [data, getData] = React.useState([]);
 
   React.useEffect(() => {
-    PriceChange("2022.08.17").then((response) => {
+    PriceChange(today).then((response) => {
       console.log(response);
       getData(response);
     });
-  }, []);
+  }, [today]);
 
   return (
     <main>
