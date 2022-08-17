@@ -5,6 +5,12 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { Minmax } from "./Minmax.js";
 import { ChartContainer } from "./movingaverage.js";
 import { rAvgTimeSeries } from "./getdata.service.js";
+import { toggleMinMax, 
+  toggletoMT, 
+  toggleVolatilityG, 
+  toggleMovingAvgG, 
+  toggleCurrentPrice, 
+  toggleValueCache } from "./navigation.service";
 
 function App() {
   rAvgTimeSeries().then((response) => {
@@ -18,56 +24,56 @@ function App() {
       </header>
       <body className="App-body">
         <div class="row" style={{}}>
-          <div class="col-sm-1 position-static border">
+          <div class="col position-static border">
             <nav class="navbar navbar-light bg-alert">
               <ul class="navbar-nav">
                 <li class="nav-item">
-                  <a class="nav-link active" href="">
+                  <button class="btn nav-link active" onClick={toggleMovingAvgG}>
                     Moving Average Graph
-                  </a>
+                  </button>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="">
-                    Volatility Graph
-                  </a>
+                  <button class="btn nav-link" onClick={toggleVolatilityG}>Volatility Graph</button>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" href="">
-                    Current Price
-                  </a>
+                  <button class="btn nav-link active" onClick={toggleCurrentPrice}>Current Price</button>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="">
-                    Last Value Table
-                  </a>
+                  <button class="btn nav-link" onClick={toggleValueCache}>Last Value Table</button>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link active" href="">
-                    Min/Max Price
-                  </a>
+                  <button class="btn nav-link active"onClick={toggleMinMax}>Min/Max Price</button>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="">
-                    Most Traded Sym
-                  </a>
+                  <a class="btn nav-link"onClick={toggletoMT}>Most Traded Sym</a>
                 </li>
               </ul>
             </nav>
           </div>
 
-          <div className="col-md-7 border">
-          <ChartContainer />
+          <div id="MovingAvgG" className="col-md-8 border">
+            <ChartContainer />
           </div>
-          <div class="col-md-4 border">
-          <Minmax />
+          <div id="VolatilityG"className="col-md-8 border" style={{ display: "none" }}>
+            Volatility Graph
           </div>
-          <div class="row border">
-            <h1>Bottom Row</h1>
+          <div id="CurrentPrice" class="col-3 border">current price table here</div>
+          <div id="ValueCache" class="col-3 border" style={{ display: "none" }}>
+            Last Value Cache info
+          </div>
+          <div id="min/max" class="row border">
+            <Minmax />
+          </div>
+          <div
+            id="mostTradedSym"
+            class="row border"
+            style={{ display: "none" }}
+          >
+            <h1>Most Traded Sym</h1>
           </div>
         </div>
       </body>
     </div>
-    
   );
 }
 

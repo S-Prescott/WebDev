@@ -24,6 +24,7 @@ export const Minmax = () => {
 
   return (
     <main>
+      <h1>MinMax</h1>
       <select
         className="form-select"
         value={date}
@@ -36,15 +37,19 @@ export const Minmax = () => {
         <option value={twodaysago}>{twodaysago}</option>
       </select>
       <div>
-        <h1>MinMax</h1>
-        <div className="item-container">
+        
+        <div className="item-container border">
           {data.map((item) => (
-            <div className="card">
-              <h3>{item.sym}</h3>
-              <p>
-                Max:£{item.Max.toFixed(2)} Min:£{item.Min.toFixed(2)}
-              </p>
-              {/* <p>{item.Min}</p> */}
+            <div className="card ">
+              <div className="card-title">
+              {item.sym}
+              </div>
+              <div class="card-footer border" >
+              Max:<br/>£ {item.Max.toFixed(2)}
+                </div>
+                <div class="card-footer border">
+                Min:<br/>£ {item.Min.toFixed(2)}
+                </div>
             </div>
           ))}
         </div>
