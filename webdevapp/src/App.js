@@ -4,6 +4,7 @@ import * as React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Minmax } from "./Minmax.js";
 import { ChartContainer } from "./movingaverage.js";
+import { Lastvalue } from "./Pricechange.js";
 import { rAvgTimeSeries } from "./getdata.service.js";
 import { toggleMinMax, 
   toggletoMT, 
@@ -13,12 +14,12 @@ import { toggleMinMax,
   toggleValueCache } from "./navigation.service";
 
 function App() {
-  rAvgTimeSeries().then((response) => {
-    for (let list in response) {
-      console.log(response[list])
-    }
-    console.log(response);
-  });
+  // rAvgTimeSeries().then((response) => {
+  //   for (let list in response) {
+  //     console.log(response[list])
+  //   }
+  //   console.log(response);
+  // });
 
   return (
     <div className="App">
@@ -63,6 +64,7 @@ function App() {
           <div id="CurrentPrice" class="col-3 border">current price table here</div>
           <div id="ValueCache" class="col-3 border" style={{ display: "none" }}>
             Last Value Cache info
+              <Lastvalue />
           </div>
           <div id="min/max" class="row border">
             <Minmax />
