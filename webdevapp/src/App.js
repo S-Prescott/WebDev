@@ -1,3 +1,4 @@
+import logo from './aq-torq.png'
 import './App.css';
 import * as React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
@@ -21,6 +22,7 @@ function App() {
   }, [date])
 
   console.log(date);
+  console.log(logo);
 
   rAvgTimeSeries()
   .then((response) => {
@@ -30,27 +32,30 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">
-      <h1>SlaQers</h1>
+        <h1>SlaQers</h1>
       </header>
       <body className="App-body">
-      <div class="row container text-center">
-      <div class="col-md-2">
-      <ul class="nav flex-column">
-          <li class="nav-item">Moving Average Graph</li>
-          <li>Volotility Graph</li>
-          <li>Current Price</li>
-          <li>Cast U-cosle Table</li>
-          <li>Min/Max</li>
-          <li>Summary Volume(high)</li>
-      </ul>
-      </div>
-      <div class="col">
-        <select class="form-select" value={date} onChange={(event) => {setdate(event.target.value)}}>
+      <div className="row container text-center">
+        <div className="col-md-2">
+          <ul className="nav flex-column">
+            {/* <li>
+              <image src={logo} className="App-logo" alt="logo" />
+            </li> */}
+            <li>Moving Average Graph</li>
+            <li>Volotility Graph</li>
+            <li>Current Price</li>
+            <li>Cast U-cosle Table</li>
+            <li>Min/Max</li>
+            <li>Summary Volume(high)</li>
+          </ul>
+        </div>
+      <div className="col">
+        <select className="form-select" value={date} onChange={(event) => {setdate(event.target.value)}}>
           <option value={today}>{today}</option>
           <option value={yesterday}>{yesterday}</option>
           <option value={twodaysago}>{twodaysago}</option>
         </select>
-        <tbody class="table table-bordered">
+        <tbody className="table table-bordered">
           <tr>
             <th>Sym</th>
               <th>Max Price</th>

@@ -37,6 +37,12 @@
   color: white;
 }
 
+.App-logo {
+  float: left;
+  max-width: 80px;
+  margin: 10px;
+}
+
 .App-link {
   color: #d5b234;
 }
