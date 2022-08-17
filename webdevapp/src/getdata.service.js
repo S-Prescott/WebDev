@@ -85,7 +85,7 @@ export async function rAvgTimeSeries() {
         },
       }
     );
-    return res.data.result.y.y;
+    return res.data.result.y.y[0];
   } catch (error) {
     console.log(error);
   }

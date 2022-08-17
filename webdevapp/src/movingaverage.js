@@ -1,4 +1,5 @@
 import * as React from "react";
+import '@progress/kendo-theme-material/dist/all.css';
 import {
   Chart,
   ChartCategoryAxis,
@@ -25,7 +26,7 @@ export class ChartContainer extends React.Component {
             <ChartCategoryAxisItem title={{ text:"Time",}}categories={categories} />
           </ChartCategoryAxis>
           <ChartSeries>
-            <ChartSeriesItem type="donut" data={[1,1040,194,121,140,181,200,1,1040,194,121,140,181,200,1,1040,194,121,140,181,200,1,1040,194,121,140,181,200,1,1040,194,121,140,181,200,1,1040,194,121,140,181,200,1,1040,194,121,140,181,200,1,1040,194,121,140,181,200,1,1040,194,121,140,181,200,1,1040,194,121,140,181,200]}/>
+            <ChartSeriesItem type="line" data={[rAvgTimeSeries()]}/>
           </ChartSeries>
         </Chart>
       </div>
