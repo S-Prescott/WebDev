@@ -71,12 +71,11 @@ export async function getminmaxdata(date) {
 }
 
 export async function rAvgTimeSeries() {
-  try{
-  let res = await axios
-    .post(
+  try {
+    let res = await axios.post(
       url,
       {
-        arguments: { st: "00:00", et: "23:59", sm: "GOOG" },
+        arguments: { dt: "2022.08.17" },
         function_name: ".qrestfunc.runningavg",
       },
       {
@@ -86,19 +85,18 @@ export async function rAvgTimeSeries() {
         },
       }
     );
-    return res.data.result[0].rAvg
+    return res.data.result.y.y;
+  } catch (error) {
+    console.log(error);
   }
-    catch (error) {
-      console.log(error);
-    }
 }
 
-export function PriceChange() {
-  axios
-    .post(
+export async function PriceChange(date) {
+  try {
+    let res = await axios.post(
       url,
       {
-        arguments: { sd: "2022.08.16"},
+        arguments: { sd: date },
         function_name: ".qrestfunc.pricechange",
       },
       {
@@ -107,12 +105,9 @@ export function PriceChange() {
           authorization,
         },
       }
-    )
-    .then((response) => {
-      console.log(response);
-      return response;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    );
+    return res.data.result;
+  } catch (error) {
+    console.log(error);
+  }
 }

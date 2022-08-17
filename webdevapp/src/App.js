@@ -3,41 +3,80 @@ import "./App.css";
 import * as React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Minmax } from "./Minmax.js";
-import { ChartContainer } from "./Movingaverage.js";
+import { ChartContainer } from "./movingaverage.js";
+import { Lastvalue } from "./Pricechange.js";
 import { rAvgTimeSeries } from "./getdata.service.js";
+import { toggleMinMax, 
+  toggletoMT, 
+  toggleVolatilityG, 
+  toggleMovingAvgG, 
+  toggleCurrentPrice, 
+  toggleValueCache } from "./navigation.service";
 
 function App() {
-  rAvgTimeSeries().then((response) => {
-    console.log(response);
-  });
+  // rAvgTimeSeries().then((response) => {
+  //   for (let list in response) {
+  //     console.log(response[list])
+  //   }
+  //   console.log(response);
+  // });
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1>SlaQers</h1>
+        <h1>Torq Dashboard</h1>
       </header>
       <body className="App-body">
-        <div className="row container text-center">
-          <div className="col-md-2">
-            <ul className="nav flex-column">
-              {/* <li>
-              <image src={logo} className="App-logo" alt="logo" />
-            </li> */}
-              <li>Moving Average Graph</li>
-              <li>Volotility Graph</li>
-              <li>Current Price</li>
-              <li>Cast U-cosle Table</li>
-              <li>Min/Max</li>
-              <li>Summary Volume(high)</li>
-            </ul>
+        <div class="row" style={{}}>
+          <div class="col position-static border">
+            <nav class="navbar navbar-light bg-alert">
+              <ul class="navbar-nav">
+                <li class="nav-item">
+                  <button class="btn nav-link active" onClick={toggleMovingAvgG}>
+                    Moving Average Graph
+                  </button>
+                </li>
+                <li class="nav-item">
+                  <button class="btn nav-link" onClick={toggleVolatilityG}>Volatility Graph</button>
+                </li>
+                <li class="nav-item">
+                  <button class="btn nav-link active" onClick={toggleCurrentPrice}>Current Price</button>
+                </li>
+                <li class="nav-item">
+                  <button class="btn nav-link" onClick={toggleValueCache}>Last Value Table</button>
+                </li>
+                <li class="nav-item">
+                  <button class="btn nav-link active"onClick={toggleMinMax}>Min/Max Price</button>
+                </li>
+                <li class="nav-item">
+                  <a class="btn nav-link"onClick={toggletoMT}>Most Traded Sym</a>
+                </li>
+              </ul>
+            </nav>
           </div>
-          <div className="col">
+
+          <div id="MovingAvgG" className="col-md-8 border">
+            <ChartContainer />
+          </div>
+          <div id="VolatilityG"className="col-md-8 border" style={{ display: "none" }}>
+            Volatility Graph
+          </div>
+          <div id="CurrentPrice" class="col-3 border">current price table here</div>
+          <div id="ValueCache" class="col-3 border" style={{ display: "none" }}>
+            Last Value Cache info
+              <Lastvalue />
+          </div>
+          <div id="min/max" class="row border">
             <Minmax />
           </div>
+          <div
+            id="mostTradedSym"
+            class="row border"
+            style={{ display: "none" }}
+          >
+            <h1>Most Traded Sym</h1>
+          </div>
         </div>
-        {/* This only displays the point on the graph not the lines. 
-        I'm not sure why but it is the closest to a working graph I've gotten. */}
-        <ChartContainer />
       </body>
     </div>
   );
