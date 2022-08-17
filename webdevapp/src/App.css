@@ -51,7 +51,7 @@
 .card {
   background-color: rgb(255, 255, 255) !important;
   text-align: center;
-  width: 7%;
+  width: 200px;
   border-radius: 10px;
   box-shadow: rgba(255, 191, 1, 0.2) 0px 0px 0px 0px;
 }

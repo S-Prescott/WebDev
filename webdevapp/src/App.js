@@ -14,13 +14,16 @@ import { toggleMinMax,
 
 function App() {
   rAvgTimeSeries().then((response) => {
+    for (let list in response) {
+      console.log(response[list])
+    }
     console.log(response);
   });
 
   return (
     <div className="App">
       <header className="App-header">
-        <h1>SlaQers</h1>
+        <h1>Torq Dashboard</h1>
       </header>
       <body className="App-body">
         <div class="row" style={{}}>

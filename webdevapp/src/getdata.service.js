@@ -76,7 +76,7 @@ export async function rAvgTimeSeries() {
     .post(
       url,
       {
-        arguments: { st: "00:00", et: "23:59", sm: "GOOG" },
+        arguments: { dt: "2022.08.17" },
         function_name: ".qrestfunc.runningavg",
       },
       {
@@ -86,7 +86,7 @@ export async function rAvgTimeSeries() {
         },
       }
     );
-    return res.data.result[0].rAvg
+    return res.data.result.y.y
   }
     catch (error) {
       console.log(error);
