@@ -25,8 +25,7 @@
 }
 
 .App-body {
-  padding-top: 5vh;
-  padding-left: 5vh;
+  padding: 5vh;
   background-color: #18a8cc;
   min-height: 100vh;
   /* display: flex; */
@@ -34,13 +33,28 @@
   /* align-items: center; */
   justify-content: center;
   font-size: calc(10px + 2vmin);
-  color: white;
+  color: black;
 }
 
 .App-logo {
   float: left;
   max-width: 80px;
   margin: 10px;
+}
+
+.item-container {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 2em;
+}
+.card {
+  text-align: center;
+  padding: 10px;
+  width: 300px;
+  border-radius: 5px;
+  padding: 1em;
+  box-shadow: rgba(99, 99, 99, 0.2) 0px 2px 8px 0px;
 }
 
 .App-link {

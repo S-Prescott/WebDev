@@ -21,9 +21,6 @@ function App() {
     })
   }, [date])
 
-  console.log(date);
-  console.log(logo);
-
   rAvgTimeSeries()
   .then((response) => {
     console.log(response);
@@ -55,7 +52,19 @@ function App() {
           <option value={yesterday}>{yesterday}</option>
           <option value={twodaysago}>{twodaysago}</option>
         </select>
-        <tbody className="table table-bordered">
+        <div>
+          <h1>MinMax</h1>
+            <div className='item-container'>
+              {data.map((item) => (
+              <div className='card'>
+                <h3>{item.sym}</h3>
+                <p>Max:${item.Max} Min:${item.Min}</p>
+                {/* <p>{item.Min}</p> */}
+              </div>
+              ))}
+            </div>
+        </div>
+        {/* <tbody className="table table-bordered">
           <tr>
             <th>Sym</th>
               <th>Max Price</th>
@@ -68,7 +77,7 @@ function App() {
             <td>${item.Min}</td>
           </tr>
           ))}
-        </tbody>
+        </tbody> */}
         </div>
         </div>
       </body>
