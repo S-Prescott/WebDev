@@ -1,5 +1,4 @@
 import axios from "axios";
-
 const url = "https://81.150.99.19:8032/executeFunction";
 const accept = "*/*";
 const authorization = "Basic dXNlcjpwYXNz";
@@ -85,7 +84,7 @@ export async function rAvgTimeSeries() {
         },
       }
     );
-    return res.data.result.y.y;
+    return res.data.result.y.y[1];
   } catch (error) {
     console.log(error);
   }

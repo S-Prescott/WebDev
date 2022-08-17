@@ -2,6 +2,7 @@ import logo from "./aq-torq.png";
 import "./App.css";
 import * as React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
+import '@progress/kendo-theme-material/dist/all.css';
 import { Minmax } from "./Minmax.js";
 import { ChartContainer } from "./movingaverage.js";
 import { Lastvalue } from "./Pricechange.js";
