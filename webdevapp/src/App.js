@@ -3,6 +3,7 @@ import "./App.css";
 import * as React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { Minmax } from "./Minmax.js";
+import { ChartContainer } from "./Movingaverage.js";
 import { rAvgTimeSeries } from "./getdata.service.js";
 
 function App() {
@@ -34,6 +35,9 @@ function App() {
             <Minmax />
           </div>
         </div>
+        {/* This only displays the point on the graph not the lines. 
+        I'm not sure why but it is the closest to a working graph I've gotten. */}
+        <ChartContainer />
       </body>
     </div>
   );
