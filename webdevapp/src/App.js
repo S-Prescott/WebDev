@@ -61,8 +61,8 @@ function App() {
           <div id="VolatilityG"className="col-md-8 border" style={{ display: "none" }}>
             Volatility Graph
           </div>
-          <div id="CurrentPrice" class="col-3 border">current price table here</div>
-          <div id="ValueCache" class="col-3 border" style={{ display: "none" }}>
+          <div id="CurrentPrice" class="col-5 border">current price table here</div>
+          <div id="ValueCache" class="col-5 border" style={{ display: "none" }}>
             Last Value Cache info
               <Lastvalue />
           </div>

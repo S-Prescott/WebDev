@@ -2,11 +2,13 @@ import "./App.css";
 import * as React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { PriceChange } from "./getdata.service.js";
+import MyImage from './greenUp.png';
+import MyImage2 from './redDown.png';
 
-export function arrow(yolo) {
-  if (yolo > 0 ) {
-    <td>"yay"</td>;
-  } else {<td>"nah"</td>}}
+export function arrow(x) {
+  if (x > 0 ) {
+    return (<td><img src={MyImage} alt="up" /> </td>); 
+  } else { return (<td><img src={MyImage2} alt="down" /> </td>)}}
 
 export const Lastvalue = () => {
   let day = new Date();
@@ -43,8 +45,9 @@ export const Lastvalue = () => {
                     <td>{item.sym}</td>
                     <td>$ {item.latestPrice.toFixed(2)}</td>
                     <td>$ {item.Change.toFixed(2)}</td>
-                    <td>arrow[{item.Change.toFixed(2)}] </td>
-                </tr>
+                    {arrow(item.Change.toFixed(2))}
+
+                </tr>                    
                 
                 ))}
             </tbody>
