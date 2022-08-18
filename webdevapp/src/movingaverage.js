@@ -12,6 +12,7 @@ import {
   ChartTooltip,
   ChartSeriesItemTooltip,
 } from "@progress/kendo-react-charts";
+import { Slider, SliderLabel } from "@progress/kendo-react-inputs";
 import "hammerjs";
 import { rAvgTimeSeries } from "./getdata.service.js";
 
@@ -45,6 +46,7 @@ export const ChartContainer = () => {
 
   const defaultTooltipRender = ({ point }) => `$${point.value.toFixed(2)}`;
 
+  
   return (
     <div>
       <Chart>
@@ -150,6 +152,12 @@ export const ChartContainer = () => {
           />
         </ChartSeries>
       </Chart>
+      <Slider width={{ width: 500 }} buttons={true} step={1} defaultValue={7} min={1} max={categories.length-1}>
+      {categories.map((item) => (
+      <SliderLabel position={categories.indexOf(item)+1}>{item}</SliderLabel>
+      ))}
+    </Slider>
+    
     </div>
   );
 };
