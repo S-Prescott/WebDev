@@ -9,6 +9,8 @@ import {
   ChartValueAxis,
   ChartValueAxisItem,
   ChartLegend,
+  ChartTooltip,
+  ChartSeriesItemTooltip,
 } from "@progress/kendo-react-charts";
 import "hammerjs";
 import { rAvgTimeSeries } from "./getdata.service.js";
@@ -41,10 +43,12 @@ export const ChartContainer = () => {
     });
   }, []);
 
-  // console.log(categories)
+  const defaultTooltipRender = ({ point }) => `$${point.value.toFixed(2)}`;
+
   return (
     <div>
       <Chart>
+        <ChartTooltip render={defaultTooltipRender} />
         <ChartLegend />
         <ChartTitle text="Moving Average" />
         <ChartValueAxis>
