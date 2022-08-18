@@ -69,12 +69,12 @@ export async function getminmaxdata(date) {
   }
 }
 
-export async function rAvgTimeSeries() {
+export async function rAvgTimeSeries(today) {
   try {
     let res = await axios.post(
       url,
       {
-        arguments: { dt: "2022.08.17" },
+        arguments: { dt: today },
         function_name: ".qrestfunc.runningavg",
       },
       {
@@ -84,7 +84,6 @@ export async function rAvgTimeSeries() {
         },
       }
     );
-    console.log(res)
     return res.data.result;
   } catch (error) {
     console.log(error);
