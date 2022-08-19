@@ -6,6 +6,7 @@ import '@progress/kendo-theme-material/dist/all.css';
 import { Minmax } from "./Minmax.js";
 import { ChartContainer } from "./movingaverage.js";
 import { Lastvalue } from "./Pricechange.js";
+import { TestChart } from "./Newchart";
 import { rAvgTimeSeries } from "./getdata.service.js";
 import { toggleMinMax, 
   toggletoMT, 
@@ -57,7 +58,8 @@ function App() {
           </div>
 
           <div id="MovingAvgG" className="col-md-8 border">
-            <ChartContainer />
+            {/* <ChartContainer /> */}
+            <TestChart />
           </div>
           <div id="VolatilityG"className="col-md-8 border" style={{ display: "none" }}>
             Volatility Graph

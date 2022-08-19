@@ -12,11 +12,35 @@ import {
   ChartTooltip,
   ChartSeriesItemTooltip,
 } from "@progress/kendo-react-charts";
-import { Slider, SliderLabel } from "@progress/kendo-react-inputs";
+// import { Slider, SliderLabel } from "@progress/kendo-react-inputs";
+// import ReactApexChart from 'apexcharts'
+import {
+  LineChart,
+  Bar,
+  Tooltip,
+  Legend,
+  ComposedChart,
+  Brush,
+  XAxis,
+  YAxis,
+  CartesianGrid,
+  Line,
+} from "recharts";
 import "hammerjs";
 import { rAvgTimeSeries } from "./getdata.service.js";
 
-// const categories = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+const categories = [
+  "APPL",
+  "AIG",
+  "AMD",
+  "DELL",
+  "DOW",
+  "GOOG",
+  "HPQ",
+  "IBM",
+  "INTC",
+  "MSFT",
+];
 export const ChartContainer = () => {
   let day = new Date();
   const today =
@@ -46,7 +70,28 @@ export const ChartContainer = () => {
 
   const defaultTooltipRender = ({ point }) => `$${point.value.toFixed(2)}`;
 
-  
+
+  var arr = [];
+  var i = 0;
+  for (var time in categories) {
+    arr.push({
+      time: categories[time],
+      APPL: data[0][i],
+      AIG: data[1][i],
+      AMD: data[2][i],
+      DELL: data[3][i],
+      DOW: data[4][i],
+      GOOG: data[5][i],
+      HPQ: data[6][i],
+      IBM: data[7][i],
+      INTC: data[8][i],
+      MSFT: data[9][i],
+    });
+    i++
+    console.log(arr)
+  }
+
+
   return (
     <div>
       <Chart>
@@ -152,12 +197,25 @@ export const ChartContainer = () => {
           />
         </ChartSeries>
       </Chart>
-      <Slider width={{ width: 500 }} buttons={true} step={1} defaultValue={7} min={1} max={categories.length-1}>
-      {categories.map((item) => (
-      <SliderLabel position={categories.indexOf(item)+1}>{item}</SliderLabel>
-      ))}
-    </Slider>
-    
+      <ComposedChart width={800} height={700} data={arr}>
+        <XAxis dataKey="time" />
+        <YAxis />
+        <Tooltip />
+        <Legend />
+        <CartesianGrid stroke="#f5f5f5" />
+        <Line dataKey="APPL" />
+        <Line dataKey="AIG" stroke="#8884d8"/>
+        <Line dataKey="AMD" stroke="#8884d8"/>
+        <Line dataKey="DELL" stroke="#8884d8"/>
+        <Line dataKey="DOW" stroke="#8884d8"/>
+        <Line dataKey="GOOG" stroke="#8884d8"/>
+        <Line dataKey="HPQ" stroke="#8884d8"/>
+        <Line dataKey="IBM" stroke="#8884d8"/>
+        <Line dataKey="INTC" stroke="#8884d8"/>
+        <Line dataKey="MSFT" stroke="#8884d8"/>
+        <Brush dataKey="time" startIndex={0} endIndex={1} />
+      </ComposedChart>
+      <div id="chartdiv"></div>
     </div>
   );
 };
