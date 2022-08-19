@@ -8,7 +8,7 @@ import MyImage2 from './redDown.png';
 export function arrow(x) {
   if (x > 0 ) {
     return (<td><img src={MyImage} alt="up" /> </td>); 
-  } else { return (<td><img src={MyImage2} alt="down" /> </td>)}}
+  } else { return (<td ><img src={MyImage2} alt="down" /> </td>)}}
 
 export const Lastvalue = () => {
   let day = new Date();
@@ -36,15 +36,15 @@ export const Lastvalue = () => {
             <tbody>
                 <tr>
                     <th>Sym</th>
-                    <th>Latest Price</th>
-                    <th>Price Change</th>
-                    <th>Arrow Display</th>
+                    <th style={{textAlign:"right"}} > Latest Price</th>
+                    <th style={{textAlign:"right"}} > Price Change</th>
+                    <th style={{textAlign:"right"}} > Arrow Display</th>
                 </tr>
                 {data.map((item) => (
                 <tr>
                     <td>{item.sym}</td>
-                    <td>$ {item.latestPrice.toFixed(2)}</td>
-                    <td>$ {item.Change.toFixed(2)}</td>
+                    <td style={{textAlign:"right"}} >$ {item.latestPrice.toFixed(2)}</td>
+                    <td style={{textAlign:"right"}} >$ {item.Change.toFixed(2)}</td>
                     {arrow(item.Change.toFixed(2))}
 
                 </tr>                    
