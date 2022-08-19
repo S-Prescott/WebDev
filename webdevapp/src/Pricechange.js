@@ -35,16 +35,16 @@ export const Lastvalue = () => {
           
             <tbody>
                 <tr>
-                    <th>Sym</th>
-                    <th style={{textAlign:"right"}} > Latest Price</th>
-                    <th style={{textAlign:"right"}} > Price Change</th>
-                    <th style={{textAlign:"right"}} > Arrow Display</th>
+                    <th style={{textAlign:"right", fontSize:28}} > Sym</th>
+                    <th style={{textAlign:"right", fontSize:28}} > Latest Price</th>
+                    <th style={{textAlign:"right", fontSize:28}} > Price Change</th>
+                    <th style={{textAlign:"right", fontSize:28}} > Arrow Display</th>
                 </tr>
                 {data.map((item) => (
                 <tr>
-                    <td>{item.sym}</td>
-                    <td style={{textAlign:"right"}} >$ {item.latestPrice.toFixed(2)}</td>
-                    <td style={{textAlign:"right"}} >$ {item.Change.toFixed(2)}</td>
+                    <td style={{textAlign:"right", fontSize:25}}>{item.sym}</td>
+                    <td style={{textAlign:"right", fontSize:25}} >$ {item.latestPrice.toFixed(2)}</td>
+                    <td style={{textAlign:"right", fontSize:25}} >$ {item.Change.toFixed(2)}</td>
                     {arrow(item.Change.toFixed(2))}
 
                 </tr>                    
