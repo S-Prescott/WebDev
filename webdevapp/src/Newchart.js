@@ -152,12 +152,9 @@ export const MovingAverage = () => {
       categories: categories,
     },
     yaxis: {
-      tickAmount: 1,
+      tickAmount: 2,
       labels: {
         show: false,
-      },
-      axisTickets: {
-        show: true,
       },
     },
   };
