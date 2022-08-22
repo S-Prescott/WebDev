@@ -1,5 +1,4 @@
 import axios from "axios";
-
 const url = "https://81.150.99.19:8032/executeFunction";
 const accept = "*/*";
 const authorization = "Basic dXNlcjpwYXNz";
@@ -70,12 +69,12 @@ export async function getminmaxdata(date) {
   }
 }
 
-export async function rAvgTimeSeries() {
+export async function rAvgTimeSeries(today) {
   try {
     let res = await axios.post(
       url,
       {
-        arguments: { dt: "2022.08.17" },
+        arguments: { dt: today },
         function_name: ".qrestfunc.runningavg",
       },
       {
@@ -86,6 +85,7 @@ export async function rAvgTimeSeries() {
       }
     );
     return res.data.result.y.y[0];
+
   } catch (error) {
     console.log(error);
   }

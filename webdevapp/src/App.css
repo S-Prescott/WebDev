@@ -7,26 +7,46 @@
   pointer-events: none;
 }
 
+.MovingAvgG{
+  background-color: #ddd !important;
+
+}
+
+.navbar {
+  background-color: #cbccd4 !important;
+  position: block;
+  min-height: 90px;
+  width: 100%;
+}
+.navbar-nav{
+  margin-inline-start: 4rem;
+  align-content: center;
+}
+.title{
+  color: #14934b;
+  float: right !important;
+  position: absolute;
+  right: 5%;
+}
+
 @media (prefers-reduced-motion: no-preference) {
   .App-logo {
     animation: App-logo-spin infinite 10s linear;
   }
 }
-
-.App-header {
+/* .App-header {
   background-color: #07080a;
-  min-height: 5vh;
-  display: flex;
+  min-height: 6vh;
   flex-direction: column;
   align-items: center;
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: white;
-}
+} */
 
 .App-body {
   padding: 5vh;
-  background-color: #18a8cc;
+  background-color: #ffffff;
   min-height: 100vh;
   /* display: flex; */
   flex-direction: column;
@@ -36,6 +56,14 @@
   color: black;
 }
 
+div#ValueCashe.col-3.border{
+  background-color: #14934b !important;
+  float: right;
+  right: 5%;
+  position: absolute !important;
+
+}
+
 .App-logo {
   float: left;
   max-width: 80px;
@@ -43,6 +71,7 @@
 }
 
 .item-container {
+  background-color: rgb(255, 255, 255);
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -76,4 +105,55 @@
   to {
     transform: rotate(360deg);
   }
+
+
+
+}
+.dropbtn {
+  background-color: #cbccd4;
+  color: #787878;
+  padding: 16px;
+  font-size: 24px;
+  border: none;
+  margin-left: 10px;
+}
+
+/* The container <div> - needed to position the dropdown content */
+.dropdown {
+  position: relative;
+  display: inline-block;
+}
+
+/* Dropdown Content (Hidden by Default) */
+.dropdown-content {
+  display: none;
+  position: absolute;
+  background-color: #f1f1f1;
+  min-width: 160px;
+  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+  z-index: 1;
+}
+
+/* Links inside the dropdown */
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+/* Change color of dropdown links on hover */
+.dropdown-content a:hover {background-color: #ddd;}
+
+/* Show the dropdown menu on hover */
+.dropdown:hover .dropdown-content {display: block;}
+
+/* Change the background color of the dropdown button when the dropdown content is shown */
+.dropdown:hover .dropbtn {color: #14934b;}
+
+footer {
+  background-color:  #14934b !important;
+  position: block;
+  min-height: 90px;
+  width: 100%;
 }

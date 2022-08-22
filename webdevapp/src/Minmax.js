@@ -1,4 +1,3 @@
-import "./App.css";
 import * as React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { getminmaxdata } from "./getdata.service.js";
@@ -23,7 +22,7 @@ export const Minmax = () => {
   }, [date]);
 
   return (
-    <main>
+    <main style={{width:"50%"}}>
       <h1>MinMax</h1>
       <select
         className="form-select"
