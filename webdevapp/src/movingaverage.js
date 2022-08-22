@@ -1,4 +1,5 @@
 import * as React from "react";
+import '@progress/kendo-theme-material/dist/all.css';
 import {
   Chart,
   ChartCategoryAxis,
@@ -28,6 +29,7 @@ import {
 } from "recharts";
 import "hammerjs";
 import { rAvgTimeSeries } from "./getdata.service.js";
+
 
 const categories = [
   "APPL",
