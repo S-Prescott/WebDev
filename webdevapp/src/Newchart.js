@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import * as React from "react";
 import Chart from "react-apexcharts";
 import { rAvgTimeSeries } from "./getdata.service.js";
 
@@ -13,28 +13,26 @@ export const TestChart = () => {
       console.log(response);
       getData(response.y.y);
     });
-  }, []);
+  }, [today]);
 
   const [categories, getCategories] = React.useState([]);
   React.useEffect(() => {
     rAvgTimeSeries(today).then((response) => {
-      var arr = [];
+      let arr = [];
       for (let i in response.x) {
-        var hours = Math.floor(response.x[i].i / 60);
-        // var mins = Math.floor(response.x[i].i-(hours*60))
+        let hours = Math.floor(response.x[i].i / 60);
         arr.push(hours + ":00");
       }
       console.log(arr);
       getCategories(arr);
     });
-  }, []);
+  }, [today]);
 
   const Series = [
     {
       name: "APPL",
       data: data[0],
     },
-    // additional data in this array..
     {
       name: "AIG",
       data: data[1],
@@ -43,7 +41,6 @@ export const TestChart = () => {
       name: "AMD",
       data: data[2],
     },
-    // additional data in this array..
     {
       name: "DELL",
       data: data[3],
@@ -52,7 +49,6 @@ export const TestChart = () => {
       name: "DOW",
       data: data[4],
     },
-    // additional data in this array..
     {
       name: "GOOG",
       data: data[5],
@@ -61,7 +57,6 @@ export const TestChart = () => {
       name: "HPQ",
       data: data[6],
     },
-    // additional data in this array..
     {
       name: "IBM",
       data: data[7],
@@ -70,7 +65,6 @@ export const TestChart = () => {
       name: "INTC",
       data: data[8],
     },
-    // additional data in this array..
     {
       name: "MSFT",
       data: data[9],
@@ -83,11 +77,12 @@ export const TestChart = () => {
       height: 230,
       toolbar: {
         autoSelected: "pan",
-        show: true,
+        show: false,
       },
     },
     stroke: {
       width: 3,
+      curve: "smooth",
     },
     dataLabels: {
       enabled: false,
@@ -99,18 +94,26 @@ export const TestChart = () => {
       size: 0,
     },
     xaxis: {
-      type: categories,
+      type: "category",
+      categories: categories,
+      title: {
+        text: "Time",
+      },
     },
-    stroke: {
-      curve: "smooth",
+    yaxis: {
+      title: {
+        text: "Price",
+      },
+      labels: {
+        formatter: function(val) {
+          return "$"+val.toFixed(2);
+        }
+      }
+    },
+    legend: {
+      position: "right",
     },
   };
-  const subSeries = [
-    {
-      name: "APPL",
-      data: data[0],
-    },
-  ];
   const subOptions = {
     chart: {
       id: "chart1",
@@ -129,7 +132,7 @@ export const TestChart = () => {
       },
     },
     legend: {
-        show: false,
+      show: false,
     },
     // colors: ["#008FFB"],
     fill: {
@@ -143,10 +146,17 @@ export const TestChart = () => {
       enabled: false,
     },
     xaxis: {
+      type: "category",
       categories: categories,
     },
     yaxis: {
       tickAmount: 1,
+      labels: {
+        show: false,
+      },
+      axisTickets: {
+        show: true,
+      },
     },
   };
   return (
@@ -156,14 +166,14 @@ export const TestChart = () => {
         series={Series}
         options={Options}
         width="100%"
-        height="60%"
+        height="120%"
       />
       <Chart
         type="area"
         series={Series}
         options={subOptions}
         width="100%"
-        height="60%"
+        height="30%"
       />
     </div>
   );
