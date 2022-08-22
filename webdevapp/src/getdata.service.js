@@ -84,7 +84,7 @@ export async function rAvgTimeSeries(today) {
         },
       }
     );
-    return res.data.result.y.y[0];
+    return res.data.result;
 
   } catch (error) {
     console.log(error);

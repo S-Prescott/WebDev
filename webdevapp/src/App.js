@@ -74,7 +74,7 @@ function App() {
 
       <body className="App-body">
         
-          <div id="MovingAvgG" className="col-md-8 border" style={{position:"absolute", width:"50%", left:"2%"}}>
+          <div id="MovingAvgG" className="col-md-8 border" style={{position:"absolute", width:"60%", left:"2%"}}>
             {/* <ChartContainer /> */}
             <MovingAverage />
           </div>
