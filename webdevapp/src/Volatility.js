@@ -76,7 +76,7 @@ export const Volatility = () => {
   ];
   const Options = {
     chart: {
-      id: "chart",
+      id: "volatility",
       type: "line",
       height: 230,
       toolbar: {
@@ -106,25 +106,28 @@ export const Volatility = () => {
     },
     yaxis: {
       title: {
-        text: "Price",
+        text: "Volatility",
       },
       labels: {
         formatter: function (val) {
-          return "$" + val.toFixed(2);
+          return val.toFixed(2);
         },
       },
     },
     legend: {
       position: "right",
     },
+    tooltip: {
+      shared: false,
+    },
   };
   const subOptions = {
     chart: {
-      id: "chart1",
+      id: "volatilityBrush",
       height: 130,
       type: "area",
       brush: {
-        target: "chart",
+        target: "volatility",
         enabled: true,
       },
       selection: {
@@ -138,7 +141,6 @@ export const Volatility = () => {
     legend: {
       show: false,
     },
-    // colors: ["#008FFB"],
     fill: {
       type: "gradient",
       gradient: {

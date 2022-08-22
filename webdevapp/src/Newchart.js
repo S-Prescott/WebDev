@@ -105,13 +105,16 @@ export const MovingAverage = () => {
         text: "Price",
       },
       labels: {
-        formatter: function(val) {
-          return "$"+val.toFixed(2);
-        }
-      }
+        formatter: function (val) {
+          return "$" + val.toFixed(2);
+        },
+      },
     },
     legend: {
       position: "right",
+    },
+    tooltip: {
+      shared: false,
     },
   };
   const subOptions = {
@@ -134,7 +137,6 @@ export const MovingAverage = () => {
     legend: {
       show: false,
     },
-    // colors: ["#008FFB"],
     fill: {
       type: "gradient",
       gradient: {
