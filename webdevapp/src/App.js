@@ -8,6 +8,7 @@ import { Minmax } from "./Minmax.js";
 import { ChartContainer } from "./movingaverage.js";
 import { Lastvalue } from "./Pricechange.js";
 import { MovingAverage } from "./Newchart";
+import { Volatility } from "./Volatility.js";
 import {
   toggleMinMax,
   toggletoMT,
@@ -84,6 +85,7 @@ function App() {
             style={{ display: "none" }}
           >
             Volatility Graph
+            <Volatility />
           </div>
           <div id="CurrentPrice" class="col-3 border">
             current price table here
