@@ -22,7 +22,7 @@ export const Minmax = () => {
   }, [date]);
 
   return (
-    <main>
+    <main style={{width:"50%"}}>
       <h1>MinMax</h1>
       <select
         className="form-select"
@@ -44,10 +44,10 @@ export const Minmax = () => {
               {item.sym}
               </div>
               <div class="card-footer border" >
-              Max:<br/>£ {item.Max.toFixed(2)}
+              Max:<br/>$ {item.Max.toFixed(2)}
                 </div>
                 <div class="card-footer border">
-                Min:<br/>£ {item.Min.toFixed(2)}
+                Min:<br/>$ {item.Min.toFixed(2)}
                 </div>
             </div>
           ))}

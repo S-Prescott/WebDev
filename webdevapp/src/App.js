@@ -30,8 +30,8 @@ function App() {
               aria-current="page"
             >
               <img
-                width="100"
-                height="100"
+                width="300"
+                height="80"
                 src="https://aquaq.co.uk/wp-content/uploads/2022/08/aquaq-logo-2022-v2.svg"
                 class="custom-logo"
                 alt="AquaQ"
@@ -73,8 +73,8 @@ function App() {
       </nav>
 
       <body className="App-body">
-        <div class="row">
-          <div id="MovingAvgG" className="col-md-8 border">
+        
+          <div id="MovingAvgG" className="col-md-8 border" style={{position:"absolute", width:"50%", left:"2%"}}>
             {/* <ChartContainer /> */}
             <MovingAverage />
           </div>
@@ -88,11 +88,11 @@ function App() {
           <div id="CurrentPrice" class="col-3 border">
             current price table here
           </div>
-          <div id="ValueCache" class="col-3 border" style={{ display: "none" }}>
+          <div id="ValueCache" class="col-3 border" style={{ backgroundColor: "#14934b", position:"absolute", right:"5%" }}>
             Last Value Cache info
             <Lastvalue />
           </div>
-          <div id="min/max" class="row border">
+          <div id="min/max" class="row border" style={{backgroundColor: "#14934b",position:"relative", width: "75%", top:"500px", bottom:"5%"}}>
             <Minmax />
           </div>
           <div
@@ -102,7 +102,6 @@ function App() {
           >
             <h1>Most Traded Sym</h1>
           </div>
-        </div>
         <script
           src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
           integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -119,6 +118,7 @@ function App() {
           crossorigin="anonymous"
         ></script>
       </body>
+      <footer></footer>
     </div>
   );
 }

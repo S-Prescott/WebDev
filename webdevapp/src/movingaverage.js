@@ -93,7 +93,7 @@ export const ChartContainer = () => {
 
 
   return (
-    <div>
+    <div class='moving'>
       <Chart>
         <ChartTooltip render={defaultTooltipRender} />
         <ChartLegend />
