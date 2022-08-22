@@ -1,4 +1,3 @@
-import "./App.css";
 import * as React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { getminmaxdata } from "./getdata.service.js";

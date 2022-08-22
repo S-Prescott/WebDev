@@ -7,8 +7,7 @@ import "@progress/kendo-theme-material/dist/all.css";
 import { Minmax } from "./Minmax.js";
 import { ChartContainer } from "./movingaverage.js";
 import { Lastvalue } from "./Pricechange.js";
-import { TestChart } from "./Newchart";
-import { rAvgTimeSeries } from "./getdata.service.js";
+import { MovingAverage } from "./Newchart";
 import {
   toggleMinMax,
   toggletoMT,
@@ -19,13 +18,6 @@ import {
 } from "./navigation.service";
 
 function App() {
-  // rAvgTimeSeries().then((response) => {
-  //   for (let list in response) {
-  //     console.log(response[list])
-  //   }
-  //   console.log(response);
-  // });
-
   return (
     <div className="App">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -84,7 +76,7 @@ function App() {
         <div class="row">
           <div id="MovingAvgG" className="col-md-8 border">
             {/* <ChartContainer /> */}
-            <TestChart />
+            <MovingAverage />
           </div>
           <div
             id="VolatilityG"

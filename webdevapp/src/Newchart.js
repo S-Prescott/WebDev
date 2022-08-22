@@ -2,7 +2,7 @@ import * as React from "react";
 import Chart from "react-apexcharts";
 import { rAvgTimeSeries } from "./getdata.service.js";
 
-export const TestChart = () => {
+export const MovingAverage = () => {
   let day = new Date();
   const today =
     day.getFullYear() + "." + (day.getMonth() + 1) + "." + day.getDate();
