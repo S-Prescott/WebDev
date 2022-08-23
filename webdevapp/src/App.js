@@ -89,7 +89,7 @@ function App() {
           <div className="high">
             Most Traded Instrument 
           </div>
-          <div id="ValueCache" class="col-3 border" style={{ backgroundColor: "#14934b", position:"absolute", top:"15%", right:"2%", width:"500px", height:"750px"}}>
+          <div id="ValueCache" class="col-3 border" style={{backgroundColor: "#14934b", position:"absolute", top:"15%", right:"2%", width:"500px", height:"750px"}}>
             Last Value Cache info
             <Lastvalue />
           </div>

@@ -7,8 +7,8 @@ import MyImage2 from './redDown.png';
 
 export function arrow(x) {
   if (x > 0 ) {
-    return (<td><img src={MyImage} alt="up" /> </td>); 
-  } else { return (<td ><img src={MyImage2} alt="down" /> </td>)}}
+    return (<td><img src={MyImage} alt="up" width="20" height="30"/> </td>); 
+  } else { return (<td ><img src={MyImage2} alt="down" width="20" height="30"/> </td>)}}
 
 export const Lastvalue = () => {
   let day = new Date();
@@ -29,14 +29,14 @@ export const Lastvalue = () => {
     <main>
       <div>
         <center>
-        <div id="pchange" className="item-container border" style={{position:"absolute",left:"5%",height:"90%", width:"90%"}}>
+        <div id="pchange" className="item-container border" style={{position:"absolute",left:"1%",height:"93%", width:"98%"}}>
           
             <tbody>
                 <tr>
                     <th style={{textAlign:"center", fontSize:28}} > Sym</th>
-                    <th style={{textAlign:"center", fontSize:28}} > Latest Price</th>
-                    <th style={{textAlign:"center", fontSize:28}} > Price Change</th>
-                    <th style={{textAlign:"center", fontSize:28}} > Arrow Display</th>
+                    <th style={{textAlign:"center", fontSize:28}} > Price</th>
+                    <th style={{textAlign:"center", fontSize:28}} > Change</th>
+                    <th style={{textAlign:"center", fontSize:28}} > Indicator</th>
                 </tr>
                 {data.map((item) => (
                 <tr>
