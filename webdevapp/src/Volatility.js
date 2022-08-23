@@ -1,15 +1,15 @@
 import * as React from "react";
 import Chart from "react-apexcharts";
-import { rAvgTimeSeries } from "./getdata.service.js";
+import { volatility } from "./getdata.service.js";
 
-export const MovingAverage = () => {
+export const Volatility = () => {
   let day = new Date();
   const today =
     day.getFullYear() + "." + (day.getMonth() + 1) + "." + day.getDate();
   const [data, getData] = React.useState([]);
 
   React.useEffect(() => {
-    rAvgTimeSeries(today).then((response) => {
+    volatility(today).then((response) => {
       console.log(response);
       getData(response.y.y);
     });
@@ -17,11 +17,15 @@ export const MovingAverage = () => {
 
   const [categories, getCategories] = React.useState([]);
   React.useEffect(() => {
-    rAvgTimeSeries(today).then((response) => {
+    volatility(today).then((response) => {
       let arr = [];
       for (let i in response.x) {
         let hours = Math.floor(response.x[i].i / 60);
-        arr.push(hours + ":00");
+        let mins = Math.floor(response.x[i].i - hours * 60);
+        if (mins === 0) {
+          mins = "00";
+        }
+        arr.push(hours + ":" + mins);
       }
       console.log(arr);
       getCategories(arr);
@@ -72,7 +76,7 @@ export const MovingAverage = () => {
   ];
   const Options = {
     chart: {
-      id: "chart",
+      id: "volatility",
       type: "line",
       height: 230,
       toolbar: {
@@ -102,11 +106,11 @@ export const MovingAverage = () => {
     },
     yaxis: {
       title: {
-        text: "Price",
+        text: "Volatility",
       },
       labels: {
         formatter: function (val) {
-          return "$" + val.toFixed(2);
+          return val.toFixed(2);
         },
       },
     },
@@ -119,11 +123,11 @@ export const MovingAverage = () => {
   };
   const subOptions = {
     chart: {
-      id: "chart1",
+      id: "volatilityBrush",
       height: 130,
       type: "area",
       brush: {
-        target: "chart",
+        target: "volatility",
         enabled: true,
       },
       selection: {

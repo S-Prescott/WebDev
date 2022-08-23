@@ -111,3 +111,24 @@ export async function PriceChange(date) {
     console.log(error);
   }
 }
+
+export async function volatility(today) {
+  try {
+    let res = await axios.post(
+      url,
+      {
+        arguments: { dt: today },
+        function_name: ".qrestfunc.volatilitybyday",
+      },
+      {
+        headers: {
+          accept,
+          authorization,
+        },
+      }
+    );
+    return res.data.result;
+  } catch (error) {
+    console.log(error);
+  }
+}
