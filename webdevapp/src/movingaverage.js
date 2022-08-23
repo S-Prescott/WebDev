@@ -1,4 +1,5 @@
 import * as React from "react";
+import '@progress/kendo-theme-material/dist/all.css';
 import {
   Chart,
   ChartCategoryAxis,
@@ -28,6 +29,7 @@ import {
 } from "recharts";
 import "hammerjs";
 import { rAvgTimeSeries } from "./getdata.service.js";
+
 
 const categories = [
   "APPL",
@@ -93,7 +95,7 @@ export const ChartContainer = () => {
 
 
   return (
-    <div>
+    <div class='moving'>
       <Chart>
         <ChartTooltip render={defaultTooltipRender} />
         <ChartLegend />

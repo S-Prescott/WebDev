@@ -6,6 +6,26 @@
   height: 40vmin;
   pointer-events: none;
 }
+
+/* div {
+  border: 1px solid black;
+} */
+
+.MovingAvgG{
+  background-color: #ddd !important;
+
+}
+
+.card{
+  width: 3.5cm !important;
+
+}
+
+.card-footer{
+  font-size: 15px !important;
+  
+}
+
 .navbar {
   background-color: #cbccd4 !important;
   position: block;
@@ -19,6 +39,8 @@
 .title{
   color: #14934b;
   float: right !important;
+  position: absolute;
+  right: 5%;
 }
 
 @media (prefers-reduced-motion: no-preference) {
@@ -38,14 +60,29 @@
 
 .App-body {
   padding: 5vh;
-  background-color: #18a8cc;
-  min-height: 100vh;
+  background-color: #ffffff;
+  min-height: 150vh;
   /* display: flex; */
   flex-direction: column;
   /* align-items: center; */
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: black;
+}
+
+div#ValueCashe.col-3.border{
+  background-color: #14934b !important;
+  float: right;
+  right: 5%;
+  position: absolute !important;
+
+}
+
+#min-max{
+  position: absolute !important;
+  bottom: 2% !important;
+  height: 20% !important;
+
 }
 
 .App-logo {
@@ -55,6 +92,7 @@
 }
 
 .item-container {
+  background-color: rgb(255, 255, 255);
   display: flex;
   justify-content: center;
   flex-wrap: wrap;
@@ -133,3 +171,18 @@
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {color: #14934b;}
+
+.high{
+  position: absolute;
+  right: 2% !important;
+  background-color: #14934b;
+  height: 40% !important;
+  top: 120% !important;
+  width: 35%;
+}
+
+footer {
+  background-color:  #14934b !important;
+  min-height: 100px;
+  width: 100%;
+}
