@@ -4,11 +4,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { PriceChange } from "./getdata.service.js";
 import MyImage from './greenUp.png';
 import MyImage2 from './redDown.png';
+import MyImage3 from './dash.jpg';
 
 export function arrow(x) {
   if (x > 0 ) {
     return (<td><img src={MyImage} alt="up" width="20" height="30"/> </td>); 
-  } else { return (<td ><img src={MyImage2} alt="down" width="20" height="30"/> </td>)}}
+  } else if (x < 0) { return (<td ><img src={MyImage2} alt="down" width="20" height="30"/> </td>)
+  } else { return (<td ><img src={MyImage3} alt="NaN" width="40" height="10"/> </td>)}
+}
 
 export const Lastvalue = () => {
   let day = new Date();
