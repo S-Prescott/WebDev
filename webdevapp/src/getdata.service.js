@@ -16,7 +16,6 @@ export function getdata() {
       }
     )
     .then((response) => {
-      console.log(response);
       return response;
     })
     .catch((error) => {
@@ -40,7 +39,6 @@ export function hightrade() {
       }
     )
     .then((response) => {
-      console.log(response);
       return response;
     })
     .catch((error) => {
@@ -119,6 +117,70 @@ export async function volatility(today) {
       {
         arguments: { dt: today },
         function_name: ".qrestfunc.volatilitybyday",
+      },
+      {
+        headers: {
+          accept,
+          authorization,
+        },
+      }
+    );
+    return res.data.result;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+
+export async function currentPriceToday() {
+  try {
+    let res = await axios.post(
+      url,
+      {
+        arguments: {},
+        function_name: "currentprice0",
+      },
+      {
+        headers: {
+          accept,
+          authorization,
+        },
+      }
+    );
+    return res.data.result;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function currentPriceYesterday() {
+  try {
+    let res = await axios.post(
+      url,
+      {
+        arguments: {},
+        function_name: "currentprice1",
+      },
+      {
+        headers: {
+          accept,
+          authorization,
+        },
+      }
+    );
+    return res.data.result;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function currentPriceTwoDaysAgo() {
+  try {
+    let res = await axios.post(
+      url,
+      {
+        arguments: {},
+        function_name: "currentprice2",
       },
       {
         headers: {
