@@ -83,7 +83,6 @@ export async function rAvgTimeSeries(today) {
       }
     );
     return res.data.result;
-
   } catch (error) {
     console.log(error);
   }
@@ -130,7 +129,6 @@ export async function volatility(today) {
     console.log(error);
   }
 }
-
 
 export async function currentPriceToday() {
   try {
@@ -181,6 +179,69 @@ export async function currentPriceTwoDaysAgo() {
       {
         arguments: {},
         function_name: "currentprice2",
+      },
+      {
+        headers: {
+          accept,
+          authorization,
+        },
+      }
+    );
+    return res.data.result;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function movingAverageToday() {
+  try {
+    let res = await axios.post(
+      url,
+      {
+        arguments: {},
+        function_name: "runningavg0",
+      },
+      {
+        headers: {
+          accept,
+          authorization,
+        },
+      }
+    );
+    return res.data.result;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function movingAverageYesterday() {
+  try {
+    let res = await axios.post(
+      url,
+      {
+        arguments: {},
+        function_name: "runningavg1",
+      },
+      {
+        headers: {
+          accept,
+          authorization,
+        },
+      }
+    );
+    return res.data.result;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function movingAverageTwoDaysAgo() {
+  try {
+    let res = await axios.post(
+      url,
+      {
+        arguments: {},
+        function_name: "runningavg2",
       },
       {
         headers: {

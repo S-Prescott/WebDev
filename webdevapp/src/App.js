@@ -12,6 +12,9 @@ import { Volatility } from "./Volatility.js";
 import { CurrentPriceToday } from "./CurrentPrice/CurrentPriceToday.js";
 import { CurrentPriceYesterday } from "./CurrentPrice/CurrentPriceYesterday.js";
 import { CurrentPriceTwoDaysAgo } from "./CurrentPrice/CurrentPriceTwoDaysAgo.js";
+import { MovingAverageToday } from "./MovingAverage/MovingAverageToday.js"
+import { MovingAverageYesterday } from "./MovingAverage/MovingAverageYesterday.js"
+import { MovingAverageTwoDaysAgo } from "./MovingAverage/MovingAverageTwoDaysAgo.js"
 import {
   toggleMinMax,
   toggletoMT,
@@ -80,11 +83,12 @@ function App() {
       <body className="App-body">
         
           <div id="MovingAvgG" className="col-md-8 border" style={{position:"absolute", width:"60%", left:"2%"}}>
-            {/* <ChartContainer /> */}
-            {/* <MovingAverage /> */}
             {/* <CurrentPriceToday /> */}
             {/* <CurrentPriceYesterday /> */}
-            <CurrentPriceTwoDaysAgo />
+            {/* <CurrentPriceTwoDaysAgo /> */}
+            <MovingAverageToday />
+            {/* <MovingAverageYesterday /> */}
+            {/* <MovingAverageTwoDaysAgo /> */}
           </div>
           <div
             id="VolatilityG"
