@@ -14,12 +14,21 @@ export const Minmax = () => {
   const [date, setdate] = React.useState(today);
   const [data, getData] = React.useState([]);
 
+  // React.useEffect(() => {
+  //   getminmaxdata(date).then((response) => {
+  //     console.log(response);
+  //     getData(response);
+  //   });
+  // }, [date]);
+
   React.useEffect(() => {
-    getminmaxdata(date).then((response) => {
-      console.log(response);
-      getData(response);
-    });
-  }, [date]);
+    const interval = setInterval(() => {
+      getminmaxdata(date).then((response) => {
+        console.log(response);
+        getData(response);
+        });
+        }, 20000);
+      }, [date]);
 
   return (
     <main style={{width:"60%", backgroundColor:"#14934b",position:"relative", top:"70%", bottom:"10%"}}>
