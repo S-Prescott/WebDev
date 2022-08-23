@@ -9,7 +9,9 @@ import { ChartContainer } from "./movingaverage.js";
 import { Lastvalue } from "./Pricechange.js";
 import { MovingAverage } from "./Newchart";
 import { Volatility } from "./Volatility.js";
-import { CurrentPrice } from "./Currentprice";
+import { CurrentPriceToday } from "./CurrentPrice/CurrentPriceToday.js";
+import { CurrentPriceYesterday } from "./CurrentPrice/CurrentPriceYesterday.js";
+import { CurrentPriceTwoDaysAgo } from "./CurrentPrice/CurrentPriceTwoDaysAgo.js";
 import {
   toggleMinMax,
   toggletoMT,
@@ -80,7 +82,9 @@ function App() {
           <div id="MovingAvgG" className="col-md-8 border" style={{position:"absolute", width:"60%", left:"2%"}}>
             {/* <ChartContainer /> */}
             {/* <MovingAverage /> */}
-            <CurrentPrice />
+            {/* <CurrentPriceToday /> */}
+            {/* <CurrentPriceYesterday /> */}
+            <CurrentPriceTwoDaysAgo />
           </div>
           <div
             id="VolatilityG"

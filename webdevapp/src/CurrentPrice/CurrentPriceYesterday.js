@@ -1,15 +1,15 @@
 import * as React from "react";
 import Chart from "react-apexcharts";
-import { currentPriceToday } from "./getdata.service.js";
+import { currentPriceYesterday } from "../getdata.service.js";
 
-export const CurrentPrice = () => {
+export const CurrentPriceYesterday = () => {
   let day = new Date();
   let hour = day.getHours();
 
   const [data, getData] = React.useState([]);
 
   React.useEffect(() => {
-    currentPriceToday().then((response) => {
+    currentPriceYesterday().then((response) => {
       console.log(response);
       getData(response.y.y);
     });
@@ -17,7 +17,7 @@ export const CurrentPrice = () => {
 
   const [categories, getCategories] = React.useState([]);
   React.useEffect(() => {
-    currentPriceToday().then((response) => {
+    currentPriceYesterday().then((response) => {
       let arr = [];
       for (let i in response.x) {
         let hours = Math.floor(response.x[i].i / 60);
