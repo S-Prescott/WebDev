@@ -18,12 +18,15 @@ export const Lastvalue = () => {
 
   const [data, getData] = React.useState([]);
 
-  React.useEffect(() => {
-    PriceChange(today).then((response) => {
-      console.log(response);
-      getData(response);
-    });
-  }, [today]);
+   React.useEffect(() => {
+      const interval = setInterval(() => {
+        PriceChange(today).then((response) => {
+          console.log(response);
+          getData(response);
+          });
+          }, 2500);
+        }, [today]);
+        
 
   return (
     <main>
@@ -55,4 +58,4 @@ export const Lastvalue = () => {
       </div>
     </main>
   );
-};
+}
