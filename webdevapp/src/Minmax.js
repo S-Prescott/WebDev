@@ -22,7 +22,7 @@ export const Minmax = () => {
   }, [date]);
 
   return (
-    <main style={{width:"50%"}}>
+    <main style={{width:"60%", backgroundColor:"#14934b",position:"relative", top:"70%", bottom:"10%"}}>
       <h1>MinMax</h1>
       <select
         className="form-select"
@@ -35,24 +35,23 @@ export const Minmax = () => {
         <option value={yesterday}>{yesterday}</option>
         <option value={twodaysago}>{twodaysago}</option>
       </select>
-      <div>
-        
-        <div className="item-container border">
+      
+        <div className="item-container border" style={{backgroundColor:"#14934b"}}>
           {data.map((item) => (
-            <div className="card ">
+            <div className="card">
               <div className="card-title">
               {item.sym}
               </div>
               <div class="card-footer border" >
-              Max:<br/>$ {item.Max.toFixed(2)}
+              Max:<br/>${item.Max.toFixed(2)}
                 </div>
                 <div class="card-footer border">
-                Min:<br/>$ {item.Min.toFixed(2)}
+                Min:<br/>${item.Min.toFixed(2)}
                 </div>
             </div>
           ))}
         </div>
-      </div>
+      
     </main>
   );
 };

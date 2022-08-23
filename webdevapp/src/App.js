@@ -35,6 +35,7 @@ function App() {
                 src="https://aquaq.co.uk/wp-content/uploads/2022/08/aquaq-logo-2022-v2.svg"
                 class="custom-logo"
                 alt="AquaQ"
+                left="5%"
               />
             </a>
           </div>
@@ -85,14 +86,14 @@ function App() {
           >
             Volatility Graph
           </div>
-          <div id="CurrentPrice" class="col-3 border">
-            current price table here
+          <div className="high">
+            Most Traded Instrument 
           </div>
-          <div id="ValueCache" class="col-3 border" style={{ backgroundColor: "#14934b", position:"absolute", right:"5%" }}>
+          <div id="ValueCache" class="col-3 border" style={{ backgroundColor: "#14934b", position:"absolute", top:"15%", right:"2%", width:"500px", height:"750px"}}>
             Last Value Cache info
             <Lastvalue />
           </div>
-          <div id="min/max" class="row border" style={{backgroundColor: "#14934b",position:"relative", width: "75%", top:"500px", bottom:"5%"}}>
+          <div id="min-max">
             <Minmax />
           </div>
           <div
