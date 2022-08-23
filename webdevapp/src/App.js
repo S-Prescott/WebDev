@@ -50,7 +50,7 @@ function App() {
               </div>
             </div>
           </li>
-          <li>
+          {/* <li>
             <div class="dropdown">
               <button class="dropbtn">Side Options</button>
               <div class="dropdown-content">
@@ -66,7 +66,7 @@ function App() {
                 <a onClick={toggleMinMax}>Min/Max</a>
               </div>
             </div>
-          </li>
+          </li> */}
         </ul>
         <div class="title">
           <h1>TorQ Dashboard</h1>
