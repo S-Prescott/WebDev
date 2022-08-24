@@ -22,6 +22,8 @@ div#VolatilityG.col-md-8{
   border-width: 3px !important;
 }
 
+
+
 .card{
   width: 3.5cm !important;
 
@@ -66,7 +68,7 @@ div#VolatilityG.col-md-8{
 
 .App-body {
   padding: 5vh;
-  background-color: #ffffff;
+  background-color: #ffffffff;
   min-height: 150vh;
   /* display: flex; */
   flex-direction: column;
@@ -76,18 +78,9 @@ div#VolatilityG.col-md-8{
   color: black;
 }
 
-div#ValueCashe.col-3.border{
-  background-color: #14934b !important;
-  /* float: right; */
-  /* right: 5%; */
-  /* position: absolute !important; */
-
-}
-
-#min-max{
-  /* position: absolute !important; */
-  /* bottom: 2% !important; */
-  /* height: 20% !important; */
+div#ValueCache.col-4.border{
+  background-color: #14934b !important
+ 
 
 }
 
@@ -96,15 +89,22 @@ div#ValueCashe.col-3.border{
   max-width: 80px;
   margin: 10px;
 }
-
+/* Min max styling */
+div#min-max.col-md-8{
+  background-color: #a3a3a3 !important;
+  border-color: #14934b !important;
+  border-width: 3px !important;
+    
+}
 .item-container {
-  background-color: rgb(255, 255, 255);
+  background-color: inherit;
   display: flex;
-  /* justify-content: center; */
   flex-wrap: wrap;
   gap: 2em;
   margin-top: 10px;
   margin-bottom: 10px;
+  margin-left: auto;
+  margin-right: auto;
 }
 .card {
   background-color: rgb(255, 255, 255) !important;
@@ -116,6 +116,7 @@ div#ValueCashe.col-3.border{
 .card-footer{
   font-size: 2rem;
 }
+/* end of min max styling */
 .App-link {
   color: #d5b234;
 }

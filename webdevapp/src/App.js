@@ -17,9 +17,9 @@ import {
   toggleCurrentPrice,
   toggleValueCache,
 } from "./navigation.service";
-
+import { Summary } from "./summary.js";
 function App() {
-  return (
+    return (
     <div className="App">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <ul class="navbar-nav mr-auto">
@@ -129,13 +129,10 @@ function App() {
           Volatility Graph
           <Volatility />
         </div>
+        
         <div
           id="ValueCache"
-          class="col-4 border"
-          style={{float:"right",
-            backgroundColor: "#14934b"
-            
-          }}>
+          class="col-4 border">
           Last Value Cache info
           <Lastvalue />
         </div>
@@ -147,6 +144,7 @@ function App() {
         
         <div id="mostTradedSym" class="col-4 border" style={{ display: "block" }}>
           <h1>Most Traded Sym</h1>
+          <Summary />
         </div>
         </div>
         <script

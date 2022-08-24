@@ -35,8 +35,8 @@ export const Lastvalue = () => {
     <main>
       <div>
         <center>
-        <div id="pchange" className="item-container border">
-          <table class="table table-bordered">
+        <div id="pchange" className="container-fluid">
+          <table class="table table-bordered table-dark">
             <tbody>
                 <tr>
                     <th style={{textAlign:"center"}} > Sym</th>
@@ -49,7 +49,9 @@ export const Lastvalue = () => {
                     <td style={{textAlign:"center"}}>{item.sym}</td>
                     <td style={{textAlign:"right"}} >${item.latestPrice.toFixed(2)}</td>
                     <td style={{textAlign:"right"}} >${item.Change.toFixed(2)}</td>
+                    <center>
                     <td class="center">{arrow(item.Change.toFixed(2))}</td>
+                    </center>
 
                 </tr>                    
                 
