@@ -16,12 +16,13 @@ import { MovingAverageToday } from "./MovingAverage/MovingAverageToday.js"
 import { MovingAverageYesterday } from "./MovingAverage/MovingAverageYesterday.js"
 import { MovingAverageTwoDaysAgo } from "./MovingAverage/MovingAverageTwoDaysAgo.js"
 import {
-  toggleMinMax,
-  toggletoMT,
-  toggleVolatilityG,
-  toggleMovingAvgG,
-  toggleCurrentPrice,
-  toggleValueCache,
+  toggleVolatilityGToday,
+  toggleMovingAvgGToday,
+  toggleMovingAvgGYesterday,
+  toggleMovingAvgGTwoDaysAgo,
+  toggleCurrentPriceToday,
+  toggleCurrentPriceYesterday,
+  toggleCurrentPriceTwoDaysAgo
 } from "./navigation.service";
 import { Summary } from "./summary.js";
 function App() {
@@ -52,23 +53,9 @@ function App() {
               <button class="dropbtn">Graph Options</button>
               {/* The onclick data of each of these need to be updated to represent the different days of data which need to be shown */}
               <div class="dropdown-content">
-                <div class="dropright">
-                  <a class="dropdown-toggle" id="currentpricedrop"
-                    data-toggle="dropdown"   onClick={toggleCurrentPrice}>Current Price</a>
-                  <div class="dropdown-menu">
-                  <h6 class="dropdown-header">Current Price Options</h6>
-                  <div class="dropdown-divider"></div>
-                    <button class="dropdown-item" onClick={toggleCurrentPrice}>Today</button>
-                    <div class="dropdown-divider"></div>
-                    <button class="dropdown-item" onClick={toggleCurrentPrice}>Yesterday</button>
-                    <div class="dropdown-divider"></div>
-                    <button class="dropdown-item" onClick={toggleCurrentPrice}>Two Days Ago</button>
-                  </div>
-                  </div>
-                  <div class="dropright">
-                  <a class="dropdown-toggle" id="currentpricedrop"
-                    data-toggle="dropdown"  onClick={toggleVolatilityG}>Volatility</a>
-                  <div class="dropdown-menu">
+              <div class="dropright">
+                  <a onClick={toggleVolatilityGToday}>Volatility</a>
+                  {/* <div class="dropdown-menu">
                     <h6 class="dropdown-header">Volatility Options</h6>
                     <div class="dropdown-divider"></div>
                     <button class="dropdown-item" onClick={toggleVolatilityG}>Today</button>
@@ -76,19 +63,32 @@ function App() {
                     <button class="dropdown-item" onClick={toggleVolatilityG}>Yesterday</button>
                     <div class="dropdown-divider"></div>
                     <button class="dropdown-item" onClick={toggleVolatilityG}>Two Days Ago</button>
-                  </div>
+                  </div> */}
                 </div>
                 <div class="dropright">
                   <a class="dropdown-toggle" id="currentpricedrop"
-                    data-toggle="dropdown"  onClick={toggleMovingAvgG}>Moving Average</a>
+                    data-toggle="dropdown"   onClick={toggleCurrentPriceToday}>Current Price</a>
+                  <div class="dropdown-menu">
+                  <h6 class="dropdown-header">Current Price Options</h6>
+                  <div class="dropdown-divider"></div>
+                    <button class="dropdown-item" onClick={toggleCurrentPriceToday}>Today</button>
+                    <div class="dropdown-divider"></div>
+                    <button class="dropdown-item" onClick={toggleCurrentPriceYesterday}>Yesterday</button>
+                    <div class="dropdown-divider"></div>
+                    <button class="dropdown-item" onClick={toggleCurrentPriceTwoDaysAgo}>Two Days Ago</button>
+                  </div>
+                  </div>
+                <div class="dropright">
+                  <a class="dropdown-toggle" id="currentpricedrop"
+                    data-toggle="dropdown"  onClick={toggleMovingAvgGToday}>Moving Average</a>
                   <div class="dropdown-menu">
                   <h6 class="dropdown-header">Moving Avg Options</h6>
                   <div class="dropdown-divider"></div>
-                    <button class="dropdown-item" onClick={toggleMovingAvgG}>Today</button>
+                    <button class="dropdown-item" onClick={toggleMovingAvgGToday}>Today</button>
                     <div class="dropdown-divider"></div>
-                    <button class="dropdown-item" onClick={toggleMovingAvgG}>Yesterday</button>
+                    <button class="dropdown-item" onClick={toggleMovingAvgGYesterday}>Yesterday</button>
                     <div class="dropdown-divider"></div>
-                    <button class="dropdown-item" onClick={toggleMovingAvgG}>Two Days Ago</button>
+                    <button class="dropdown-item" onClick={toggleMovingAvgGTwoDaysAgo}>Two Days Ago</button>
                   </div>
                 </div>
                 
