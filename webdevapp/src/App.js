@@ -109,7 +109,7 @@ function App() {
           </li> */}
         </ul>
         <div class="title">
-          <h1>TorQ Dashboard</h1>
+          <h1>AquaQ TorQ Dashboard</h1>
         </div>
       </nav>
 
@@ -120,31 +120,37 @@ function App() {
           id="MovingAvgG"
           className="col-md-8 border">
           {/* <ChartContainer /> */}
+          Moving Average per Instrument per Day
           <MovingAverage />
         </div>
         <div
           id="VolatilityG"
           className="col-md-8 border"
           style={{ display: "none" }}>
-          Volatility Graph
+          Volatility per Instrument per Day
           <Volatility />
         </div>
         
         <div
           id="ValueCache"
+
           class="col-4 border">
           Last Value Cache info
+
           <Lastvalue />
         </div>
         </div>
         <div class="row" style={{marginTop:"20px"}}>
           <div class="col-md-8 border" id="min-max">
+          Minimum and Maximum Price per Instrument
           <Minmax />
         </div>
         
         <div id="mostTradedSym" class="col-4 border" style={{ display: "block" }}>
+
           <h1>Most Traded Sym</h1>
           <Summary />
+
         </div>
         </div>
         <script
