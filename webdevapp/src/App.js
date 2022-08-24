@@ -12,9 +12,9 @@ import { Volatility } from "./Volatility.js";
 import { CurrentPriceToday } from "./CurrentPrice/CurrentPriceToday.js";
 import { CurrentPriceYesterday } from "./CurrentPrice/CurrentPriceYesterday.js";
 import { CurrentPriceTwoDaysAgo } from "./CurrentPrice/CurrentPriceTwoDaysAgo.js";
-import { MovingAverageToday } from "./MovingAverage/MovingAverageToday.js"
-import { MovingAverageYesterday } from "./MovingAverage/MovingAverageYesterday.js"
-import { MovingAverageTwoDaysAgo } from "./MovingAverage/MovingAverageTwoDaysAgo.js"
+import { MovingAverageToday } from "./MovingAverage/MovingAverageToday.js";
+import { MovingAverageYesterday } from "./MovingAverage/MovingAverageYesterday.js";
+import { MovingAverageTwoDaysAgo } from "./MovingAverage/MovingAverageTwoDaysAgo.js";
 import {
   toggleVolatilityGToday,
   toggleMovingAvgGToday,
@@ -22,11 +22,18 @@ import {
   toggleMovingAvgGTwoDaysAgo,
   toggleCurrentPriceToday,
   toggleCurrentPriceYesterday,
-  toggleCurrentPriceTwoDaysAgo
+  toggleCurrentPriceTwoDaysAgo,
 } from "./navigation.service";
 import { Summary } from "./summary.js";
 function App() {
-    return (
+  let day = new Date();
+  const today =
+    day.getFullYear() + "." + (day.getMonth() + 1) + "." + day.getDate();
+  const yesterday =
+    day.getFullYear() + "." + (day.getMonth() + 1) + "." + (day.getDate() - 1);
+  const twoDaysAgo =
+    day.getFullYear() + "." + (day.getMonth() + 1) + "." + (day.getDate() - 2);
+  return (
     <div className="App">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <ul class="navbar-nav mr-auto">
@@ -53,7 +60,7 @@ function App() {
               <button class="dropbtn">Graph Options</button>
               {/* The onclick data of each of these need to be updated to represent the different days of data which need to be shown */}
               <div class="dropdown-content">
-              <div class="dropright">
+                <div class="dropright">
                   <a onClick={toggleVolatilityGToday}>Volatility</a>
                   {/* <div class="dropdown-menu">
                     <h6 class="dropdown-header">Volatility Options</h6>
@@ -66,33 +73,73 @@ function App() {
                   </div> */}
                 </div>
                 <div class="dropright">
-                  <a class="dropdown-toggle" id="currentpricedrop"
-                    data-toggle="dropdown"   onClick={toggleCurrentPriceToday}>Current Price</a>
+                  <a
+                    class="dropdown-toggle"
+                    id="currentpricedrop"
+                    data-toggle="dropdown"
+                    onClick={toggleCurrentPriceToday}
+                  >
+                    Current Price
+                  </a>
                   <div class="dropdown-menu">
-                  <h6 class="dropdown-header">Current Price Options</h6>
-                  <div class="dropdown-divider"></div>
-                    <button class="dropdown-item" onClick={toggleCurrentPriceToday}>Today</button>
+                    <h6 class="dropdown-header">Current Price Options</h6>
                     <div class="dropdown-divider"></div>
-                    <button class="dropdown-item" onClick={toggleCurrentPriceYesterday}>Yesterday</button>
+                    <button
+                      class="dropdown-item"
+                      onClick={toggleCurrentPriceToday}
+                    >
+                      Today
+                    </button>
                     <div class="dropdown-divider"></div>
-                    <button class="dropdown-item" onClick={toggleCurrentPriceTwoDaysAgo}>Two Days Ago</button>
-                  </div>
-                  </div>
-                <div class="dropright">
-                  <a class="dropdown-toggle" id="currentpricedrop"
-                    data-toggle="dropdown"  onClick={toggleMovingAvgGToday}>Moving Average</a>
-                  <div class="dropdown-menu">
-                  <h6 class="dropdown-header">Moving Avg Options</h6>
-                  <div class="dropdown-divider"></div>
-                    <button class="dropdown-item" onClick={toggleMovingAvgGToday}>Today</button>
+                    <button
+                      class="dropdown-item"
+                      onClick={toggleCurrentPriceYesterday}
+                    >
+                      Yesterday
+                    </button>
                     <div class="dropdown-divider"></div>
-                    <button class="dropdown-item" onClick={toggleMovingAvgGYesterday}>Yesterday</button>
-                    <div class="dropdown-divider"></div>
-                    <button class="dropdown-item" onClick={toggleMovingAvgGTwoDaysAgo}>Two Days Ago</button>
+                    <button
+                      class="dropdown-item"
+                      onClick={toggleCurrentPriceTwoDaysAgo}
+                    >
+                      Two Days Ago
+                    </button>
                   </div>
                 </div>
-                
-                
+                <div class="dropright">
+                  <a
+                    class="dropdown-toggle"
+                    id="currentpricedrop"
+                    data-toggle="dropdown"
+                    onClick={toggleMovingAvgGToday}
+                  >
+                    Moving Average
+                  </a>
+                  <div class="dropdown-menu">
+                    <h6 class="dropdown-header">Moving Avg Options</h6>
+                    <div class="dropdown-divider"></div>
+                    <button
+                      class="dropdown-item"
+                      onClick={toggleMovingAvgGToday}
+                    >
+                      Today
+                    </button>
+                    <div class="dropdown-divider"></div>
+                    <button
+                      class="dropdown-item"
+                      onClick={toggleMovingAvgGYesterday}
+                    >
+                      Yesterday
+                    </button>
+                    <div class="dropdown-divider"></div>
+                    <button
+                      class="dropdown-item"
+                      onClick={toggleMovingAvgGTwoDaysAgo}
+                    >
+                      Two Days Ago
+                    </button>
+                  </div>
+                </div>
               </div>
             </div>
           </li>
@@ -122,59 +169,97 @@ function App() {
       <body className="App-body">
         <div class="container-fluid">
           <div class="row">
-        <div
-          id="MovingAvgG"
-          className="col-md-8 border">
-          {/* <ChartContainer /> */}
-          Moving Average per Instrument per Day
-          <MovingAverage />
-        </div>
-        <div
-          id="VolatilityG"
-          className="col-md-8 border"
-          style={{ display: "none" }}>
-          Volatility per Instrument per Day
-          <Volatility />
-        </div>
-        
-        <div
-          id="ValueCache"
+            <div
+              id="VolatilityGToday"
+              className="col-md-8 border"
+              // style={{ display: "none" }}
+            >
+              Volatility per Instrument {today}
+              <Volatility />
+            </div>
+            <div
+              id="MovingAvgGToday"
+              className="col-md-8 border"
+              style={{ display: "none" }}
+            >
+              Moving Average per Instrument {today}
+              <MovingAverageToday />
+            </div>
+            <div
+              id="MovingAvgGYesterday"
+              className="col-md-8 border"
+              style={{ display: "none" }}
+            >
+              Moving Average per Instrument {yesterday}
+              <MovingAverageYesterday />
+            </div>
+            <div
+              id="MovingAvgGTwoDaysAgo"
+              className="col-md-8 border"
+              style={{ display: "none" }}
+            >
+              Moving Average per Instrument {twoDaysAgo}
+              <MovingAverageTwoDaysAgo />
+            </div>
+            <div
+              id="CurrentPriceToday"
+              className="col-md-8 border"
+              style={{ display: "none" }}
+            >
+              Current Price per Instrument {today}
+              <CurrentPriceToday />
+            </div>
+            <div
+              id="CurrentPriceYesterday"
+              className="col-md-8 border"
+              style={{ display: "none" }}
+            >
+              Current Price per Instrument {yesterday}
+              <CurrentPriceYesterday />
+            </div>
+            <div
+              id="CurrentPriceTwoDaysAgo"
+              className="col-md-8 border"
+              style={{ display: "none" }}
+            >
+              Current Price per Instrument {twoDaysAgo}
+              <CurrentPriceTwoDaysAgo />
+            </div>
+            <div id="ValueCache" class="col-4 border">
+              Current Price Fluxtuation per Instrument
+              <Lastvalue />
+            </div>
+          </div>
+          <div class="row" style={{ marginTop: "20px" }}>
+            <div class="col-md-8 border" id="min-max">
+              Minimum and Maximum Price per Instrument
+              <Minmax />
+            </div>
 
-          class="col-4 border">
-          Current Price Fluxtuation per Instrument
-
-          <Lastvalue />
-        </div>
-        </div>
-        <div class="row" style={{marginTop:"20px"}}>
-          <div class="col-md-8 border" id="min-max">
-          Minimum and Maximum Price per Instrument
-          <Minmax />
-        </div>
-        
-        <div id="mostTradedSym" class="col-4 border" style={{ display: "block" }}>
-
-          Highest Traded Instrument
-          <Summary />
-
-        </div>
-        </div>
-        <script
-          src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-          integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-          crossorigin="anonymous"
-        ></script>
-        <script
-          src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
-          integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-          crossorigin="anonymous"
-        ></script>
-        <script
-          src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
-          integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-          crossorigin="anonymous"
-        ></script>
-        
+            <div
+              id="mostTradedSym"
+              class="col-4 border"
+              style={{ display: "block" }}
+            >
+              Highest Traded Instrument
+              <Summary />
+            </div>
+          </div>
+          <script
+            src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
+            integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+            crossorigin="anonymous"
+          ></script>
+          <script
+            src="https://cdn.jsdelivr.net/npm/popper.js@1.12.9/dist/umd/popper.min.js"
+            integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+            crossorigin="anonymous"
+          ></script>
+          <script
+            src="https://cdn.jsdelivr.net/npm/bootstrap@4.0.0/dist/js/bootstrap.min.js"
+            integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+            crossorigin="anonymous"
+          ></script>
         </div>
       </body>
       <footer></footer>
