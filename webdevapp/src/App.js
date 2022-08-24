@@ -10,12 +10,13 @@ import { Lastvalue } from "./Pricechange.js";
 import { MovingAverage } from "./Newchart";
 import { Volatility } from "./Volatility.js";
 import {
-  toggleMinMax,
-  toggletoMT,
-  toggleVolatilityG,
-  toggleMovingAvgG,
-  toggleCurrentPrice,
-  toggleValueCache,
+  toggleVolatilityGToday,
+  toggleMovingAvgGToday,
+  toggleMovingAvgGYesterday,
+  toggleMovingAvgGTwoDaysAgo,
+  toggleCurrentPriceToday,
+  toggleCurrentPriceYesterday,
+  toggleCurrentPriceTwoDaysAgo
 } from "./navigation.service";
 import { Summary } from "./summary.js";
 function App() {
@@ -48,21 +49,21 @@ function App() {
               <div class="dropdown-content">
                 <div class="dropright">
                   <a class="dropdown-toggle" id="currentpricedrop"
-                    data-toggle="dropdown"   onClick={toggleCurrentPrice}>Current Price</a>
+                    data-toggle="dropdown"   onClick={toggleCurrentPriceToday}>Current Price</a>
                   <div class="dropdown-menu">
                   <h6 class="dropdown-header">Current Price Options</h6>
                   <div class="dropdown-divider"></div>
-                    <button class="dropdown-item" onClick={toggleCurrentPrice}>Today</button>
+                    <button class="dropdown-item" onClick={toggleCurrentPriceToday}>Today</button>
                     <div class="dropdown-divider"></div>
-                    <button class="dropdown-item" onClick={toggleCurrentPrice}>Yesterday</button>
+                    <button class="dropdown-item" onClick={toggleCurrentPriceYesterday}>Yesterday</button>
                     <div class="dropdown-divider"></div>
-                    <button class="dropdown-item" onClick={toggleCurrentPrice}>Two Days Ago</button>
+                    <button class="dropdown-item" onClick={toggleCurrentPriceTwoDaysAgo}>Two Days Ago</button>
                   </div>
                   </div>
                   <div class="dropright">
                   <a class="dropdown-toggle" id="currentpricedrop"
-                    data-toggle="dropdown"  onClick={toggleVolatilityG}>Volatility</a>
-                  <div class="dropdown-menu">
+                    data-toggle="dropdown"  onClick={toggleVolatilityGToday}>Volatility</a>
+                  {/* <div class="dropdown-menu">
                     <h6 class="dropdown-header">Volatility Options</h6>
                     <div class="dropdown-divider"></div>
                     <button class="dropdown-item" onClick={toggleVolatilityG}>Today</button>
@@ -70,19 +71,19 @@ function App() {
                     <button class="dropdown-item" onClick={toggleVolatilityG}>Yesterday</button>
                     <div class="dropdown-divider"></div>
                     <button class="dropdown-item" onClick={toggleVolatilityG}>Two Days Ago</button>
-                  </div>
+                  </div> */}
                 </div>
                 <div class="dropright">
                   <a class="dropdown-toggle" id="currentpricedrop"
-                    data-toggle="dropdown"  onClick={toggleMovingAvgG}>Moving Average</a>
+                    data-toggle="dropdown"  onClick={toggleMovingAvgGToday}>Moving Average</a>
                   <div class="dropdown-menu">
                   <h6 class="dropdown-header">Moving Avg Options</h6>
                   <div class="dropdown-divider"></div>
-                    <button class="dropdown-item" onClick={toggleMovingAvgG}>Today</button>
+                    <button class="dropdown-item" onClick={toggleMovingAvgGToday}>Today</button>
                     <div class="dropdown-divider"></div>
-                    <button class="dropdown-item" onClick={toggleMovingAvgG}>Yesterday</button>
+                    <button class="dropdown-item" onClick={toggleMovingAvgGYesterday}>Yesterday</button>
                     <div class="dropdown-divider"></div>
-                    <button class="dropdown-item" onClick={toggleMovingAvgG}>Two Days Ago</button>
+                    <button class="dropdown-item" onClick={toggleMovingAvgGTwoDaysAgo}>Two Days Ago</button>
                   </div>
                 </div>
                 
