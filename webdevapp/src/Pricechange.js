@@ -49,7 +49,9 @@ export const Lastvalue = () => {
                     <td style={{textAlign:"center"}}>{item.sym}</td>
                     <td style={{textAlign:"right"}} >${item.latestPrice.toFixed(2)}</td>
                     <td style={{textAlign:"right"}} >${item.Change.toFixed(2)}</td>
-                    <td class="center">{arrow(item.Change.toFixed(2))}</td>
+                    <center>
+                    <td class="centre">{arrow(item.Change.toFixed(2))}</td>
+                    </center>
 
                 </tr>                    
                 
