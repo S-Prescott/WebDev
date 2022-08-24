@@ -167,10 +167,19 @@ div#ValueCashe.col-3.border{
 .dropdown-content a:hover {background-color: #ddd;}
 
 /* Show the dropdown menu on hover */
-.dropdown:hover .dropdown-content {display: block;}
+.dropdown:hover .dropdown-content {display: block;
+right: 10px;
+border: #14934b;}
 
 /* Change the background color of the dropdown button when the dropdown content is shown */
 .dropdown:hover .dropbtn {color: #14934b;}
+
+.dropright:hover  .dropdown-menu {
+  display: block;
+  left: 21vh;
+  top: -5px;
+  
+}
 
 .high{
   position: absolute;
