@@ -16,7 +16,6 @@ export function getdata() {
       }
     )
     .then((response) => {
-      console.log(response);
       return response;
     })
     .catch((error) => {
@@ -82,7 +81,6 @@ export async function rAvgTimeSeries(today) {
       }
     );
     return res.data.result;
-
   } catch (error) {
     console.log(error);
   }
@@ -116,6 +114,132 @@ export async function volatility(today) {
       {
         arguments: { dt: today },
         function_name: ".qrestfunc.volatilitybyday",
+      },
+      {
+        headers: {
+          accept,
+          authorization,
+        },
+      }
+    );
+    return res.data.result;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function currentPriceToday() {
+  try {
+    let res = await axios.post(
+      url,
+      {
+        arguments: {},
+        function_name: "currentprice0",
+      },
+      {
+        headers: {
+          accept,
+          authorization,
+        },
+      }
+    );
+    return res.data.result;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function currentPriceYesterday() {
+  try {
+    let res = await axios.post(
+      url,
+      {
+        arguments: {},
+        function_name: "currentprice1",
+      },
+      {
+        headers: {
+          accept,
+          authorization,
+        },
+      }
+    );
+    return res.data.result;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function currentPriceTwoDaysAgo() {
+  try {
+    let res = await axios.post(
+      url,
+      {
+        arguments: {},
+        function_name: "currentprice2",
+      },
+      {
+        headers: {
+          accept,
+          authorization,
+        },
+      }
+    );
+    return res.data.result;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function movingAverageToday() {
+  try {
+    let res = await axios.post(
+      url,
+      {
+        arguments: {},
+        function_name: "runningavg0",
+      },
+      {
+        headers: {
+          accept,
+          authorization,
+        },
+      }
+    );
+    return res.data.result;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function movingAverageYesterday() {
+  try {
+    let res = await axios.post(
+      url,
+      {
+        arguments: {},
+        function_name: "runningavg1",
+      },
+      {
+        headers: {
+          accept,
+          authorization,
+        },
+      }
+    );
+    return res.data.result;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function movingAverageTwoDaysAgo() {
+  try {
+    let res = await axios.post(
+      url,
+      {
+        arguments: {},
+        function_name: "runningavg2",
       },
       {
         headers: {

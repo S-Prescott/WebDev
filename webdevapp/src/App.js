@@ -9,6 +9,12 @@ import { ChartContainer } from "./movingaverage.js";
 import { Lastvalue } from "./Pricechange.js";
 import { MovingAverage } from "./Newchart";
 import { Volatility } from "./Volatility.js";
+import { CurrentPriceToday } from "./CurrentPrice/CurrentPriceToday.js";
+import { CurrentPriceYesterday } from "./CurrentPrice/CurrentPriceYesterday.js";
+import { CurrentPriceTwoDaysAgo } from "./CurrentPrice/CurrentPriceTwoDaysAgo.js";
+import { MovingAverageToday } from "./MovingAverage/MovingAverageToday.js"
+import { MovingAverageYesterday } from "./MovingAverage/MovingAverageYesterday.js"
+import { MovingAverageTwoDaysAgo } from "./MovingAverage/MovingAverageTwoDaysAgo.js"
 import {
   toggleMinMax,
   toggletoMT,
