@@ -11,9 +11,15 @@
   border: 1px solid black;
 } */
 
-.MovingAvgG{
-  background-color: #ddd !important;
-
+div#MovingAvgG.col-md-8{
+  /* background-color: #ddd !important; */
+  border-color: #14934b !important;
+  border-width: 3px !important;
+}
+div#VolatilityG.col-md-8{
+  /* background-color: #ddd !important; */
+  border-color: #14934b !important;
+  border-width: 3px !important;
 }
 
 .card{
@@ -72,16 +78,16 @@
 
 div#ValueCashe.col-3.border{
   background-color: #14934b !important;
-  float: right;
-  right: 5%;
-  position: absolute !important;
+  /* float: right; */
+  /* right: 5%; */
+  /* position: absolute !important; */
 
 }
 
 #min-max{
-  position: absolute !important;
-  bottom: 2% !important;
-  height: 20% !important;
+  /* position: absolute !important; */
+  /* bottom: 2% !important; */
+  /* height: 20% !important; */
 
 }
 
@@ -94,9 +100,11 @@ div#ValueCashe.col-3.border{
 .item-container {
   background-color: rgb(255, 255, 255);
   display: flex;
-  justify-content: center;
+  /* justify-content: center; */
   flex-wrap: wrap;
   gap: 2em;
+  margin-top: 10px;
+  margin-bottom: 10px;
 }
 .card {
   background-color: rgb(255, 255, 255) !important;
@@ -110,10 +118,6 @@ div#ValueCashe.col-3.border{
 }
 .App-link {
   color: #d5b234;
-}
-.item-container{
-  margin-top: 10px;
-  margin-bottom: 10px;
 }
 .form-select{
   margin-top: 10px;
