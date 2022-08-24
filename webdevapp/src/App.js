@@ -47,6 +47,18 @@ function App() {
               <button class="dropbtn">Graph Options</button>
               {/* The onclick data of each of these need to be updated to represent the different days of data which need to be shown */}
               <div class="dropdown-content">
+              <div class="dropright">
+                  <a onClick={toggleVolatilityGToday}>Volatility</a>
+                  {/* <div class="dropdown-menu">
+                    <h6 class="dropdown-header">Volatility Options</h6>
+                    <div class="dropdown-divider"></div>
+                    <button class="dropdown-item" onClick={toggleVolatilityG}>Today</button>
+                    <div class="dropdown-divider"></div>
+                    <button class="dropdown-item" onClick={toggleVolatilityG}>Yesterday</button>
+                    <div class="dropdown-divider"></div>
+                    <button class="dropdown-item" onClick={toggleVolatilityG}>Two Days Ago</button>
+                  </div> */}
+                </div>
                 <div class="dropright">
                   <a class="dropdown-toggle" id="currentpricedrop"
                     data-toggle="dropdown"   onClick={toggleCurrentPriceToday}>Current Price</a>
@@ -60,19 +72,6 @@ function App() {
                     <button class="dropdown-item" onClick={toggleCurrentPriceTwoDaysAgo}>Two Days Ago</button>
                   </div>
                   </div>
-                  <div class="dropright">
-                  <a class="dropdown-toggle" id="currentpricedrop"
-                    data-toggle="dropdown"  onClick={toggleVolatilityGToday}>Volatility</a>
-                  {/* <div class="dropdown-menu">
-                    <h6 class="dropdown-header">Volatility Options</h6>
-                    <div class="dropdown-divider"></div>
-                    <button class="dropdown-item" onClick={toggleVolatilityG}>Today</button>
-                    <div class="dropdown-divider"></div>
-                    <button class="dropdown-item" onClick={toggleVolatilityG}>Yesterday</button>
-                    <div class="dropdown-divider"></div>
-                    <button class="dropdown-item" onClick={toggleVolatilityG}>Two Days Ago</button>
-                  </div> */}
-                </div>
                 <div class="dropright">
                   <a class="dropdown-toggle" id="currentpricedrop"
                     data-toggle="dropdown"  onClick={toggleMovingAvgGToday}>Moving Average</a>
