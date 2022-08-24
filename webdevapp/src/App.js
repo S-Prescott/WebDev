@@ -135,7 +135,7 @@ function App() {
           id="ValueCache"
 
           class="col-4 border">
-          Last Value Cache info
+          Current Price Fluxtuation per Instrument
 
           <Lastvalue />
         </div>
@@ -148,7 +148,7 @@ function App() {
         
         <div id="mostTradedSym" class="col-4 border" style={{ display: "block" }}>
 
-          <h1>Most Traded Sym</h1>
+          Highest Traded Instrument
           <Summary />
 
         </div>

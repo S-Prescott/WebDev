@@ -29,7 +29,7 @@ export async function hightrade(date) {
   let res = await axios.post(
       url,
       {
-        arguments: { dt: date, st: "10:00", et: "11:00" },
+        arguments: { dt: date, st: "00:00", et: "24:00" },
         function_name: ".qrestfunc.hightrade",
       },
       {
