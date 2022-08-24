@@ -17,9 +17,9 @@ import {
   toggleCurrentPrice,
   toggleValueCache,
 } from "./navigation.service";
-
+import { Summary } from "./summary.js";
 function App() {
-  return (
+    return (
     <div className="App">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <ul class="navbar-nav mr-auto">
@@ -130,13 +130,13 @@ function App() {
           Volatility per Instrument per Day
           <Volatility />
         </div>
+        
         <div
           id="ValueCache"
-          class="col-4 border"
-          style={{float:"right",
-            backgroundColor: "#14934b" 
-          }}>
-          Current Price Fluxtuation per Instrument
+
+          class="col-4 border">
+          Last Value Cache info
+
           <Lastvalue />
         </div>
         </div>
@@ -147,7 +147,10 @@ function App() {
         </div>
         
         <div id="mostTradedSym" class="col-4 border" style={{ display: "block" }}>
-          Highest Traded Instrument
+
+          <h1>Most Traded Sym</h1>
+          <Summary />
+
         </div>
         </div>
         <script
