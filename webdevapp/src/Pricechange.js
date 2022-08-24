@@ -4,11 +4,14 @@ import "bootstrap/dist/css/bootstrap.min.css";
 import { PriceChange } from "./getdata.service.js";
 import MyImage from './greenUp.png';
 import MyImage2 from './redDown.png';
+import MyImage3 from './dash.jpg';
 
 export function arrow(x) {
   if (x > 0 ) {
     return (<td><img src={MyImage} alt="up" width="20" height="30"/> </td>); 
-  } else { return (<td ><img src={MyImage2} alt="down" width="20" height="30"/> </td>)}}
+  } else if (x < 0) { return (<td ><img src={MyImage2} alt="down" width="20" height="30"/> </td>)
+  } else { return (<td ><img src={MyImage3} alt="NaN" width="40" height="10"/> </td>)}
+}
 
 export const Lastvalue = () => {
   let day = new Date();
@@ -18,41 +21,47 @@ export const Lastvalue = () => {
 
   const [data, getData] = React.useState([]);
 
-  React.useEffect(() => {
-    PriceChange(today).then((response) => {
-      console.log(response);
-      getData(response);
-    });
-  }, [today]);
+   React.useEffect(() => {
+      const interval = setInterval(() => {
+        PriceChange(today).then((response) => {
+          console.log(response);
+          getData(response);
+          });
+          }, 2500);
+        }, [today]);
+        
 
   return (
     <main>
       <div>
         <center>
-        <div id="pchange" className="item-container border" style={{position:"absolute",left:"1%",height:"93%", width:"98%"}}>
-          
+        <div id="pchange" className="container-fluid">
+          <table class="table table-bordered table-dark">
             <tbody>
                 <tr>
-                    <th style={{textAlign:"center", fontSize:28}} > Sym</th>
-                    <th style={{textAlign:"center", fontSize:28}} > Price</th>
-                    <th style={{textAlign:"center", fontSize:28}} > Change</th>
-                    <th style={{textAlign:"center", fontSize:28}} > Indicator</th>
+                    <th style={{textAlign:"center"}} > Sym</th>
+                    <th style={{textAlign:"center"}} > Price</th>
+                    <th style={{textAlign:"center"}} > Change</th>
+                    <th style={{textAlign:"center"}} > Indicator</th>
                 </tr>
                 {data.map((item) => (
                 <tr>
-                    <td style={{textAlign:"center", fontSize:25}}>{item.sym}</td>
-                    <td style={{textAlign:"right", fontSize:25}} >${item.latestPrice.toFixed(2)}</td>
-                    <td style={{textAlign:"right", fontSize:25}} >${item.Change.toFixed(2)}</td>
-                    {arrow(item.Change.toFixed(2))}
+                    <td style={{textAlign:"center"}}>{item.sym}</td>
+                    <td style={{textAlign:"right"}} >${item.latestPrice.toFixed(2)}</td>
+                    <td style={{textAlign:"right"}} >${item.Change.toFixed(2)}</td>
+                    <center>
+                    <td class="center">{arrow(item.Change.toFixed(2))}</td>
+                    </center>
 
                 </tr>                    
                 
                 ))}
             </tbody>
+            </table>
 
         </div>
         </center>
       </div>
     </main>
   );
-};
+}

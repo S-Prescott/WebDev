@@ -23,9 +23,9 @@ import {
   toggleCurrentPrice,
   toggleValueCache,
 } from "./navigation.service";
-
+import { Summary } from "./summary.js";
 function App() {
-  return (
+    return (
     <div className="App">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
         <ul class="navbar-nav mr-auto">
@@ -50,14 +50,53 @@ function App() {
           <li>
             <div class="dropdown">
               <button class="dropbtn">Graph Options</button>
+              {/* The onclick data of each of these need to be updated to represent the different days of data which need to be shown */}
               <div class="dropdown-content">
-                <a onClick={toggleCurrentPrice}>CurrentPrice</a>
-                <a onClick={toggleVolatilityG}>Volatility</a>
-                <a onClick={toggleMovingAvgG}>Moving Average</a>
+                <div class="dropright">
+                  <a class="dropdown-toggle" id="currentpricedrop"
+                    data-toggle="dropdown"   onClick={toggleCurrentPrice}>Current Price</a>
+                  <div class="dropdown-menu">
+                  <h6 class="dropdown-header">Current Price Options</h6>
+                  <div class="dropdown-divider"></div>
+                    <button class="dropdown-item" onClick={toggleCurrentPrice}>Today</button>
+                    <div class="dropdown-divider"></div>
+                    <button class="dropdown-item" onClick={toggleCurrentPrice}>Yesterday</button>
+                    <div class="dropdown-divider"></div>
+                    <button class="dropdown-item" onClick={toggleCurrentPrice}>Two Days Ago</button>
+                  </div>
+                  </div>
+                  <div class="dropright">
+                  <a class="dropdown-toggle" id="currentpricedrop"
+                    data-toggle="dropdown"  onClick={toggleVolatilityG}>Volatility</a>
+                  <div class="dropdown-menu">
+                    <h6 class="dropdown-header">Volatility Options</h6>
+                    <div class="dropdown-divider"></div>
+                    <button class="dropdown-item" onClick={toggleVolatilityG}>Today</button>
+                    <div class="dropdown-divider"></div>
+                    <button class="dropdown-item" onClick={toggleVolatilityG}>Yesterday</button>
+                    <div class="dropdown-divider"></div>
+                    <button class="dropdown-item" onClick={toggleVolatilityG}>Two Days Ago</button>
+                  </div>
+                </div>
+                <div class="dropright">
+                  <a class="dropdown-toggle" id="currentpricedrop"
+                    data-toggle="dropdown"  onClick={toggleMovingAvgG}>Moving Average</a>
+                  <div class="dropdown-menu">
+                  <h6 class="dropdown-header">Moving Avg Options</h6>
+                  <div class="dropdown-divider"></div>
+                    <button class="dropdown-item" onClick={toggleMovingAvgG}>Today</button>
+                    <div class="dropdown-divider"></div>
+                    <button class="dropdown-item" onClick={toggleMovingAvgG}>Yesterday</button>
+                    <div class="dropdown-divider"></div>
+                    <button class="dropdown-item" onClick={toggleMovingAvgG}>Two Days Ago</button>
+                  </div>
+                </div>
+                
+                
               </div>
             </div>
           </li>
-          <li>
+          {/* <li>
             <div class="dropdown">
               <button class="dropbtn">Side Options</button>
               <div class="dropdown-content">
@@ -65,56 +104,61 @@ function App() {
                 <a onClick={toggletoMT}>Most Traded</a>
               </div>
             </div>
-          </li>
-          <li>
+          </li> */}
+          {/* <li>
             <div class="dropdown">
               <button class="dropbtn">Bottom Options</button>
               <div class="dropdown-content">
                 <a onClick={toggleMinMax}>Min/Max</a>
               </div>
             </div>
-          </li>
+          </li> */}
         </ul>
         <div class="title">
-          <h1>TorQ Dashboard</h1>
+          <h1>AquaQ TorQ Dashboard</h1>
         </div>
       </nav>
 
       <body className="App-body">
+        <div class="container-fluid">
+          <div class="row">
+        <div
+          id="MovingAvgG"
+          className="col-md-8 border">
+          {/* <ChartContainer /> */}
+          Moving Average per Instrument per Day
+          <MovingAverage />
+        </div>
+        <div
+          id="VolatilityG"
+          className="col-md-8 border"
+          style={{ display: "none" }}>
+          Volatility per Instrument per Day
+          <Volatility />
+        </div>
         
-          <div id="MovingAvgG" className="col-md-8 border" style={{position:"absolute", width:"60%", left:"2%"}}>
-            {/* <CurrentPriceToday /> */}
-            {/* <CurrentPriceYesterday /> */}
-            {/* <CurrentPriceTwoDaysAgo /> */}
-            <MovingAverageToday />
-            {/* <MovingAverageYesterday /> */}
-            {/* <MovingAverageTwoDaysAgo /> */}
-          </div>
-          <div
-            id="VolatilityG"
-            className="col-md-8 border"
-            style={{ display: "none" }}
-          >
-            Volatility Graph
-            <Volatility />
-          </div>
-          <div className="high">
-            Most Traded Instrument 
-          </div>
-          <div id="ValueCache" class="col-3 border" style={{backgroundColor: "#14934b", position:"absolute", top:"15%", right:"2%", width:"500px", height:"750px"}}>
-            Last Value Cache info
-            <Lastvalue />
-          </div>
-          <div id="min-max">
-            <Minmax />
-          </div>
-          <div
-            id="mostTradedSym"
-            class="row border"
-            style={{ display: "none" }}
-          >
-            <h1>Most Traded Sym</h1>
-          </div>
+        <div
+          id="ValueCache"
+
+          class="col-4 border">
+          Last Value Cache info
+
+          <Lastvalue />
+        </div>
+        </div>
+        <div class="row" style={{marginTop:"20px"}}>
+          <div class="col-md-8 border" id="min-max">
+          Minimum and Maximum Price per Instrument
+          <Minmax />
+        </div>
+        
+        <div id="mostTradedSym" class="col-4 border" style={{ display: "block" }}>
+
+          <h1>Most Traded Sym</h1>
+          <Summary />
+
+        </div>
+        </div>
         <script
           src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
           integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
@@ -130,6 +174,8 @@ function App() {
           integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
           crossorigin="anonymous"
         ></script>
+        
+        </div>
       </body>
       <footer></footer>
     </div>

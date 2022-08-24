@@ -23,12 +23,12 @@ export function getdata() {
     });
 }
 
-export function hightrade() {
-  axios
-    .post(
+export async function hightrade(date) {
+  try {
+  let res = await axios.post(
       url,
       {
-        arguments: { dt: "2022.08.15", st: "10:00", et: "11:00" },
+        arguments: { dt: date, st: "10:00", et: "11:00" },
         function_name: ".qrestfunc.hightrade",
       },
       {
@@ -37,13 +37,11 @@ export function hightrade() {
           authorization,
         },
       }
-    )
-    .then((response) => {
-      return response;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
+    );
+    return res.data.result;
+  } catch (error) {
+    console.error(error);
+  }
 }
 
 export async function getminmaxdata(date) {
