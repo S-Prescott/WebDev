@@ -114,43 +114,40 @@ function App() {
       </nav>
 
       <body className="App-body">
+        <div class="container-fluid">
+          <div class="row">
         <div
           id="MovingAvgG"
-          className="col-md-8 border"
-          style={{ position: "absolute", width: "60%", left: "2%" }}
-        >
+          className="col-md-8 border">
           {/* <ChartContainer /> */}
           <MovingAverage />
         </div>
         <div
           id="VolatilityG"
           className="col-md-8 border"
-          style={{ display: "none" }}
-        >
+          style={{ display: "none" }}>
           Volatility Graph
           <Volatility />
         </div>
-        <div className="high">Most Traded Instrument</div>
         <div
           id="ValueCache"
-          class="col-3 border"
-          style={{
-            backgroundColor: "#14934b",
-            position: "absolute",
-            top: "15%",
-            right: "2%",
-            width: "500px",
-            height: "750px",
-          }}
-        >
+          class="col-4 border"
+          style={{float:"right",
+            backgroundColor: "#14934b"
+            
+          }}>
           Last Value Cache info
           <Lastvalue />
         </div>
-        <div id="min-max">
+        </div>
+        <div class="row" style={{marginTop:"20px"}}>
+          <div class="col-md-8 border" id="min-max">
           <Minmax />
         </div>
-        <div id="mostTradedSym" class="row border" style={{ display: "none" }}>
+        
+        <div id="mostTradedSym" class="col-4 border" style={{ display: "block" }}>
           <h1>Most Traded Sym</h1>
+        </div>
         </div>
         <script
           src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
@@ -167,6 +164,8 @@ function App() {
           integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
           crossorigin="anonymous"
         ></script>
+        
+        </div>
       </body>
       <footer></footer>
     </div>

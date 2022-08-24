@@ -35,26 +35,27 @@ export const Lastvalue = () => {
     <main>
       <div>
         <center>
-        <div id="pchange" className="item-container border" style={{position:"absolute",left:"1%",height:"93%", width:"98%"}}>
-          
+        <div id="pchange" className="item-container border">
+          <table class="table table-bordered">
             <tbody>
                 <tr>
-                    <th style={{textAlign:"center", fontSize:28}} > Sym</th>
-                    <th style={{textAlign:"center", fontSize:28}} > Price</th>
-                    <th style={{textAlign:"center", fontSize:28}} > Change</th>
-                    <th style={{textAlign:"center", fontSize:28}} > Indicator</th>
+                    <th style={{textAlign:"center"}} > Sym</th>
+                    <th style={{textAlign:"center"}} > Price</th>
+                    <th style={{textAlign:"center"}} > Change</th>
+                    <th style={{textAlign:"center"}} > Indicator</th>
                 </tr>
                 {data.map((item) => (
                 <tr>
-                    <td style={{textAlign:"center", fontSize:25}}>{item.sym}</td>
-                    <td style={{textAlign:"right", fontSize:25}} >${item.latestPrice.toFixed(2)}</td>
-                    <td style={{textAlign:"right", fontSize:25}} >${item.Change.toFixed(2)}</td>
-                    {arrow(item.Change.toFixed(2))}
+                    <td style={{textAlign:"center"}}>{item.sym}</td>
+                    <td style={{textAlign:"right"}} >${item.latestPrice.toFixed(2)}</td>
+                    <td style={{textAlign:"right"}} >${item.Change.toFixed(2)}</td>
+                    <td class="center">{arrow(item.Change.toFixed(2))}</td>
 
                 </tr>                    
                 
                 ))}
             </tbody>
+            </table>
 
         </div>
         </center>
