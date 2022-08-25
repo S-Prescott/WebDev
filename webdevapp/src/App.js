@@ -142,8 +142,9 @@ function App() {
 
           class="col-4 border">
           Current Price Fluxtuation per Instrument
-
+          <div>
           <Lastvalue />
+          </div>
         </div>
         </div>
         <div class="row" style={{marginTop:"20px"}}>

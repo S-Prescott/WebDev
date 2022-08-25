@@ -79,7 +79,9 @@ div#VolatilityG.col-md-8{
 }
 
 div#ValueCache.col-4.border{
-  background-color: #14934b !important
+  background-color: #14934b !important;
+  margin-right:  auto;
+  
  
 
 }
@@ -193,6 +195,12 @@ border: #14934b;}
   height: 40% !important;
   top: 120% !important;
   width: 35%;
+}
+.table {
+  table-layout: fixed;
+  width: 100%;
+  font-size: calc(10px + 2vmin);
+  font-size: medium;
 }
 
 footer {
