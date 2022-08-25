@@ -35,15 +35,15 @@ export const Summary = () => {
         <option value={twodaysago}>{twodaysago}</option>
       </select>
 
-      <div className="item-container">
+      <div className="summary-container">
         {data.map((item) => (
           <div className="card">
-            <div className="card-title">Most Traded Sym</div>
-            <div class="card-footer border">
+            <div className="sum-card-title">Most Traded Sym</div>
+            <div class="sum-card-footer border">
               Sym:
               <br />{item.sym}
             </div>
-            <div class="card-footer border">
+            <div class="sum-card-footer border">
               Volume:
               <br />{item.volume}
             </div>

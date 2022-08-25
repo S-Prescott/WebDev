@@ -200,3 +200,40 @@ footer {
   min-height: 100px;
   width: 100%;
 }
+
+/* Summary Styling */
+div#mostTradedSym.col-4{
+  background-color: #a3a3a3 !important;
+  border-color: #14934b !important;
+  border-width: 3px !important;
+    
+}
+
+
+.summary-container {
+  background-color: inherit;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 2em;
+  margin-top: 10px;
+  margin-bottom: 10px;
+  margin-left: 37%;
+  margin-right: 40%;
+}
+
+.sum-card {
+  background-color: rgb(255, 255, 255) !important;
+  text-align: center;
+  width: 200px;
+  border-radius: 10px;
+  box-shadow: rgba(255, 191, 1, 0.2) 0px 0px 0px 0px;
+}
+
+.sum-card-footer{
+  font-size: 15px !important;
+}
+
+.sum-card-title{
+  margin-bottom: var(--bs-card-title-spacer-y);
+
+}
