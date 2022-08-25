@@ -235,15 +235,11 @@ function App() {
               Minimum and Maximum Price per Instrument
               <Minmax />
             </div>
+        
+        <div id="mostTradedSym" class="col-4 border" style={{ display: "block" }}>
 
-            <div
-              id="mostTradedSym"
-              class="col-4 border"
-              style={{ display: "block" }}
-            >
-              Highest Traded Instrument
-              <Summary />
-            </div>
+          Highest Traded Instrument
+          <Summary />
           </div>
           <script
             src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
