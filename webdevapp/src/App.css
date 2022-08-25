@@ -202,7 +202,9 @@ border: #14934b;}
   font-size: calc(10px + 2vmin);
   font-size: medium;
 }
-
+tr#tabledata{
+  height: 3vh !important;
+}
 footer {
   background-color:  #14934b !important;
   min-height: 100px;

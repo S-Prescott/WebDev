@@ -55,7 +55,7 @@ export const Lastvalue = () => {
             <th style={{ textAlign: "center" }}> Indicator</th>
           </tr>
           {data.map((item) => (
-            <tr>
+            <tr id="tabledata">
               <td style={{ textAlign: "center" }}>{item.sym}</td>
               <td style={{ textAlign: "right" }}>
                 ${item.latestPrice.toFixed(2)}
