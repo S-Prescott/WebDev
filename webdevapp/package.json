@@ -18,10 +18,12 @@
     "bootstrap": "^5.2.0",
     "gh-pages": "^4.0.0",
     "hammerjs": "^2.0.8",
+    "icons": "^1.0.0",
     "react": "^18.2.0",
     "react-apexcharts": "^1.4.0",
     "react-bootstrap": "^2.5.0",
     "react-dom": "^18.2.0",
+    "react-icons": "^4.4.0",
     "react-scripts": "5.0.1",
     "recharts": "^2.1.13",
     "web-vitals": "^2.1.4"
