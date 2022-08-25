@@ -92,11 +92,16 @@ div#ValueCache.col-4.border{
   margin: 10px;
 }
 /* Min max styling */
+
+.col-md-8{
+  background-color: #a3a3a3 !important;
+  border-color: #14934b !important;
+  border-width: 3px !important;
+}
 div#min-max.col-md-8{
   background-color: #a3a3a3 !important;
   border-color: #14934b !important;
   border-width: 3px !important;
-    
 }
 .item-container {
   background-color: inherit;
@@ -109,7 +114,7 @@ div#min-max.col-md-8{
   margin-right: auto;
 }
 .card {
-  background-color: rgb(255, 255, 255) !important;
+  background-color: #ffffff !important;
   text-align: center;
   width: 200px;
   border-radius: 10px;
@@ -183,8 +188,9 @@ border: #14934b;}
 
 .dropright:hover  .dropdown-menu {
   display: block;
-  left: 21vh;
-  top: -5px;
+  position: inherit;
+  /* --bs-position: end; */
+  left: 100%;
   
 }
 
