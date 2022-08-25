@@ -5,24 +5,28 @@ import { PriceChange } from "./getdata.service.js";
 import MyImage from "./greenUp.png";
 import MyImage2 from "./redDown.png";
 import MyImage3 from "./dash.jpg";
+import { BsArrowUp } from 'react-icons/bs'
+import { BsArrowDown } from 'react-icons/bs'
+import { BsDash } from 'react-icons/bs'
+
 
 export function arrow(x) {
   if (x > 0) {
     return (
       <td>
-        <img src={MyImage} alt="up" width="20" height="30" />{" "}
+        <BsArrowUp fill='#1DFF00' size='25px' />
       </td>
     );
   } else if (x < 0) {
     return (
       <td>
-        <img src={MyImage2} alt="down" width="20" height="30" />{" "}
+        <BsArrowDown fill='#FF0004' size='25px'/>
       </td>
     );
   } else {
     return (
       <td>
-        <img src={MyImage3} alt="NaN" width="40" height="10" />{" "}
+        <BsDash fill='#00B2FF' size='25px' />
       </td>
     );
   }
