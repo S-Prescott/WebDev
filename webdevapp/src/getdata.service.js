@@ -25,11 +25,53 @@ export function getdata() {
 
 export async function hightrade(date) {
   try {
-  let res = await axios.post(
+    let res = await axios.post(
       url,
       {
         arguments: { dt: date, st: "00:00", et: "24:00" },
         function_name: ".qrestfunc.hightrade",
+      },
+      {
+        headers: {
+          accept,
+          authorization,
+        },
+      }
+    );
+    return res.data.result;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function hightraderdb(st, et) {
+  try {
+    let res = await axios.post(
+      url,
+      {
+        arguments: { st: st, et: et },
+        function_name: ".qrestfunc.hightraderdb",
+      },
+      {
+        headers: {
+          accept,
+          authorization,
+        },
+      }
+    );
+    return res.data.result;
+  } catch (error) {
+    console.error(error);
+  }
+}
+
+export async function hightradehdb(date, st, et) {
+  try {
+    let res = await axios.post(
+      url,
+      {
+        arguments: { dt: date, st: st, et: et },
+        function_name: ".qrestfunc.hightradehdb",
       },
       {
         headers: {
