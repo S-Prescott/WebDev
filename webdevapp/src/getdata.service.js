@@ -3,29 +3,15 @@ const url = "https://81.150.99.19:8032/executeFunction";
 const accept = "*/*";
 const authorization = "Basic dXNlcjpwYXNz";
 
-export function getdata() {
-  axios
-    .post(
-      url,
-      { arguments: { ed: "2022.08.08" }, function_name: ".qrestfunc.getdata3" },
-      {
-        headers: {
-          accept,
-          authorization,
-        },
-      }
-    )
-    .then((response) => {
-      return response;
-    })
-    .catch((error) => {
-      console.log(error);
-    });
-}
+let day = new Date();
+const today =
+  day.getFullYear() + "." + (day.getMonth() + 1) + "." + day.getDate();
+const yesterday =
+  day.getFullYear() + "." + (day.getMonth() + 1) + "." + (day.getDate() - 1);
 
 export async function hightrade(date) {
   try {
-  let res = await axios.post(
+    let res = await axios.post(
       url,
       {
         arguments: { dt: date, st: "00:00", et: "24:00" },
@@ -45,53 +31,73 @@ export async function hightrade(date) {
 }
 
 export async function getminmaxdata(date) {
-  try {
-    let res = await axios.post(
-      url,
-      {
-        arguments: { sd: date },
-        function_name: ".qrestfunc.getmaxeachsym",
-      },
-      {
-        headers: {
-          accept,
-          authorization,
+  if (date === today) {
+    try {
+      let res = await axios.post(
+        url,
+        {
+          arguments: {},
+          function_name: ".qrestfunc.minmax0",
         },
-      }
-    );
-    return res.data.result;
-  } catch (error) {
-    console.error(error);
+        {
+          headers: {
+            accept,
+            authorization,
+          },
+        }
+      );
+      return res.data.result;
+    } catch (error) {
+      console.error(error);
+    }
+  }
+  if (date === yesterday) {
+    try {
+      let res = await axios.post(
+        url,
+        {
+          arguments: {},
+          function_name: ".qrestfunc.minmax1",
+        },
+        {
+          headers: {
+            accept,
+            authorization,
+          },
+        }
+      );
+      return res.data.result;
+    } catch (error) {
+      console.error(error);
+    }
+  } else {
+    try {
+      let res = await axios.post(
+        url,
+        {
+          arguments: {},
+          function_name: ".qrestfunc.minmax2",
+        },
+        {
+          headers: {
+            accept,
+            authorization,
+          },
+        }
+      );
+      return res.data.result;
+    } catch (error) {
+      console.error(error);
+    }
   }
 }
 
-export async function rAvgTimeSeries(today) {
+export async function PriceChange() {
   try {
     let res = await axios.post(
       url,
       {
-        arguments: { dt: today },
-        function_name: ".qrestfunc.runningavg",
-      },
-      {
-        headers: {
-          accept,
-          authorization,
-        },
-      }
-    );
-    return res.data.result;
-  } catch (error) {
-    console.log(error);
-  }
-}
-
-export async function PriceChange(date) {
-  try {
-    let res = await axios.post(
-      url,
-      {
-        arguments: { sd: date },
+        arguments: {},
         function_name: ".qrestfunc.pricechange",
       },
       {
@@ -134,7 +140,7 @@ export async function currentPriceToday() {
       url,
       {
         arguments: {},
-        function_name: "currentprice0",
+        function_name: ".qrestfunc.currentprice0",
       },
       {
         headers: {
@@ -155,7 +161,7 @@ export async function currentPriceYesterday() {
       url,
       {
         arguments: {},
-        function_name: "currentprice1",
+        function_name: ".qrestfunc.currentprice1",
       },
       {
         headers: {
@@ -176,7 +182,7 @@ export async function currentPriceTwoDaysAgo() {
       url,
       {
         arguments: {},
-        function_name: "currentprice2",
+        function_name: ".qrestfunc.currentprice2",
       },
       {
         headers: {
@@ -197,7 +203,7 @@ export async function movingAverageToday() {
       url,
       {
         arguments: {},
-        function_name: "runningavg0",
+        function_name: ".qrestfunc.runningavg0",
       },
       {
         headers: {
@@ -218,7 +224,7 @@ export async function movingAverageYesterday() {
       url,
       {
         arguments: {},
-        function_name: "runningavg1",
+        function_name: ".qrestfunc.runningavg1",
       },
       {
         headers: {
@@ -239,7 +245,7 @@ export async function movingAverageTwoDaysAgo() {
       url,
       {
         arguments: {},
-        function_name: "runningavg2",
+        function_name: ".qrestfunc.runningavg2",
       },
       {
         headers: {
