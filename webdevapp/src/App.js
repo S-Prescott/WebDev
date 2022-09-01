@@ -175,7 +175,7 @@ function App() {
               // style={{ display: "none" }}
             >
               Volatility per Instrument {today}
-              <Volatility />
+              {/* <Volatility /> */}
             </div>
             <div
               id="MovingAvgGToday"
@@ -183,7 +183,7 @@ function App() {
               style={{ display: "none" }}
             >
               Moving Average per Instrument {today}
-              <MovingAverageToday />
+              {/* <MovingAverageToday /> */}
             </div>
             <div
               id="MovingAvgGYesterday"
@@ -191,7 +191,7 @@ function App() {
               style={{ display: "none" }}
             >
               Moving Average per Instrument {yesterday}
-              <MovingAverageYesterday />
+              {/* <MovingAverageYesterday /> */}
             </div>
             <div
               id="MovingAvgGTwoDaysAgo"
@@ -199,7 +199,7 @@ function App() {
               style={{ display: "none" }}
             >
               Moving Average per Instrument {twoDaysAgo}
-              <MovingAverageTwoDaysAgo />
+              {/* <MovingAverageTwoDaysAgo /> */}
             </div>
             <div
               id="CurrentPriceToday"
@@ -207,7 +207,7 @@ function App() {
               style={{ display: "none" }}
             >
               Current Price per Instrument {today}
-              <CurrentPriceToday />
+              {/* <CurrentPriceToday /> */}
             </div>
             <div
               id="CurrentPriceYesterday"
@@ -215,7 +215,7 @@ function App() {
               style={{ display: "none" }}
             >
               Current Price per Instrument {yesterday}
-              <CurrentPriceYesterday />
+              {/* <CurrentPriceYesterday /> */}
             </div>
             <div
               id="CurrentPriceTwoDaysAgo"
@@ -223,7 +223,7 @@ function App() {
               style={{ display: "none" }}
             >
               Current Price per Instrument {twoDaysAgo}
-              <CurrentPriceTwoDaysAgo />
+              {/* <CurrentPriceTwoDaysAgo /> */}
             </div>
             <div id="ValueCache" class="col-4 border">
               Current Price Fluxtuation per Instrument
@@ -233,7 +233,7 @@ function App() {
           <div class="row" style={{ marginTop: "20px" }}>
             <div class="col-md-8 border" id="min-max">
               Minimum and Maximum Price per Instrument
-              <Minmax />
+              {/* <Minmax /> */}
             </div>
         
         <div id="mostTradedSym" class="col-4 border" style={{ display: "block" }}>
