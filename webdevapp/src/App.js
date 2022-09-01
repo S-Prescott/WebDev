@@ -174,7 +174,7 @@ function App() {
               // style={{ display: "none" }}
             >
               Volatility for {today}
-              <Volatility />
+              {/* <Volatility /> */}
             </div>
             <div
               id="MovingAvgGToday"
@@ -182,7 +182,7 @@ function App() {
               style={{ display: "none" }}
             >
               Moving Average for {today}
-              <MovingAverageToday />
+              {/* <MovingAverageToday /> */}
             </div>
             <div
               id="MovingAvgGYesterday"
@@ -206,7 +206,7 @@ function App() {
               style={{ display: "none" }}
             >
               Current Price for {today}
-              <CurrentPriceToday />
+              {/* <CurrentPriceToday /> */}
             </div>
             <div
               id="CurrentPriceYesterday"
@@ -243,7 +243,7 @@ function App() {
           <div class="row" style={{ marginTop: "20px" }}>
             <div class="col-md-8 border" id="min-max">
               Price Range By Date
-              <Minmax />
+              {/* <Minmax /> */}
             </div>
         
         <div id="mostTradedSym" class="col-4 border" style={{ display: "block" }}>
