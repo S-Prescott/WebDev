@@ -113,13 +113,13 @@ export async function PriceChange() {
   }
 }
 
-export async function volatility(today) {
+export async function volatility(date) {
   try {
     let res = await axios.post(
       url,
       {
-        arguments: { dt: today },
-        function_name: ".qrestfunc.volatilitybyday",
+        arguments: { st:"00:00", et:"12:00" },
+        function_name: ".qrestfunc.volatilityrdb",
       },
       {
         headers: {
