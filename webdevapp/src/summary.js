@@ -19,19 +19,20 @@ export const Summary = () => {
   const [startTime, setStartTime] = React.useState("15:00");
   const [endTime, setEndTime] = React.useState("17:00");
   const [data, getData] = React.useState([]);
-  const syms = [
-    "APPL",
-    "AIG",
-    "AMD",
-    "DELL",
-    "DOW",
-    "GOOG",
-    "HPQ",
-    "IBM",
-    "INTC",
-    "MSFT",
-  ];
+
   React.useEffect(() => {
+    const syms = [
+      "APPL",
+      "AIG",
+      "AMD",
+      "DELL",
+      "DOW",
+      "GOOG",
+      "HPQ",
+      "IBM",
+      "INTC",
+      "MSFT",
+    ];
     if (startDate === today) {
       hightraderdb(startTime, endTime).then((response) => {
         let arr = [];
@@ -68,16 +69,7 @@ export const Summary = () => {
         getData({ volume: max, sym: sym });
       });
     }
-  }, [
-    endDate,
-    endTime,
-    startDate,
-    startTime,
-    syms,
-    today,
-    twodaysago,
-    yesterday,
-  ]);
+  }, [endDate, endTime, startDate, startTime, today, yesterday]);
 
   return (
     <main>

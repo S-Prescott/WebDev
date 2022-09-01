@@ -249,7 +249,7 @@ function App() {
         <div id="mostTradedSym" class="col-4 border" style={{ display: "block" }}>
 
           Highest Traded Instrument
-          {/* <Summary /> */}
+          <Summary />
           </div>
           </div>
           <script
