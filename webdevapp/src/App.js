@@ -1,13 +1,10 @@
 import logo from "./aq-torq.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
-import * as React from "react";
-
+import React, { useState } from 'react';
 import "@progress/kendo-theme-material/dist/all.css";
 import { Minmax } from "./Minmax.js";
-import { ChartContainer } from "./movingaverage.js";
 import { Lastvalue } from "./Pricechange.js";
-import { MovingAverage } from "./Newchart";
 import { Volatility } from "./Volatility.js";
 import { CurrentPriceToday } from "./CurrentPrice/CurrentPriceToday.js";
 import { CurrentPriceYesterday } from "./CurrentPrice/CurrentPriceYesterday.js";
@@ -25,6 +22,7 @@ import {
   toggleCurrentPriceTwoDaysAgo,
 } from "./navigation.service";
 import { Summary } from "./summary.js";
+import { AiOutlineInfoCircle } from 'react-icons/ai'
 function App() {
   let day = new Date();
   const today =
@@ -33,6 +31,7 @@ function App() {
     day.getFullYear() + "." + (day.getMonth() + 1) + "." + (day.getDate() - 1);
   const twoDaysAgo =
     day.getFullYear() + "." + (day.getMonth() + 1) + "." + (day.getDate() - 2);
+  const [isShown, setIsShown] = useState(false);
   return (
     <div className="App">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -162,7 +161,7 @@ function App() {
           </li> */}
         </ul>
         <div class="title">
-          <h1>AquaQ TorQ Dashboard</h1>
+          <h1>ATLANTIC MARKETS</h1>
         </div>
       </nav>
 
@@ -174,7 +173,7 @@ function App() {
               className="col-md-8 border"
               // style={{ display: "none" }}
             >
-              Volatility per Instrument {today}
+              Volatility for {today}
               {/* <Volatility /> */}
             </div>
             <div
@@ -182,7 +181,7 @@ function App() {
               className="col-md-8 border"
               style={{ display: "none" }}
             >
-              Moving Average per Instrument {today}
+              Moving Average for {today}
               {/* <MovingAverageToday /> */}
             </div>
             <div
@@ -190,7 +189,7 @@ function App() {
               className="col-md-8 border"
               style={{ display: "none" }}
             >
-              Moving Average per Instrument {yesterday}
+              Moving Average for {yesterday}
               {/* <MovingAverageYesterday /> */}
             </div>
             <div
@@ -198,7 +197,7 @@ function App() {
               className="col-md-8 border"
               style={{ display: "none" }}
             >
-              Moving Average per Instrument {twoDaysAgo}
+              Moving Average for {twoDaysAgo}
               {/* <MovingAverageTwoDaysAgo /> */}
             </div>
             <div
@@ -206,7 +205,7 @@ function App() {
               className="col-md-8 border"
               style={{ display: "none" }}
             >
-              Current Price per Instrument {today}
+              Current Price for {today}
               {/* <CurrentPriceToday /> */}
             </div>
             <div
@@ -214,7 +213,7 @@ function App() {
               className="col-md-8 border"
               style={{ display: "none" }}
             >
-              Current Price per Instrument {yesterday}
+              Current Price for {yesterday}
               {/* <CurrentPriceYesterday /> */}
             </div>
             <div
@@ -222,24 +221,35 @@ function App() {
               className="col-md-8 border"
               style={{ display: "none" }}
             >
-              Current Price per Instrument {twoDaysAgo}
+              Current Price for {twoDaysAgo} 
               {/* <CurrentPriceTwoDaysAgo /> */}
             </div>
             <div id="ValueCache" class="col-4 border">
-              Current Price Fluxtuation per Instrument
+              Latest Price Movement
+              <button 
+                style={{border: 'none', backgroundColor:"#14934b"}}
+                onMouseEnter={() => setIsShown(true)}
+                onMouseLeave={() => setIsShown(false)}>
+                <AiOutlineInfoCircle />
+              </button>
+              {isShown && (
+                <div style={{position:"fixed", background:" #cbccd4", border:'3px solid black'}}>
+                  Info relating to the dynamic latest price movement table. 
+                </div>
+              )}
               <Lastvalue />
             </div>
           </div>
           <div class="row" style={{ marginTop: "20px" }}>
             <div class="col-md-8 border" id="min-max">
-              Minimum and Maximum Price per Instrument
+              Price Range By Date
               {/* <Minmax /> */}
             </div>
         
         <div id="mostTradedSym" class="col-4 border" style={{ display: "block" }}>
 
           Highest Traded Instrument
-          <Summary />
+          {/* <Summary /> */}
           </div>
           </div>
           <script
@@ -258,7 +268,6 @@ function App() {
             crossorigin="anonymous"
           ></script>
         </div>
-
       </body>
       <footer></footer>
     </div>

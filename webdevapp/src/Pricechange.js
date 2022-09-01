@@ -53,18 +53,18 @@ export const Lastvalue = () => {
       <table class="table table-bordered table-dark">
         <tbody>
           <tr>
-            <th style={{ textAlign: "center" }}> Sym</th>
-            <th style={{ textAlign: "center" }}> Price</th>
-            <th style={{ textAlign: "center" }}> Change</th>
+            <th style={{ textAlign: "center" }}> Instrument</th>
+            <th style={{ textAlign: "center" }}> Price ($)</th>
+            <th style={{ textAlign: "center" }}> Change ($)</th>
             <th style={{ textAlign: "center" }}> Indicator</th>
           </tr>
           {data.map((item) => (
             <tr id="tabledata">
               <td style={{ textAlign: "center" }}>{item.sym}</td>
               <td style={{ textAlign: "right" }}>
-                ${item.latestPrice.toFixed(2)}
+                {item.latestPrice.toFixed(2)}
               </td>
-              <td style={{ textAlign: "right" }}>${item.Change.toFixed(2)}</td>
+              <td style={{ textAlign: "right" }}>{item.Change.toFixed(2)}</td>
               <center>
                 <td class="center">{arrow(item.Change.toFixed(2))}</td>
               </center>
