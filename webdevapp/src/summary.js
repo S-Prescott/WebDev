@@ -6,11 +6,11 @@ import { Minmax } from "./Minmax.js";
 export const Summary = () => {
   let day = new Date();
   const today =
-    day.getFullYear() + "." + (day.getMonth() + 1) + "." + day.getDate();
+    ("0" + (day.getDate())).slice(-2).toString() + "." + ("0" + (day.getMonth() + 1)).slice(-2).toString() + "." + day.getFullYear();
   const yesterday =
-    day.getFullYear() + "." + (day.getMonth() + 1) + "." + (day.getDate() - 1);
+    ("0" + (day.getDate() - 1)).slice(-2).toString() + "." + ("0" + (day.getMonth() + 1)).slice(-2).toString() + "." + day.getFullYear();
   const twodaysago =
-    day.getFullYear() + "." + (day.getMonth() + 1) + "." + (day.getDate() - 2);
+    ("0" + (day.getDate() - 2)).slice(-2).toString() + "." + ("0" + (day.getMonth() + 1)).slice(-2).toString() + "." + day.getFullYear();
   const hour = day.getHours();
 
   const [date, setdate] = React.useState(today);
@@ -139,7 +139,7 @@ export const Summary = () => {
           <div class="sum-card-footer border">
             Volume:
             <br />
-            {data.volume}
+            {data.volume.toLocaleString(navigator.language, {minimumFractionDigits: 0})}
           </div>
         </div>
         {/* ))} */}
