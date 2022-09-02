@@ -6,11 +6,29 @@ import { Minmax } from "./Minmax.js";
 export const Summary = () => {
   let day = new Date();
   const today =
-    ("0" + (day.getDate())).slice(-2).toString() + "." + ("0" + (day.getMonth() + 1)).slice(-2).toString() + "." + day.getFullYear();
+    day.getFullYear() + "." + (day.getMonth() + 1) + "." + day.getDate();
   const yesterday =
-    ("0" + (day.getDate() - 1)).slice(-2).toString() + "." + ("0" + (day.getMonth() + 1)).slice(-2).toString() + "." + day.getFullYear();
+    day.getFullYear() + "." + (day.getMonth() + 1) + "." + (day.getDate() - 1);
   const twodaysago =
-    ("0" + (day.getDate() - 2)).slice(-2).toString() + "." + ("0" + (day.getMonth() + 1)).slice(-2).toString() + "." + day.getFullYear();
+    day.getFullYear() + "." + (day.getMonth() + 1) + "." + (day.getDate() - 2);
+  const today1 =
+    ("0" + day.getDate()).slice(-2).toString() +
+    "." +
+    ("0" + (day.getMonth() + 1)).slice(-2).toString() +
+    "." +
+    day.getFullYear();
+  const yesterday1 =
+    ("0" + (day.getDate() - 1)).slice(-2).toString() +
+    "." +
+    ("0" + (day.getMonth() + 1)).slice(-2).toString() +
+    "." +
+    day.getFullYear();
+  const twodaysago1 =
+    ("0" + (day.getDate() - 2)).slice(-2).toString() +
+    "." +
+    ("0" + (day.getMonth() + 1)).slice(-2).toString() +
+    "." +
+    day.getFullYear();
   const hour = day.getHours();
 
   const [date, setdate] = React.useState(today);
@@ -65,78 +83,81 @@ export const Summary = () => {
         for (let i in response) {
           arr1.push(response[i].volume);
         }
-        hightraderdb("00:00", endTime).then((response) => {
-          for (let i in response) {
-            arr2.push(response[i].volume);
-          }
-        });
-        let sum = arr1.map(function (num, idx) {
-          return num + arr2[idx];
-        });
+      });
+      hightraderdb("00:00:00", endTime).then((response) => {
+        for (let i in response) {
+          arr2.push(response[i].volume);
+        }
+      });
+      let sum = [];
+      setTimeout(() => {
+        for (let i in arr1) {
+          sum.push(arr1[i] + arr2[i]);
+        }
         console.log(sum);
         let max = Math.max(...sum);
         let index = sum.indexOf(max);
         let sym = syms[index];
         getData({ volume: max, sym: sym });
-      });
+      }, 500);
     }
   }, [endDate, endTime, startDate, startTime, today, yesterday]);
 
   return (
     <main>
-      <div class="row"style={{marginTop:"20px"}}>
+      <div class="row" style={{ marginTop: "20px" }}>
         <div class="col-sm-6">
-          <p style={{fontSize:"20px"}}>Start Date/Time</p>
-      <select
-        className="form-select"
-        value={startDate}
-        onChange={(event) => {
-          setStartDate(event.target.value);
-        }}
-      >
-        <option value={today}>{today}</option>
-        <option value={yesterday}>{yesterday}</option>
-        <option value={twodaysago}>{twodaysago}</option>
-      </select>
-      
-      <input
-        type="time"
-        step="1"
-        value={startTime}
-        className="form-control"
-        placeholder="Time"
-        onChange={(event) => {
-          setStartTime(event.target.value);
-        }}
-      style={{textAlign:"center"}}/>
-      
-      </div>
-      <div class="col-sm-6">
-      <p style={{fontSize:"20px"}}>End Date/Time</p>
-      <select
-        className="form-select"
-        value={endDate}
-        onChange={(event) => {
-          setEndDate(event.target.value);
-        }}
-      >
-        <option value={today}>{today}</option>
-        <option value={yesterday}>{yesterday}</option>
-        <option value={twodaysago}>{twodaysago}</option>
-      </select>
-      
+          <p style={{ fontSize: "20px" }}>Start Date/Time</p>
+          <select
+            className="form-select"
+            value={startDate}
+            onChange={(event) => {
+              setStartDate(event.target.value);
+            }}
+          >
+            <option value={today}>{today}</option>
+            <option value={yesterday}>{yesterday}</option>
+            <option value={twodaysago}>{twodaysago}</option>
+          </select>
 
-      <input
-        type="time"
-        step="1"
-        value={endTime}
-        className="form-control"
-        placeholder="Time"
-        onChange={(event) => {
-          setEndTime(event.target.value);
-        }}
-        style={{textAlign:"center"}}/>
-      </div>
+          <input
+            type="time"
+            step="1"
+            value={startTime}
+            className="form-control"
+            placeholder="Time"
+            onChange={(event) => {
+              setStartTime(event.target.value);
+            }}
+            style={{ textAlign: "center" }}
+          />
+        </div>
+        <div class="col-sm-6">
+          <p style={{ fontSize: "20px" }}>End Date/Time</p>
+          <select
+            className="form-select"
+            value={endDate}
+            onChange={(event) => {
+              setEndDate(event.target.value);
+            }}
+          >
+            <option value={today}>{today}</option>
+            <option value={yesterday}>{yesterday}</option>
+            <option value={twodaysago}>{twodaysago}</option>
+          </select>
+
+          <input
+            type="time"
+            step="1"
+            value={endTime}
+            className="form-control"
+            placeholder="Time"
+            onChange={(event) => {
+              setEndTime(event.target.value);
+            }}
+            style={{ textAlign: "center" }}
+          />
+        </div>
       </div>
       {/* <div className="summary-container" id="summaryCard"> */}
         {/* {data.map((item) => ( */}
@@ -149,7 +170,7 @@ export const Summary = () => {
             Volume:  {data.volume.toLocaleString(navigator.language, {minimumFractionDigits: 0})}
           </div>
         </div>
-        {/* ))} */}
+      {/* ))} */}
       {/* </div> */}
     </main>
   );
