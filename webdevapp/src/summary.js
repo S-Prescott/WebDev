@@ -160,16 +160,17 @@ export const Summary = () => {
         </div>
       </div>
       {/* <div className="summary-container" id="summaryCard"> */}
-        {/* {data.map((item) => ( */}
-        <div className="card" id="sum-card">
-          <div className="sum card-title">Most Traded Sym</div>
-          <div class="sum-card-footer border">
-            Instrument: {data.sym}
-          </div>
-          <div class="sum-card-footer border">
-            Volume:  {data.volume.toLocaleString(navigator.language, {minimumFractionDigits: 0})}
-          </div>
+      {/* {data.map((item) => ( */}
+      <div className="card" id="sum-card">
+        <div className="sum card-title">Most Traded Sym</div>
+        <div class="sum-card-footer border">Instrument: {data.sym}</div>
+        <div class="sum-card-footer border">
+          Volume:{" "}
+          {data.volume.toLocaleString(navigator.language, {
+            minimumFractionDigits: 0,
+          })}
         </div>
+      </div>
       {/* ))} */}
       {/* </div> */}
     </main>
