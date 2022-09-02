@@ -62,11 +62,11 @@ export const Lastvalue = () => {
             <tr id="tabledata">
               <td style={{ textAlign: "center" }}>{item.sym}</td>
               <td style={{ textAlign: "right" }}>
-                {item.latestPrice.toFixed(2)}
+                {item.latestPrice.toFixed(2).toLocaleString(navigator.language, {minimumFractionDigits: 0})}
               </td>
-              <td style={{ textAlign: "right" }}>{item.Change.toFixed(2)}</td>
+              <td style={{ textAlign: "right" }}>{item.Change.toFixed(2).toLocaleString(navigator.language, {minimumFractionDigits: 0})}</td>
               <center>
-                <td class="center">{arrow(item.Change.toFixed(2))}</td>
+                <td class="center">{arrow(item.Change.toFixed(2).toLocaleString(navigator.language, {minimumFractionDigits: 0}))}</td>
               </center>
             </tr>
           ))}
