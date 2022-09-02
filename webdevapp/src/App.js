@@ -26,11 +26,11 @@ import { AiOutlineInfoCircle } from 'react-icons/ai'
 function App() {
   let day = new Date();
   const today =
-    day.getFullYear() + "." + (day.getMonth() + 1) + "." + day.getDate();
+    ("0" + (day.getDate())).slice(-2).toString() + "." + ("0" + (day.getMonth() + 1)).slice(-2).toString() + "." + day.getFullYear();
   const yesterday =
-    day.getFullYear() + "." + (day.getMonth() + 1) + "." + (day.getDate() - 1);
+    ("0" + (day.getDate() - 1)).slice(-2).toString() + "." + ("0" + (day.getMonth() + 1)).slice(-2).toString() + "." + day.getFullYear();
   const twoDaysAgo =
-    day.getFullYear() + "." + (day.getMonth() + 1) + "." + (day.getDate() - 2);
+    ("0" + (day.getDate() - 2)).slice(-2).toString() + "." + ("0" + (day.getMonth() + 1)).slice(-2).toString() + "." + day.getFullYear();
   const [isShown, setIsShown] = useState(false);
   return (
     <div className="App">
