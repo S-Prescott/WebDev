@@ -2,12 +2,9 @@ import logo from "./aq-torq.png";
 import "bootstrap/dist/css/bootstrap.min.css";
 import "./App.css";
 import React, { useState } from 'react';
-
 import "@progress/kendo-theme-material/dist/all.css";
 import { Minmax } from "./Minmax.js";
-import { ChartContainer } from "./movingaverage.js";
 import { Lastvalue } from "./Pricechange.js";
-import { MovingAverage } from "./Newchart";
 import { Volatility } from "./Volatility.js";
 import { CurrentPriceToday } from "./CurrentPrice/CurrentPriceToday.js";
 import { CurrentPriceYesterday } from "./CurrentPrice/CurrentPriceYesterday.js";
@@ -201,7 +198,7 @@ function App() {
               style={{ display: "none" }}
             >
               Moving Average for {twoDaysAgo}
-              <MovingAverageTwoDaysAgo />
+              {/* <MovingAverageTwoDaysAgo /> */}
             </div>
             <div
               id="CurrentPriceToday"
@@ -225,7 +222,7 @@ function App() {
               style={{ display: "none" }}
             >
               Current Price for {twoDaysAgo} 
-              <CurrentPriceTwoDaysAgo />
+              {/* <CurrentPriceTwoDaysAgo /> */}
             </div>
             <div id="ValueCache" class="col-4 border">
               Latest Price Movement
