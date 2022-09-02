@@ -11,6 +11,13 @@
   border: 1px solid black;
 } */
 
+.col-md-8{
+  background-color: #ffffff;
+  border-color: #14934b !important;
+  border-width: 3px !important;
+  
+}
+
 div#MovingAvgG.col-md-8{
   /* background-color: #ddd !important; */
   border-color: #14934b !important;
@@ -18,14 +25,27 @@ div#MovingAvgG.col-md-8{
 }
 div#VolatilityG.col-md-8{
   /* background-color: #ddd !important; */
+  background-color: white!important;
   border-color: #14934b !important;
   border-width: 3px !important;
+}
+
+div#min-max.col-md-8{
+  padding-top: 10px;
+  border-left: 3px solid #14934b;
+  border-bottom: 3px solid #14934b;
+  border-right: 3px solid #14934b;
 }
 
 
 
 .card{
   width: 3.5cm !important;
+  background-color: #14934b !important;
+  text-align: center;
+  width: 200px;
+  /* border-radius: 10px; */
+  box-shadow: rgba(255, 191, 1, 0.2) 0px 0px 0px 0px;
 
 }
 
@@ -68,7 +88,7 @@ div#VolatilityG.col-md-8{
 
 .App-body {
   padding: 5vh;
-  background-color: #ffffffff;
+  background-color: rgb(255, 255, 255);
   min-height: 150vh;
   /* display: flex; */
   flex-direction: column;
@@ -78,13 +98,15 @@ div#VolatilityG.col-md-8{
   color: black;
 }
 
-div#ValueCache.col-4.border{
-  background-color: #14934b !important;
-  margin-right:  auto;
-  
- 
-
+div#ValueCache.col-4{
+  background-color: #cbccd4 !important;
+  margin-left:  0px;
+  /* padding-left: 50px; */
+  border-top: 3px solid #14934b;
+  border-right: 3px solid #14934b;
+  border-bottom: 3px solid #14934b;
 }
+
 
 .App-logo {
   float: left;
@@ -93,11 +115,7 @@ div#ValueCache.col-4.border{
 }
 /* Min max styling */
 
-.col-md-8{
-  background-color: #cbccd4 !important;
-  border-color: #14934b !important;
-  border-width: 3px !important;
-}
+
 div#min-max.col-md-8{
   background-color: #cbccd4 !important;
   border-color: #14934b !important;
@@ -113,13 +131,7 @@ div#min-max.col-md-8{
   margin-left: auto;
   margin-right: auto;
 }
-.card {
-  background-color: #14934b !important;
-  text-align: center;
-  width: 200px;
-  /* border-radius: 10px; */
-  box-shadow: rgba(255, 191, 1, 0.2) 0px 0px 0px 0px;
-}
+
 .card-footer{
   font-size: 2rem;
   background-color: #f1f1f1;
@@ -145,7 +157,7 @@ div#min-max.col-md-8{
 }
 .dropbtn {
   background-color: #cbccd4;
-  color: #787878;
+  color: #565555;
   padding: 16px;
   font-size: 24px;
   border: none;
@@ -223,35 +235,22 @@ div#mostTradedSym.col-4{
   background-color: #cbccd4 !important;
   border-color: #14934b !important;
   border-width: 3px !important;
+  padding-top: 10px;
+  /* padding-left: 50px; */
+  border-right: 5px solid #14934b;
+  border-bottom: 5px solid #14934b;
     
 }
 
-
-.summary-container {
-  background-color: inherit;
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2em;
-  margin-top: 10px;
-  margin-bottom: 10px;
-  margin-left: 37%;
-  margin-right: 40%;
-}
-
-.sum-card {
-  background-color: rgb(255, 255, 255) !important;
-  text-align: center;
-  width: 200px;
-  border-radius: 10px;
-  box-shadow: rgba(255, 191, 1, 0.2) 0px 0px 0px 0px;
-}
-
 .sum-card-footer{
-  font-size: 15px !important;
-  background-color: #ddd;
+  font-size: 25px !important;
+  background-color: rgb(255, 255, 255);
 }
 
-.sum-card-title{
-  margin-bottom: var(--bs-card-title-spacer-y);
-
+div#sum-card{
+  width: 70% !important;
+  margin-top: 4%;
+  margin-left: 15%;
+  margin-right: 15%;
+  
 }

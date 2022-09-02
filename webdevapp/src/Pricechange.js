@@ -50,7 +50,7 @@ export const Lastvalue = () => {
 
   return (
     <center>
-      <table class="table table-bordered table-dark">
+      <table class="table table-bordered table-light">
         <tbody>
           <tr>
             <th style={{ textAlign: "center" }}> Instrument</th>

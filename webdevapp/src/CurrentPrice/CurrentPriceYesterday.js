@@ -87,6 +87,7 @@ export const CurrentPriceYesterday = () => {
         show: false,
       },
     },
+    colors: ['#E60101', '#66DA26', '#546E7A', '#E91E63', '#FF9800', '#2E9300', '#00DA26', '#54007A', '#EE1E63', '#FF2800'],
     stroke: {
       width: 3,
       curve: "smooth",
