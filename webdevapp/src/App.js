@@ -56,7 +56,9 @@ function App() {
 
           <li>
             <div class="dropdown">
-              <button class="dropbtn">Graph Options</button>
+              <button class="dropbtn dropdown-toggle">Graph Options 
+              <span class="caret"></span>
+              </button>
               {/* The onclick data of each of these need to be updated to represent the different days of data which need to be shown */}
               <div class="dropdown-content">
                 <div class="dropright ">
@@ -224,10 +226,10 @@ function App() {
               Current Price for {twoDaysAgo} 
               {/* <CurrentPriceTwoDaysAgo /> */}
             </div>
-            <div id="ValueCache" class="col-4 border">
+            <div id="ValueCache" class="col-4">
               Latest Price Movement
               <button 
-                style={{border: 'none', backgroundColor:"#14934b"}}
+                style={{border: 'none', backgroundColor:"inherit"}}
                 onMouseEnter={() => setIsShown(true)}
                 onMouseLeave={() => setIsShown(false)}>
                 <AiOutlineInfoCircle />
@@ -240,13 +242,13 @@ function App() {
               <Lastvalue />
             </div>
           </div>
-          <div class="row" style={{ marginTop: "20px" }}>
-            <div class="col-md-8 border" id="min-max">
+          <div class="row" style={{ marginTop: "0px" }}>
+            <div class="col-md-8" id="min-max">
               Price Range By Date
               <Minmax />
             </div>
         
-        <div id="mostTradedSym" class="col-4 border" style={{ display: "block" }}>
+        <div id="mostTradedSym" class="col-4" style={{ display: "block" }}>
 
           Highest Traded Instrument
           <Summary />

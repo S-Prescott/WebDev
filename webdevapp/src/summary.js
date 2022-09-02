@@ -84,6 +84,9 @@ export const Summary = () => {
 
   return (
     <main>
+      <div class="row"style={{marginTop:"20px"}}>
+        <div class="col-sm-6">
+          <p style={{fontSize:"20px"}}>Start Date/Time</p>
       <select
         className="form-select"
         value={startDate}
@@ -95,6 +98,7 @@ export const Summary = () => {
         <option value={yesterday}>{yesterday}</option>
         <option value={twodaysago}>{twodaysago}</option>
       </select>
+      
       <input
         type="time"
         step="1"
@@ -104,7 +108,11 @@ export const Summary = () => {
         onChange={(event) => {
           setStartTime(event.target.value);
         }}
-      />
+      style={{textAlign:"center"}}/>
+      
+      </div>
+      <div class="col-sm-6">
+      <p style={{fontSize:"20px"}}>End Date/Time</p>
       <select
         className="form-select"
         value={endDate}
@@ -116,6 +124,7 @@ export const Summary = () => {
         <option value={yesterday}>{yesterday}</option>
         <option value={twodaysago}>{twodaysago}</option>
       </select>
+      
 
       <input
         type="time"
@@ -126,11 +135,13 @@ export const Summary = () => {
         onChange={(event) => {
           setEndTime(event.target.value);
         }}
-      />
-      <div className="summary-container">
+        style={{textAlign:"center"}}/>
+      </div>
+      </div>
+      {/* <div className="summary-container" id="summaryCard"> */}
         {/* {data.map((item) => ( */}
-        <div className="card">
-          <div className="sum-card-title">Most Traded Sym</div>
+        <div className="card" id="sum-card">
+          <div className="sum card-title">Most Traded Sym</div>
           <div class="sum-card-footer border">
             Sym:
             <br />
@@ -143,7 +154,7 @@ export const Summary = () => {
           </div>
         </div>
         {/* ))} */}
-      </div>
+      {/* </div> */}
     </main>
   );
 };
