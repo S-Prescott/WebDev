@@ -16,8 +16,8 @@ export const Summary = () => {
   const [date, setdate] = React.useState(today);
   const [startDate, setStartDate] = React.useState(today);
   const [endDate, setEndDate] = React.useState(today);
-  const [startTime, setStartTime] = React.useState("15:00");
-  const [endTime, setEndTime] = React.useState("17:00");
+  const [startTime, setStartTime] = React.useState("00:00");
+  const [endTime, setEndTime] = React.useState("23:59");
   const [data, getData] = React.useState([]);
 
   React.useEffect(() => {
@@ -35,6 +35,17 @@ export const Summary = () => {
     ];
     if (startDate === today) {
       hightraderdb(startTime, endTime).then((response) => {
+        let arr = [];
+        for (let i in response) {
+          arr.push(response[i].volume);
+        }
+        let max = Math.max(...arr);
+        let index = arr.indexOf(max);
+        getData(response[index]);
+      });
+    }
+    if (startDate === yesterday && endDate === yesterday) {
+      hightradehdb(yesterday, startTime, endTime).then((response) => {
         let arr = [];
         for (let i in response) {
           arr.push(response[i].volume);
