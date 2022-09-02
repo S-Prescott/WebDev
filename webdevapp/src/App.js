@@ -271,7 +271,9 @@ function App() {
           ></script>
         </div>
       </body>
-      <footer></footer>
+      <footer>
+        server connection:
+      </footer>
     </div>
   );
 }
