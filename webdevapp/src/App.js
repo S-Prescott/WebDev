@@ -236,7 +236,7 @@ function App() {
               </button>
               {isShown && (
                 <div style={{position:"fixed", background:" #cbccd4", border:'3px solid black'}}>
-                  Info relating to the dynamic latest price movement table. 
+                  Dynamic table showing latest price, change in price, and a visual indicator showing direction of price movement. 
                 </div>
               )}
               <Lastvalue />
@@ -245,12 +245,34 @@ function App() {
           <div class="row" style={{ marginTop: "0px" }}>
             <div class="col-md-8" id="min-max">
               Price Range By Date
+              <button 
+                style={{border: 'none', backgroundColor:"inherit"}}
+                onMouseEnter={() => setIsShown(true)}
+                onMouseLeave={() => setIsShown(false)}>
+                <AiOutlineInfoCircle />
+              </button>
+              {isShown && (
+                <div style={{position:"fixed", background:" #cbccd4", border:'3px solid black'}}>
+                  Info relating to the dynamic latest price movement table. 
+                </div>
+              )}
               <Minmax />
             </div>
         
         <div id="mostTradedSym" class="col-4" style={{ display: "block" }}>
 
           Highest Traded Instrument
+          <button 
+                style={{border: 'none', backgroundColor:"inherit"}}
+                onMouseEnter={() => setIsShown(true)}
+                onMouseLeave={() => setIsShown(false)}>
+                <AiOutlineInfoCircle />
+              </button>
+              {isShown && (
+                <div style={{position:"fixed", background:" #cbccd4", border:'3px solid black'}}>
+                  Info relating to the dynami. 
+                </div>
+              )}
           <Summary />
           </div>
           </div>

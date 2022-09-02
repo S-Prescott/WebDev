@@ -143,14 +143,10 @@ export const Summary = () => {
         <div className="card" id="sum-card">
           <div className="sum card-title">Most Traded Sym</div>
           <div class="sum-card-footer border">
-            Sym:
-            <br />
-            {data.sym}
+            Instrument: {data.sym}
           </div>
           <div class="sum-card-footer border">
-            Volume:
-            <br />
-            {data.volume.toLocaleString(navigator.language, {minimumFractionDigits: 0})}
+            Volume:  {data.volume.toLocaleString(navigator.language, {minimumFractionDigits: 0})}
           </div>
         </div>
         {/* ))} */}

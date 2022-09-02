@@ -40,7 +40,7 @@ div#min-max.col-md-8{
 
 
 .card{
-  width: 3.5cm !important;
+  width: 3.87cm !important;
   background-color: #14934b !important;
   text-align: center;
   width: 200px;
@@ -243,14 +243,14 @@ div#mostTradedSym.col-4{
 }
 
 .sum-card-footer{
-  font-size: 25px !important;
+  font-size: 20px !important;
   background-color: rgb(255, 255, 255);
 }
 
 div#sum-card{
-  width: 70% !important;
-  margin-top: 4%;
-  margin-left: 15%;
-  margin-right: 15%;
+  width: 80% !important;
+  margin-top: 15%;
+  margin-left: 10%;
+  margin-right: 10%;
   
 }

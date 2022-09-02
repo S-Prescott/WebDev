@@ -56,7 +56,7 @@ export const Lastvalue = () => {
             <th style={{ textAlign: "center" }}> Instrument</th>
             <th style={{ textAlign: "center" }}> Price ($)</th>
             <th style={{ textAlign: "center" }}> Change ($)</th>
-            <th style={{ textAlign: "center" }}> Indicator</th>
+            <th style={{ textAlign: "center" }}> </th>
           </tr>
           {data.map((item) => (
             <tr id="tabledata">

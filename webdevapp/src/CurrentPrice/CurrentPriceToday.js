@@ -106,12 +106,12 @@ export const CurrentPriceToday = () => {
       categories: categories,
       tickAmount: hour,
       title: {
-        text: "Time",
+        text: "",
       },
     },
     yaxis: {
       title: {
-        text: "Price",
+        text: "",
       },
       labels: {
         formatter: function (val) {
@@ -143,6 +143,7 @@ export const CurrentPriceToday = () => {
         },
       },
     },
+    colors: ['#e6194B', '#f58231', '#ffe119', '#bfef45', '#3cb44b', '#42d4f4', '#4363d8', '#911eb4', '#f032e6', '#000000'],
     legend: {
       show: false,
     },
