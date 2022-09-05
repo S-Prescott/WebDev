@@ -51,57 +51,132 @@ export const Summary = () => {
       "INTC",
       "MSFT",
     ];
-    if (startDate === today) {
-      hightraderdb(startTime, endTime).then((response) => {
-        let arr = [];
-        for (let i in response) {
-          arr.push(response[i].volume);
+    if (startDate === endDate) {
+      if (startTime >= endTime) {
+        console.log("error");
+      } else {
+        if (startDate === today) {
+          hightraderdb(startTime, endTime).then((response) => {
+            let arr = [];
+            for (let i in response) {
+              arr.push(response[i].volume);
+            }
+            let max = Math.max(...arr);
+            let index = arr.indexOf(max);
+            getData(response[index]);
+          });
         }
-        let max = Math.max(...arr);
-        let index = arr.indexOf(max);
-        getData(response[index]);
-      });
+        if (startDate === yesterday) {
+          hightradehdb(yesterday, startTime, endTime).then((response) => {
+            let arr = [];
+            for (let i in response) {
+              arr.push(response[i].volume);
+            }
+            let max = Math.max(...arr);
+            let index = arr.indexOf(max);
+            getData(response[index]);
+          });
+        }
+        if (startDate === twodaysago) {
+          hightradehdb(twodaysago, startTime, endTime).then((response) => {
+            let arr = [];
+            for (let i in response) {
+              arr.push(response[i].volume);
+            }
+            let max = Math.max(...arr);
+            let index = arr.indexOf(max);
+            getData(response[index]);
+          });
+        }
+      }
+    } else {
+      if (startDate > endDate) {
+        console.log("error");
+      } else {
+        if (startDate === yesterday && endDate === today) {
+          let arr1 = [];
+          let arr2 = [];
+          hightradehdb(yesterday, startTime, "23:59:59").then((response) => {
+            for (let i in response) {
+              arr1.push(response[i].volume);
+            }
+          });
+          hightraderdb("00:00:00", endTime).then((response) => {
+            for (let i in response) {
+              arr2.push(response[i].volume);
+            }
+          });
+          let sum = [];
+          setTimeout(() => {
+            for (let i in arr1) {
+              sum.push(arr1[i] + arr2[i]);
+            }
+            console.log(sum);
+            let max = Math.max(...sum);
+            let index = sum.indexOf(max);
+            let sym = syms[index];
+            getData({ volume: max, sym: sym });
+          }, 500);
+        }
+        if (startDate === twodaysago && endDate === yesterday) {
+          let arr1 = [];
+          let arr2 = [];
+          hightradehdb(twodaysago, startTime, "23:59:59").then((response) => {
+            for (let i in response) {
+              arr1.push(response[i].volume);
+            }
+          });
+          hightradehdb(yesterday, "00:00:00", endTime).then((response) => {
+            for (let i in response) {
+              arr2.push(response[i].volume);
+            }
+          });
+          let sum = [];
+          setTimeout(() => {
+            for (let i in arr1) {
+              sum.push(arr1[i] + arr2[i]);
+            }
+            console.log(sum);
+            let max = Math.max(...sum);
+            let index = sum.indexOf(max);
+            let sym = syms[index];
+            getData({ volume: max, sym: sym });
+          }, 500);
+        }
+        if (startDate === twodaysago && endDate === today) {
+          let arr1 = [];
+          let arr2 = [];
+          let arr3 = [];
+          hightradehdb(twodaysago, startTime, "23:59:59").then((response) => {
+            for (let i in response) {
+              arr1.push(response[i].volume);
+            }
+          });
+          hightradehdb(yesterday, "00:00:00", endTime).then((response) => {
+            for (let i in response) {
+              arr2.push(response[i].volume);
+            }
+          });
+          hightraderdb("00:00:00", endTime).then((response) => {
+            for (let i in response) {
+              arr3.push(response[i].volume);
+            }
+          });
+          let sum = [];
+          setTimeout(() => {
+            for (let i in arr1) {
+              sum.push(arr1[i] + arr2[i] + arr3[i]);
+            }
+            console.log(sum);
+            let max = Math.max(...sum);
+            let index = sum.indexOf(max);
+            let sym = syms[index];
+            getData({ volume: max, sym: sym });
+          }, 500);
+        }
+      }
     }
-    if (startDate === yesterday && endDate === yesterday) {
-      hightradehdb(yesterday, startTime, endTime).then((response) => {
-        let arr = [];
-        for (let i in response) {
-          arr.push(response[i].volume);
-        }
-        let max = Math.max(...arr);
-        let index = arr.indexOf(max);
-        getData(response[index]);
-      });
-    }
-    if (startDate > endDate) {
-      console.log("error");
-    }
-    if (startDate === yesterday && endDate === today) {
-      let arr1 = [];
-      let arr2 = [];
-      hightradehdb(yesterday, startTime, "23:59:59").then((response) => {
-        for (let i in response) {
-          arr1.push(response[i].volume);
-        }
-      });
-      hightraderdb("00:00:00", endTime).then((response) => {
-        for (let i in response) {
-          arr2.push(response[i].volume);
-        }
-      });
-      let sum = [];
-      setTimeout(() => {
-        for (let i in arr1) {
-          sum.push(arr1[i] + arr2[i]);
-        }
-        console.log(sum);
-        let max = Math.max(...sum);
-        let index = sum.indexOf(max);
-        let sym = syms[index];
-        getData({ volume: max, sym: sym });
-      }, 500);
-    }
-  }, [endDate, endTime, startDate, startTime, today, yesterday]);
+  }, [endDate, endTime, startDate, startTime, today, twodaysago, yesterday]);
 
   return (
     <main>
@@ -115,9 +190,9 @@ export const Summary = () => {
               setStartDate(event.target.value);
             }}
           >
-            <option value={today}>{today}</option>
-            <option value={yesterday}>{yesterday}</option>
-            <option value={twodaysago}>{twodaysago}</option>
+            <option value={today}>{today1}</option>
+            <option value={yesterday}>{yesterday1}</option>
+            <option value={twodaysago}>{twodaysago1}</option>
           </select>
 
           <input
@@ -141,9 +216,9 @@ export const Summary = () => {
               setEndDate(event.target.value);
             }}
           >
-            <option value={today}>{today}</option>
-            <option value={yesterday}>{yesterday}</option>
-            <option value={twodaysago}>{twodaysago}</option>
+            <option value={today}>{today1}</option>
+            <option value={yesterday}>{yesterday1}</option>
+            <option value={twodaysago}>{twodaysago1}</option>
           </select>
 
           <input
