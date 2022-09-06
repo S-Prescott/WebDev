@@ -79,7 +79,7 @@ export const MovingAverageToday = () => {
   ];
   const Options = {
     chart: {
-      id: "chart",
+      id: "movingToday",
       type: "line",
       height: 230,
       toolbar: {
@@ -132,7 +132,7 @@ export const MovingAverageToday = () => {
       height: 130,
       type: "area",
       brush: {
-        target: "chart",
+        target: "movingToday",
         enabled: true,
       },
       selection: {

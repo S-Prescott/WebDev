@@ -79,7 +79,7 @@ export const MovingAverageTwoDaysAgo = () => {
   ];
   const Options = {
     chart: {
-      id: "chart",
+      id: "movingTwoDaysAgo",
       type: "line",
       height: 230,
       toolbar: {
@@ -132,7 +132,7 @@ export const MovingAverageTwoDaysAgo = () => {
       height: 130,
       type: "area",
       brush: {
-        target: "chart",
+        target: "movingTwoDaysAgo",
         enabled: true,
       },
       selection: {

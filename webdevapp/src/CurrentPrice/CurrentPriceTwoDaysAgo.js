@@ -79,7 +79,7 @@ export const CurrentPriceTwoDaysAgo = () => {
   ];
   const Options = {
     chart: {
-      id: "chart",
+      id: "currentTwoDaysAgo",
       type: "line",
       toolbar: {
         autoSelected: "pan",
@@ -130,7 +130,7 @@ export const CurrentPriceTwoDaysAgo = () => {
       id: "chart1",
       type: "area",
       brush: {
-        target: "chart",
+        target: "currentTwoDaysAgo",
         enabled: true,
       },
       selection: {

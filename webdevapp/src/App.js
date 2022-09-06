@@ -12,6 +12,7 @@ import { CurrentPriceTwoDaysAgo } from "./CurrentPrice/CurrentPriceTwoDaysAgo.js
 import { MovingAverageToday } from "./MovingAverage/MovingAverageToday.js";
 import { MovingAverageYesterday } from "./MovingAverage/MovingAverageYesterday.js";
 import { MovingAverageTwoDaysAgo } from "./MovingAverage/MovingAverageTwoDaysAgo.js";
+import Moment from 'moment';
 import {
   toggleVolatilityGToday,
   toggleMovingAvgGToday,
@@ -27,11 +28,11 @@ import { dateTimeNow} from './lastupdate.js'
 function App() {
   let day = new Date();
   const today =
-    ("0" + (day.getDate())).slice(-2).toString() + "." + ("0" + (day.getMonth() + 1)).slice(-2).toString() + "." + day.getFullYear();
+    Moment().format("Do MMM YYYY")
   const yesterday =
-    ("0" + (day.getDate() - 1)).slice(-2).toString() + "." + ("0" + (day.getMonth() + 1)).slice(-2).toString() + "." + day.getFullYear();
+    Moment().subtract(1,'day').format("Do MMM YYYY")
   const twoDaysAgo =
-    ("0" + (day.getDate() - 2)).slice(-2).toString() + "." + ("0" + (day.getMonth() + 1)).slice(-2).toString() + "." + day.getFullYear();
+    Moment().subtract(2, 'day').format("Do MMM YYYY")
   const [isShown, setIsShown] = useState(false);
   return (
     <div className="App">
@@ -118,7 +119,7 @@ function App() {
                     Moving Average
                   </a>
                   <div class="dropdown-menu">
-                    <h6 class="dropdown-header">Moving Avg Options</h6>
+                    <h6 class="dropdown-header">Select Date</h6>
                     <div class="dropdown-divider"></div>
                     <button
                       class="dropdown-item"
@@ -236,9 +237,11 @@ function App() {
                 <AiOutlineInfoCircle />
               </button>
               {isShown && (
-                <div style={{position:"fixed", background:" #cbccd4", border:'3px solid black'}}>
-                  Dynamic table showing latest price, change in price, and a visual indicator showing direction of price movement. 
-                </div>
+                // <div class="overlay">
+                  <div class="cashebutton">
+                    Dynamic table showing latest price, change in price, and a visual indicator showing direction of price movement. 
+                  </div>
+                // </div>
               )}
               <Lastvalue />
             </div>
@@ -253,7 +256,7 @@ function App() {
                 <AiOutlineInfoCircle />
               </button>
               {isShown && (
-                <div style={{position:"fixed", background:" #cbccd4", border:'3px solid black'}}>
+                <div class="minmaxbutton">
                   Info relating to the dynamic latest price movement table. 
                 </div>
               )}
@@ -270,7 +273,7 @@ function App() {
                 <AiOutlineInfoCircle />
               </button>
               {isShown && (
-                <div style={{position:"fixed", background:" #cbccd4", border:'3px solid black'}}>
+                <div class="highbutton">
                   Info relating to the dynami. 
                 </div>
               )}

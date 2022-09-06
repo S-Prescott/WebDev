@@ -2,6 +2,7 @@ import * as React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { hightrade, hightraderdb, hightradehdb } from "./getdata.service.js";
 import { Minmax } from "./Minmax.js";
+import Moment from 'moment';
 
 export const Summary = () => {
   let day = new Date();
@@ -12,23 +13,11 @@ export const Summary = () => {
   const twodaysago =
     day.getFullYear() + "." + (day.getMonth() + 1) + "." + (day.getDate() - 2);
   const today1 =
-    ("0" + day.getDate()).slice(-2).toString() +
-    "." +
-    ("0" + (day.getMonth() + 1)).slice(-2).toString() +
-    "." +
-    day.getFullYear();
+    Moment().format("Do MMM YYYY")
   const yesterday1 =
-    ("0" + (day.getDate() - 1)).slice(-2).toString() +
-    "." +
-    ("0" + (day.getMonth() + 1)).slice(-2).toString() +
-    "." +
-    day.getFullYear();
+    Moment().subtract(1, 'day').format("Do MMM YYYY")
   const twodaysago1 =
-    ("0" + (day.getDate() - 2)).slice(-2).toString() +
-    "." +
-    ("0" + (day.getMonth() + 1)).slice(-2).toString() +
-    "." +
-    day.getFullYear();
+    Moment().subtract(2, 'day').format("Do MMM YYYY")
   const hour = day.getHours();
 
   const [date, setdate] = React.useState(today);
@@ -61,9 +50,11 @@ export const Summary = () => {
             for (let i in response) {
               arr.push(response[i].volume);
             }
+            console.log(arr);
             let max = Math.max(...arr);
             let index = arr.indexOf(max);
-            getData(response[index]);
+            let sym = syms[index];
+            getData({ volume: max.toLocaleString('en-US'), sym: sym });
           });
         }
         if (startDate === yesterday) {
@@ -72,9 +63,11 @@ export const Summary = () => {
             for (let i in response) {
               arr.push(response[i].volume);
             }
+            console.log(arr);
             let max = Math.max(...arr);
             let index = arr.indexOf(max);
-            getData(response[index]);
+            let sym = syms[index];
+            getData({ volume: max.toLocaleString('en-US'), sym: sym });
           });
         }
         if (startDate === twodaysago) {
@@ -83,9 +76,11 @@ export const Summary = () => {
             for (let i in response) {
               arr.push(response[i].volume);
             }
+            console.log(arr);
             let max = Math.max(...arr);
             let index = arr.indexOf(max);
-            getData(response[index]);
+            let sym = syms[index];
+            getData({ volume: max.toLocaleString('en-US'), sym: sym });
           });
         }
       }
@@ -115,7 +110,7 @@ export const Summary = () => {
             let max = Math.max(...sum);
             let index = sum.indexOf(max);
             let sym = syms[index];
-            getData({ volume: max, sym: sym });
+            getData({ volume: max.toLocaleString('en-US'), sym: sym });
           }, 500);
         }
         if (startDate === twodaysago && endDate === yesterday) {
@@ -140,7 +135,7 @@ export const Summary = () => {
             let max = Math.max(...sum);
             let index = sum.indexOf(max);
             let sym = syms[index];
-            getData({ volume: max, sym: sym });
+            getData({ volume: max.toLocaleString('en-US'), sym: sym });
           }, 500);
         }
         if (startDate === twodaysago && endDate === today) {
@@ -172,7 +167,7 @@ export const Summary = () => {
             let max = Math.max(...sum);
             let index = sum.indexOf(max);
             let sym = syms[index];
-            getData({ volume: max, sym: sym });
+            getData({ volume: max.toLocaleString('en-US'), sym: sym });
           }, 500);
         }
       }
@@ -259,8 +254,7 @@ export const Summary = () => {
         <div className="sum card-title">Most Traded Sym</div>
         <div class="sum-card-footer border">Instrument: {data.sym}</div>
         <div class="sum-card-footer border">
-          Volume:{" "}
-          {data.volume.toLocaleString(navigator.language, {minimumFractionDigits: 0,})}
+          Volume: {data.volume}
         </div>
       </div> */}
     </main>

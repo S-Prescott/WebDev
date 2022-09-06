@@ -2,14 +2,10 @@ import "./App.css";
 import * as React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { PriceChange } from "./getdata.service.js";
-import MyImage from "./greenUp.png";
-import MyImage2 from "./redDown.png";
-import MyImage3 from "./dash.jpg";
 import { BsArrowUp } from 'react-icons/bs'
 import { BsArrowDown } from 'react-icons/bs'
 import { BsDash } from 'react-icons/bs'
 import { dateTimeNow } from "./lastupdate";
-
 
 export function arrow(x) {
   if (x > 0) {
