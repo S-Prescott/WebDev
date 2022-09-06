@@ -79,7 +79,7 @@ export const CurrentPriceTwoDaysAgo = () => {
   ];
   const Options = {
     chart: {
-      id: "chart",
+      id: "currentTwoDaysAgo",
       type: "line",
       height: 230,
       toolbar: {
@@ -132,7 +132,7 @@ export const CurrentPriceTwoDaysAgo = () => {
       height: 130,
       type: "area",
       brush: {
-        target: "chart",
+        target: "currentTwoDaysAgo",
         enabled: true,
       },
       selection: {

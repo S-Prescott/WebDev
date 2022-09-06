@@ -201,7 +201,7 @@ function App() {
               style={{ display: "none" }}
             >
               Moving Average for {twoDaysAgo}
-              {/* <MovingAverageTwoDaysAgo /> */}
+              <MovingAverageTwoDaysAgo />
             </div>
             <div
               id="CurrentPriceToday"
