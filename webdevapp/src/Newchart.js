@@ -121,7 +121,7 @@ export const MovingAverage = () => {
   const subOptions = {
     chart: {
       id: "chart1",
-      height: 130,
+      height: 120,
       type: "area",
       brush: {
         target: "chart",

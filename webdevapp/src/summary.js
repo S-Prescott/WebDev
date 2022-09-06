@@ -163,6 +163,7 @@ export const Summary = () => {
               sum.push(arr1[i] + arr2[i] + arr3[i]);
             }
             console.log(sum);
+            
             let max = Math.max(...sum);
             let index = sum.indexOf(max);
             let sym = syms[index];
@@ -229,17 +230,33 @@ export const Summary = () => {
           />
         </div>
       </div>
-      {/* <div className="summary-container" id="summaryCard"> */}
-      {/* {data.map((item) => ( */}
-      <div className="card" id="sum-card">
+      <center>
+      <table class="table table-bordered table-light">
+        <tbody>
+          <tr>
+            <th style={{ textAlign: "center" }}> Instrument</th>
+            <th style={{ textAlign: "center" }}> Volume </th>
+          </tr>
+          {/* {data.map((item) => ( */}
+            <tr id="tabledata">
+              <td style={{ textAlign: "center" }}>{data.sym}</td>
+              <td style={{ textAlign: "center" }}>
+                {data.volume}
+              </td>
+            </tr>
+            {/* ))} */}
+        </tbody>
+      </table>
+    </center>
+
+
+      {/* <div className="card" id="sum-card">
         <div className="sum card-title">Most Traded Sym</div>
         <div class="sum-card-footer border">Instrument: {data.sym}</div>
         <div class="sum-card-footer border">
           Volume: {data.volume}
         </div>
-      </div>
-      {/* ))} */}
-      {/* </div> */}
+      </div> */}
     </main>
   );
 };

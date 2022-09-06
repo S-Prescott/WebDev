@@ -81,7 +81,6 @@ export const CurrentPriceTwoDaysAgo = () => {
     chart: {
       id: "currentTwoDaysAgo",
       type: "line",
-      height: 230,
       toolbar: {
         autoSelected: "pan",
         show: false,
@@ -129,7 +128,6 @@ export const CurrentPriceTwoDaysAgo = () => {
   const subOptions = {
     chart: {
       id: "chart1",
-      height: 130,
       type: "area",
       brush: {
         target: "currentTwoDaysAgo",
@@ -176,7 +174,7 @@ export const CurrentPriceTwoDaysAgo = () => {
         series={Series}
         options={Options}
         width="100%"
-        height="120%"
+        height="360px"
       />
       <Chart
         type="area"

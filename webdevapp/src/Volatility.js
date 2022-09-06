@@ -171,7 +171,7 @@ export const Volatility = () => {
         series={Series}
         options={Options}
         width="100%"
-        height="120%"
+        height="360px"
       />
       <Chart
         type="area"

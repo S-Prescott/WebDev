@@ -24,6 +24,7 @@ import {
 } from "./navigation.service";
 import { Summary } from "./summary.js";
 import { AiOutlineInfoCircle } from 'react-icons/ai'
+import { dateTimeNow} from './lastupdate.js'
 function App() {
   let day = new Date();
   const today =
@@ -173,7 +174,7 @@ function App() {
           <div class="row">
             <div
               id="VolatilityGToday"
-              className="col-md-8 border"
+              className="col-md-8 border" style={{height:"600px"}}
               // style={{ display: "none" }}
             >
               Volatility for {today}
@@ -297,10 +298,12 @@ function App() {
         </div>
       </body>
       <footer>
-        server connection: ON
+        <h4 id="serverConnection">server connection: checking</h4>
       </footer>
     </div>
+   
   );
+  
 }
 
 export default App;
