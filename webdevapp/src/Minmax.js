@@ -1,6 +1,7 @@
 import * as React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { getminmaxdata } from "./getdata.service.js";
+import Moment from 'moment';
 
 export const Minmax = () => {
   let day = new Date();
@@ -11,11 +12,11 @@ export const Minmax = () => {
   const twodaysago =
     day.getFullYear() + "." + (day.getMonth() + 1) + "." + (day.getDate() - 2);
   const today1 =
-    ("0" + (day.getDate())).slice(-2).toString() + "." + ("0" + (day.getMonth() + 1)).slice(-2).toString() + "." + day.getFullYear();
+    Moment().format("Do MMM YYYY")
   const yesterday1 =
-    ("0" + (day.getDate() - 1)).slice(-2).toString() + "." + ("0" + (day.getMonth() + 1)).slice(-2).toString() + "." + day.getFullYear();
+    Moment().subtract(1, 'day').format("Do MMM YYYY")
   const twodaysago1 =
-    ("0" + (day.getDate() - 2)).slice(-2).toString() + "." + ("0" + (day.getMonth() + 1)).slice(-2).toString() + "." + day.getFullYear();
+    Moment().subtract(2, 'day').format("Do MMM YYYY")
 
   const [date, setdate] = React.useState(today);
   const [data, getData] = React.useState([]);
