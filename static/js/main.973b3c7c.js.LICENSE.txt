@@ -15,6 +15,10 @@
 * Copyright (c) 2016 Wout Fierens; Licensed MIT */
 
 /**
+   * @preserve date-and-time (c) KNOWLEDGECODE | MIT
+   */
+
+/**
  * @license React
  * react-dom.production.min.js
  *
