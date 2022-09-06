@@ -2,7 +2,7 @@ import * as React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { hightrade, hightraderdb, hightradehdb } from "./getdata.service.js";
 import { Minmax } from "./Minmax.js";
-import Moment from 'moment';
+import Moment from "moment";
 
 export const Summary = () => {
   let day = new Date();
@@ -12,12 +12,9 @@ export const Summary = () => {
     day.getFullYear() + "." + (day.getMonth() + 1) + "." + (day.getDate() - 1);
   const twodaysago =
     day.getFullYear() + "." + (day.getMonth() + 1) + "." + (day.getDate() - 2);
-  const today1 =
-    Moment().format("Do MMM YYYY")
-  const yesterday1 =
-    Moment().subtract(1, 'day').format("Do MMM YYYY")
-  const twodaysago1 =
-    Moment().subtract(2, 'day').format("Do MMM YYYY")
+  const today1 = Moment().format("Do MMM YYYY");
+  const yesterday1 = Moment().subtract(1, "day").format("Do MMM YYYY");
+  const twodaysago1 = Moment().subtract(2, "day").format("Do MMM YYYY");
   const hour = day.getHours();
 
   const [date, setdate] = React.useState(today);
@@ -50,11 +47,23 @@ export const Summary = () => {
             for (let i in response) {
               arr.push(response[i].volume);
             }
-            console.log(arr);
-            let max = Math.max(...arr);
-            let index = arr.indexOf(max);
-            let sym = syms[index];
-            getData({ volume: max.toLocaleString('en-US'), sym: sym });
+            let index = [];
+            let sym = [];
+            let max = [];
+            for (let i = 0; i < 3; i++) {
+              max.push(Math.max(...arr));
+              index.push(arr.indexOf(max[i]));
+              sym.push(syms[index[i]]);
+              arr[index[i]] = 0;
+            }
+            getData({
+              volume1: max[0].toLocaleString("en-US"),
+              volume2: max[1].toLocaleString("en-US"),
+              volume3: max[2].toLocaleString("en-US"),
+              sym1: sym[0],
+              sym2: sym[1],
+              sym3: sym[2],
+            });
           });
         }
         if (startDate === yesterday) {
@@ -63,11 +72,23 @@ export const Summary = () => {
             for (let i in response) {
               arr.push(response[i].volume);
             }
-            console.log(arr);
-            let max = Math.max(...arr);
-            let index = arr.indexOf(max);
-            let sym = syms[index];
-            getData({ volume: max.toLocaleString('en-US'), sym: sym });
+            let index = [];
+            let sym = [];
+            let max = [];
+            for (let i = 0; i < 3; i++) {
+              max.push(Math.max(...arr));
+              index.push(arr.indexOf(max[i]));
+              sym.push(syms[index[i]]);
+              arr[index[i]] = 0;
+            }
+            getData({
+              volume1: max[0].toLocaleString("en-US"),
+              volume2: max[1].toLocaleString("en-US"),
+              volume3: max[2].toLocaleString("en-US"),
+              sym1: sym[0],
+              sym2: sym[1],
+              sym3: sym[2],
+            });
           });
         }
         if (startDate === twodaysago) {
@@ -76,11 +97,23 @@ export const Summary = () => {
             for (let i in response) {
               arr.push(response[i].volume);
             }
-            console.log(arr);
-            let max = Math.max(...arr);
-            let index = arr.indexOf(max);
-            let sym = syms[index];
-            getData({ volume: max.toLocaleString('en-US'), sym: sym });
+            let index = [];
+            let sym = [];
+            let max = [];
+            for (let i = 0; i < 3; i++) {
+              max.push(Math.max(...arr));
+              index.push(arr.indexOf(max[i]));
+              sym.push(syms[index[i]]);
+              arr[index[i]] = 0;
+            }
+            getData({
+              volume1: max[0].toLocaleString("en-US"),
+              volume2: max[1].toLocaleString("en-US"),
+              volume3: max[2].toLocaleString("en-US"),
+              sym1: sym[0],
+              sym2: sym[1],
+              sym3: sym[2],
+            });
           });
         }
       }
@@ -106,11 +139,23 @@ export const Summary = () => {
             for (let i in arr1) {
               sum.push(arr1[i] + arr2[i]);
             }
-            console.log(sum);
-            let max = Math.max(...sum);
-            let index = sum.indexOf(max);
-            let sym = syms[index];
-            getData({ volume: max.toLocaleString('en-US'), sym: sym });
+            let index = [];
+            let sym = [];
+            let max = [];
+            for (let i = 0; i < 3; i++) {
+              max.push(Math.max(...sum));
+              index.push(sum.indexOf(max[i]));
+              sym.push(syms[index[i]]);
+              sum[index[i]] = 0;
+            }
+            getData({
+              volume1: max[0].toLocaleString("en-US"),
+              volume2: max[1].toLocaleString("en-US"),
+              volume3: max[2].toLocaleString("en-US"),
+              sym1: sym[0],
+              sym2: sym[1],
+              sym3: sym[2],
+            });
           }, 500);
         }
         if (startDate === twodaysago && endDate === yesterday) {
@@ -131,11 +176,23 @@ export const Summary = () => {
             for (let i in arr1) {
               sum.push(arr1[i] + arr2[i]);
             }
-            console.log(sum);
-            let max = Math.max(...sum);
-            let index = sum.indexOf(max);
-            let sym = syms[index];
-            getData({ volume: max.toLocaleString('en-US'), sym: sym });
+            let index = [];
+            let sym = [];
+            let max = [];
+            for (let i = 0; i < 3; i++) {
+              max.push(Math.max(...sum));
+              index.push(sum.indexOf(max[i]));
+              sym.push(syms[index[i]]);
+              sum[index[i]] = 0;
+            }
+            getData({
+              volume1: max[0].toLocaleString("en-US"),
+              volume2: max[1].toLocaleString("en-US"),
+              volume3: max[2].toLocaleString("en-US"),
+              sym1: sym[0],
+              sym2: sym[1],
+              sym3: sym[2],
+            });
           }, 500);
         }
         if (startDate === twodaysago && endDate === today) {
@@ -162,12 +219,23 @@ export const Summary = () => {
             for (let i in arr1) {
               sum.push(arr1[i] + arr2[i] + arr3[i]);
             }
-            console.log(sum);
-            
-            let max = Math.max(...sum);
-            let index = sum.indexOf(max);
-            let sym = syms[index];
-            getData({ volume: max.toLocaleString('en-US'), sym: sym });
+            let index = [];
+            let sym = [];
+            let max = [];
+            for (let i = 0; i < 3; i++) {
+              max.push(Math.max(...sum));
+              index.push(sum.indexOf(max[i]));
+              sym.push(syms[index[i]]);
+              sum[index[i]] = 0;
+            }
+            getData({
+              volume1: max[0].toLocaleString("en-US"),
+              volume2: max[1].toLocaleString("en-US"),
+              volume3: max[2].toLocaleString("en-US"),
+              sym1: sym[0],
+              sym2: sym[1],
+              sym3: sym[2],
+            });
           }, 500);
         }
       }
@@ -230,25 +298,29 @@ export const Summary = () => {
           />
         </div>
       </div>
+      <br />
       <center>
-      <table class="table table-bordered table-light">
-        <tbody>
-          <tr>
-            <th style={{ textAlign: "center" }}> Instrument</th>
-            <th style={{ textAlign: "center" }}> Volume </th>
-          </tr>
-          {/* {data.map((item) => ( */}
-            <tr id="tabledata">
-              <td style={{ textAlign: "center" }}>{data.sym}</td>
-              <td style={{ textAlign: "center" }}>
-                {data.volume}
-              </td>
+        <table class="table table-bordered table-light">
+          <tbody>
+            <tr>
+              <th style={{ textAlign: "center" }}> Instrument</th>
+              <th style={{ textAlign: "center" }}> Volume </th>
             </tr>
-            {/* ))} */}
-        </tbody>
-      </table>
-    </center>
-
+            <tr id="tabledata">
+              <td style={{ textAlign: "center" }}>{data.sym1}</td>
+              <td style={{ textAlign: "center" }}>{data.volume1}</td>
+            </tr>
+            <tr id="tabledata">
+              <td style={{ textAlign: "center" }}>{data.sym2}</td>
+              <td style={{ textAlign: "center" }}>{data.volume2}</td>
+            </tr>
+            <tr id="tabledata">
+              <td style={{ textAlign: "center" }}>{data.sym3}</td>
+              <td style={{ textAlign: "center" }}>{data.volume3}</td>
+            </tr>
+          </tbody>
+        </table>
+      </center>
 
       {/* <div className="card" id="sum-card">
         <div className="sum card-title">Most Traded Sym</div>
