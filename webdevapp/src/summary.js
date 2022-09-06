@@ -2,7 +2,7 @@ import * as React from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
 import { hightrade, hightraderdb, hightradehdb } from "./getdata.service.js";
 import { Minmax } from "./Minmax.js";
-import Moment from 'moment';
+import Moment from "moment";
 
 export const Summary = () => {
   let day = new Date();
@@ -12,12 +12,9 @@ export const Summary = () => {
     day.getFullYear() + "." + (day.getMonth() + 1) + "." + (day.getDate() - 1);
   const twodaysago =
     day.getFullYear() + "." + (day.getMonth() + 1) + "." + (day.getDate() - 2);
-  const today1 =
-    Moment().format("Do MMM YYYY")
-  const yesterday1 =
-    Moment().subtract(1, 'day').format("Do MMM YYYY")
-  const twodaysago1 =
-    Moment().subtract(2, 'day').format("Do MMM YYYY")
+  const today1 = Moment().format("Do MMM YYYY");
+  const yesterday1 = Moment().subtract(1, "day").format("Do MMM YYYY");
+  const twodaysago1 = Moment().subtract(2, "day").format("Do MMM YYYY");
   const hour = day.getHours();
 
   const [date, setdate] = React.useState(today);
@@ -54,7 +51,7 @@ export const Summary = () => {
             let max = Math.max(...arr);
             let index = arr.indexOf(max);
             let sym = syms[index];
-            getData({ volume: max.toLocaleString('en-US'), sym: sym });
+            getData({ volume: max.toLocaleString("en-US"), sym: sym });
           });
         }
         if (startDate === yesterday) {
@@ -67,7 +64,7 @@ export const Summary = () => {
             let max = Math.max(...arr);
             let index = arr.indexOf(max);
             let sym = syms[index];
-            getData({ volume: max.toLocaleString('en-US'), sym: sym });
+            getData({ volume: max.toLocaleString("en-US"), sym: sym });
           });
         }
         if (startDate === twodaysago) {
@@ -80,7 +77,7 @@ export const Summary = () => {
             let max = Math.max(...arr);
             let index = arr.indexOf(max);
             let sym = syms[index];
-            getData({ volume: max.toLocaleString('en-US'), sym: sym });
+            getData({ volume: max.toLocaleString("en-US"), sym: sym });
           });
         }
       }
@@ -107,10 +104,20 @@ export const Summary = () => {
               sum.push(arr1[i] + arr2[i]);
             }
             console.log(sum);
-            let max = Math.max(...sum);
-            let index = sum.indexOf(max);
-            let sym = syms[index];
-            getData({ volume: max.toLocaleString('en-US'), sym: sym });
+            // let max = Math.max(...sum);
+            let max = sum.sort(function (a, b) {
+              return b - a;
+            });
+            let index = [];
+            let sym = [];
+            for (let i = 0; i < 3; i++) {
+              index.push(sum.indexOf(max[i]));
+            sym.push(syms[index[i]]);
+            }
+            // sym.push(syms[index]);
+            console.log(sym);
+            // let sym = syms[index];
+            getData({ volume1: max[0].toLocaleString("en-US"),volume2: max[1].toLocaleString("en-US"),volume3: max[2].toLocaleString("en-US"), sym1: sym[0], sym2: sym[1], sym3: sym[2] });
           }, 500);
         }
         if (startDate === twodaysago && endDate === yesterday) {
@@ -135,7 +142,7 @@ export const Summary = () => {
             let max = Math.max(...sum);
             let index = sum.indexOf(max);
             let sym = syms[index];
-            getData({ volume: max.toLocaleString('en-US'), sym: sym });
+            getData({ volume: max.toLocaleString("en-US"), sym: sym });
           }, 500);
         }
         if (startDate === twodaysago && endDate === today) {
@@ -163,11 +170,11 @@ export const Summary = () => {
               sum.push(arr1[i] + arr2[i] + arr3[i]);
             }
             console.log(sum);
-            
+
             let max = Math.max(...sum);
             let index = sum.indexOf(max);
             let sym = syms[index];
-            getData({ volume: max.toLocaleString('en-US'), sym: sym });
+            getData({ volume: max.toLocaleString("en-US"), sym: sym });
           }, 500);
         }
       }
@@ -230,25 +237,31 @@ export const Summary = () => {
           />
         </div>
       </div>
+      <br />
       <center>
-      <table class="table table-bordered table-light">
-        <tbody>
-          <tr>
-            <th style={{ textAlign: "center" }}> Instrument</th>
-            <th style={{ textAlign: "center" }}> Volume </th>
-          </tr>
-          {/* {data.map((item) => ( */}
+        <table class="table table-bordered table-light">
+          <tbody>
+            <tr>
+              <th style={{ textAlign: "center" }}> Instrument</th>
+              <th style={{ textAlign: "center" }}> Volume </th>
+            </tr>
+            {/* {data.map((item) => ( */}
             <tr id="tabledata">
-              <td style={{ textAlign: "center" }}>{data.sym}</td>
-              <td style={{ textAlign: "center" }}>
-                {data.volume}
-              </td>
+              <td style={{ textAlign: "center" }}>{data.sym1}</td>
+              <td style={{ textAlign: "center" }}>{data.volume1}</td>
+            </tr>
+            <tr id="tabledata">
+              <td style={{ textAlign: "center" }}>{data.sym2}</td>
+              <td style={{ textAlign: "center" }}>{data.volume2}</td>
+            </tr>
+            <tr id="tabledata">
+              <td style={{ textAlign: "center" }}>{data.sym3}</td>
+              <td style={{ textAlign: "center" }}>{data.volume3}</td>
             </tr>
             {/* ))} */}
-        </tbody>
-      </table>
-    </center>
-
+          </tbody>
+        </table>
+      </center>
 
       {/* <div className="card" id="sum-card">
         <div className="sum card-title">Most Traded Sym</div>
