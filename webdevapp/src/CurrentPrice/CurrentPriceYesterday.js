@@ -81,7 +81,6 @@ export const CurrentPriceYesterday = () => {
     chart: {
       id: "chart",
       type: "line",
-      height: 230,
       toolbar: {
         autoSelected: "pan",
         show: false,
@@ -129,7 +128,6 @@ export const CurrentPriceYesterday = () => {
   const subOptions = {
     chart: {
       id: "chart1",
-      height: 130,
       type: "area",
       brush: {
         target: "chart",
@@ -176,7 +174,7 @@ export const CurrentPriceYesterday = () => {
         series={Series}
         options={Options}
         width="100%"
-        height="120%"
+        height="360px"
       />
       <Chart
         type="area"

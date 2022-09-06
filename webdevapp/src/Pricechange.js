@@ -8,6 +8,7 @@ import MyImage3 from "./dash.jpg";
 import { BsArrowUp } from 'react-icons/bs'
 import { BsArrowDown } from 'react-icons/bs'
 import { BsDash } from 'react-icons/bs'
+import { dateTimeNow } from "./lastupdate";
 
 
 export function arrow(x) {
@@ -42,16 +43,18 @@ export const Lastvalue = () => {
   React.useEffect(() => {
     const interval = setInterval(() => {
       PriceChange(today).then((response) => {
-        console.log(response);
+        // console.log(response);
         getData(response);
+        dateTimeNow();
+
       });
     }, 2500);
   }, [today]);
 
   return (
     <center>
-      <table class="table table-bordered table-light">
-        <tbody>
+      <table class="table table-bordered table-light" >
+        <tbody id="lastvaluetable">
           <tr>
             <th style={{ textAlign: "center" }}> Instrument</th>
             <th style={{ textAlign: "center" }}> Price ($)</th>

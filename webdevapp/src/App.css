@@ -1,5 +1,6 @@
 .App {
   text-align: center;
+  font-family: "Poppins", sans-serif !important;
 }
 
 .App-logo {
@@ -15,6 +16,7 @@
   background-color: #ffffff;
   border-color: #14934b !important;
   border-width: 3px !important;
+  font-family: "Poppins", sans-serif;
   
 }
 
@@ -46,7 +48,8 @@ div#min-max.col-md-8{
   width: 200px;
   /* border-radius: 10px; */
   box-shadow: rgba(255, 191, 1, 0.2) 0px 0px 0px 0px;
-
+  
+  font-family: "Poppins", sans-serif;
 }
 
 .card-footer{
@@ -96,6 +99,7 @@ div#min-max.col-md-8{
   justify-content: center;
   font-size: calc(10px + 2vmin);
   color: black;
+  font-family: "Poppins", sans-serif;
 }
 
 div#ValueCache.col-4{
@@ -105,8 +109,13 @@ div#ValueCache.col-4{
   border-top: 3px solid #14934b;
   border-right: 3px solid #14934b;
   border-bottom: 3px solid #14934b;
+  font-family: "Poppins", sans-serif;
+  min-height: 36rem;
 }
 
+#lastvaluetable{
+  height: 0;
+}
 
 .App-logo {
   float: left;
@@ -130,11 +139,13 @@ div#min-max.col-md-8{
   margin-bottom: 10px;
   margin-left: auto;
   margin-right: auto;
+
 }
 
 .card-footer{
   font-size: 2rem;
   background-color: #f1f1f1;
+
 }
 /* end of min max styling */
 .App-link {
@@ -162,12 +173,15 @@ div#min-max.col-md-8{
   font-size: 24px;
   border: none;
   margin-left: 10px;
+
 }
 
 /* The container <div> - needed to position the dropdown content */
 .dropdown {
   position: relative;
   display: inline-block;
+  
+  font-family: "Poppins", sans-serif;
 }
 
 /* Dropdown Content (Hidden by Default) */
@@ -178,6 +192,7 @@ div#min-max.col-md-8{
   min-width: 160px;
   box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
   z-index: 1;
+  font-family: "Poppins", sans-serif;
 }
 
 /* Links inside the dropdown */
@@ -186,6 +201,7 @@ div#min-max.col-md-8{
   padding: 12px 16px;
   text-decoration: none;
   display: block;
+  font-family: "Poppins", sans-serif;
 }
 
 /* Change color of dropdown links on hover */
@@ -204,7 +220,7 @@ border: #14934b;}
   position: inherit;
   /* --bs-position: end; */
   left: 100%;
-  
+  font-family: "Poppins", sans-serif;
 }
 
 .high{
@@ -220,9 +236,11 @@ border: #14934b;}
   width: 100%;
   font-size: calc(10px + 2vmin);
   font-size: medium;
+  font-family: "Poppins", sans-serif;
 }
 tr#tabledata{
   height: 3vh !important;
+  font-family: "Poppins", sans-serif;
 }
 footer {
   background-color:  #14934b !important;
@@ -239,7 +257,7 @@ div#mostTradedSym.col-4{
   /* padding-left: 50px; */
   border-right: 5px solid #14934b;
   border-bottom: 5px solid #14934b;
-    
+  font-family: "Poppins",sans-serif;
 }
 
 .sum-card-footer{
