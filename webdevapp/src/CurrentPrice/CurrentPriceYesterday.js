@@ -79,7 +79,7 @@ export const CurrentPriceYesterday = () => {
   ];
   const Options = {
     chart: {
-      id: "chart",
+      id: "currentYesterday",
       type: "line",
       height: 230,
       toolbar: {
@@ -132,7 +132,7 @@ export const CurrentPriceYesterday = () => {
       height: 130,
       type: "area",
       brush: {
-        target: "chart",
+        target: "currentYesterday",
         enabled: true,
       },
       selection: {
