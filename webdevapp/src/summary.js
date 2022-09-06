@@ -50,9 +50,11 @@ export const Summary = () => {
             for (let i in response) {
               arr.push(response[i].volume);
             }
+            console.log(arr);
             let max = Math.max(...arr);
             let index = arr.indexOf(max);
-            getData(response[index]);
+            let sym = syms[index];
+            getData({ volume: max.toLocaleString('en-US'), sym: sym });
           });
         }
         if (startDate === yesterday) {
@@ -61,9 +63,11 @@ export const Summary = () => {
             for (let i in response) {
               arr.push(response[i].volume);
             }
+            console.log(arr);
             let max = Math.max(...arr);
             let index = arr.indexOf(max);
-            getData(response[index]);
+            let sym = syms[index];
+            getData({ volume: max.toLocaleString('en-US'), sym: sym });
           });
         }
         if (startDate === twodaysago) {
@@ -72,9 +76,11 @@ export const Summary = () => {
             for (let i in response) {
               arr.push(response[i].volume);
             }
+            console.log(arr);
             let max = Math.max(...arr);
             let index = arr.indexOf(max);
-            getData(response[index]);
+            let sym = syms[index];
+            getData({ volume: max.toLocaleString('en-US'), sym: sym });
           });
         }
       }
@@ -104,7 +110,7 @@ export const Summary = () => {
             let max = Math.max(...sum);
             let index = sum.indexOf(max);
             let sym = syms[index];
-            getData({ volume: max, sym: sym });
+            getData({ volume: max.toLocaleString('en-US'), sym: sym });
           }, 500);
         }
         if (startDate === twodaysago && endDate === yesterday) {
@@ -129,7 +135,7 @@ export const Summary = () => {
             let max = Math.max(...sum);
             let index = sum.indexOf(max);
             let sym = syms[index];
-            getData({ volume: max, sym: sym });
+            getData({ volume: max.toLocaleString('en-US'), sym: sym });
           }, 500);
         }
         if (startDate === twodaysago && endDate === today) {
@@ -141,7 +147,7 @@ export const Summary = () => {
               arr1.push(response[i].volume);
             }
           });
-          hightradehdb(yesterday, "00:00:00", endTime).then((response) => {
+          hightradehdb(yesterday, "00:00:00", "23:59:59").then((response) => {
             for (let i in response) {
               arr2.push(response[i].volume);
             }
@@ -160,7 +166,7 @@ export const Summary = () => {
             let max = Math.max(...sum);
             let index = sum.indexOf(max);
             let sym = syms[index];
-            getData({ volume: max, sym: sym });
+            getData({ volume: max.toLocaleString('en-US'), sym: sym });
           }, 500);
         }
       }
@@ -229,8 +235,7 @@ export const Summary = () => {
         <div className="sum card-title">Most Traded Sym</div>
         <div class="sum-card-footer border">Instrument: {data.sym}</div>
         <div class="sum-card-footer border">
-          Volume:{" "}
-          {data.volume.toLocaleString(navigator.language, {            minimumFractionDigits: 0,          })}
+          Volume: {data.volume}
         </div>
       </div>
       {/* ))} */}
