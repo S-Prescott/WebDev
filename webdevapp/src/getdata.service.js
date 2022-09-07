@@ -14,7 +14,7 @@ export async function hightrade(date) {
     let res = await axios.post(
       url,
       {
-        arguments: { dt: date, st: "00:00", et: "24:00" },
+        arguments: { dt: date, st: "00:00", et: "23:59" },
         function_name: ".qrestfunc.hightrade",
       },
       {
@@ -160,7 +160,7 @@ export async function volatility(date) {
     let res = await axios.post(
       url,
       {
-        arguments: { st:"00:00", et:"12:00" },
+        arguments: { st:"00:00", et:"23:59" },
         function_name: ".qrestfunc.volatilityrdb",
       },
       {
