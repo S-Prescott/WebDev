@@ -72,6 +72,59 @@ export const Volatility = () => {
             getData(comb);
           }, 2000);
         }
+        if (startDate === twodaysago && endDate === yesterday) {
+          let arr1 = [];
+          let arr2 = [];
+          volatilityhdb(twodaysago, startTime, "23:59:59").then((response) => {
+            console.log(response);
+            for (let i in response.y.y) {
+              arr1.push(response.y.y[i]);
+            }
+          });
+          volatilityhdb(yesterday, "00:00:00", endTime).then((response) => {
+            console.log(response);
+            for (let i in response.y.y) {
+              arr2.push(response.y.y[i]);
+            }
+          });
+          let comb = [];
+          setTimeout(() => {
+            for (let i in arr1) {
+              comb.push(arr1[i].concat(arr2[i]));
+            }
+            getData(comb);
+          }, 2000);
+        }
+        if (startDate === twodaysago && endDate === today) {
+          let arr1 = [];
+          let arr2 = [];
+          let arr3 = [];
+          volatilityhdb(twodaysago, startTime, "23:59:59").then((response) => {
+            console.log(response);
+            for (let i in response.y.y) {
+              arr1.push(response.y.y[i]);
+            }
+          });
+          volatilityhdb(yesterday, "00:00:00", "23:59:59").then((response) => {
+            console.log(response);
+            for (let i in response.y.y) {
+              arr2.push(response.y.y[i]);
+            }
+          });
+          volatilityrdb("00:00:00", endTime).then((response) => {
+            console.log(response);
+            for (let i in response.y.y) {
+              arr3.push(response.y.y[i]);
+            }
+          });
+          let comb = [];
+          setTimeout(() => {
+            for (let i in arr1) {
+              comb.push(arr1[i].concat(arr2[i],arr3[i]));
+            }
+            getData(comb);
+          }, 2000);
+        }
       }
     }
   }, [endDate, endTime, startDate, startTime, today, twodaysago, yesterday]);
@@ -105,6 +158,7 @@ export const Volatility = () => {
       } else {
         let arr1 = [];
         let arr2 = [];
+        let arr3 = [];
         if (startDate === yesterday && endDate === today) {
           volatilityhdb(yesterday, startTime, "23:59:59").then((response) => {
             arr1.push(response.x);
@@ -116,6 +170,39 @@ export const Volatility = () => {
           setTimeout(() => {
             for (let i in arr1) {
             arr.push(arr1[i].concat(arr2[i]));
+            }
+            console.log(arr);
+          }, 2000);
+        }
+        if (startDate === twodaysago && endDate === yesterday) {
+          volatilityhdb(twodaysago, startTime, "23:59:59").then((response) => {
+            arr1.push(response.x);
+          });
+          volatilityhdb(yesterday, "00:00:00", endTime).then((response) => {
+            arr2.push(response.x);
+          });
+          console.log(arr1);
+          setTimeout(() => {
+            for (let i in arr1) {
+            arr.push(arr1[i].concat(arr2[i]));
+            }
+            console.log(arr);
+          }, 2000);
+        }
+        if (startDate === twodaysago && endDate === today) {
+          volatilityhdb(twodaysago, startTime, "23:59:59").then((response) => {
+            arr1.push(response.x);
+          });
+          volatilityhdb(yesterday, "00:00:00", "23:59:59").then((response) => {
+            arr2.push(response.x);
+          });
+          volatilityrdb("00:00:00", endTime).then((response) => {
+            arr3.push(response.x);
+          });
+          console.log(arr1);
+          setTimeout(() => {
+            for (let i in arr1) {
+            arr.push(arr1[i].concat(arr2[i],arr3[i]));
             }
             console.log(arr);
           }, 2000);
@@ -134,7 +221,7 @@ export const Volatility = () => {
       }
       getCategories(times);
     }, 2000);
-  }, [endDate, endTime, startDate, startTime, today]);
+  }, [endDate, endTime, startDate, startTime, today, twodaysago, yesterday]);
 
   const Series = [
     {
