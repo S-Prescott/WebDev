@@ -23,19 +23,19 @@ export const Minmax = () => {
 
   React.useEffect(() => {
     getminmaxdata(date).then((response) => {
-      console.log(response);
+      // console.log(response);
       getData(response);
     });
   }, [date]);
 
-  // React.useEffect(() => {
-  //   const interval = setInterval(() => {
-  //     getminmaxdata(date).then((response) => {
-  //       console.log(response);
-  //       getData(response);
-  //       });
-  //       }, 20000);
-  //     }, [date]);
+  React.useEffect(() => {
+    const interval = setInterval(() => {
+      getminmaxdata(date).then((response) => {
+        // console.log(response);
+        getData(response);
+        });
+        }, 20000);
+      }, [date]);
 
   return (
     <main>

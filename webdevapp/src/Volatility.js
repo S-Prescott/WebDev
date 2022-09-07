@@ -18,16 +18,18 @@ export const Volatility = () => {
   const [categories, getCategories] = React.useState([]);
   React.useEffect(() => {
     volatility(today).then((response) => {
+      console.log(response);
       let arr = [];
+      
       for (let i in response.x) {
         let hours = Math.floor(response.x[i].i / 60);
-        let mins = Math.floor(response.x[i].i - hours * 60);
+        let mins = Math.floor(response.x[i].i - (hours * 60));
         if (mins === 0) {
           mins = "00";
         }
         arr.push(hours + ":" + mins);
       }
-      console.log(arr);
+      console.log(arr[21]);
       getCategories(arr);
     });
   }, [today]);
