@@ -1,38 +1,140 @@
 import * as React from "react";
 import Chart from "react-apexcharts";
-import { volatility } from "./getdata.service.js";
+import { volatilityrdb, volatilityhdb } from "./getdata.service.js";
+import Moment from "moment";
 
 export const Volatility = () => {
   let day = new Date();
   const today =
     day.getFullYear() + "." + (day.getMonth() + 1) + "." + day.getDate();
+  const yesterday =
+    day.getFullYear() + "." + (day.getMonth() + 1) + "." + (day.getDate() - 1);
+  const twodaysago =
+    day.getFullYear() + "." + (day.getMonth() + 1) + "." + (day.getDate() - 2);
+  const today1 = Moment().format("Do MMM YYYY");
+  const yesterday1 = Moment().subtract(1, "day").format("Do MMM YYYY");
+  const twodaysago1 = Moment().subtract(2, "day").format("Do MMM YYYY");
   const [data, getData] = React.useState([]);
 
+  const [startDate, setStartDate] = React.useState(today);
+  const [endDate, setEndDate] = React.useState(today);
+  const [startTime, setStartTime] = React.useState("00:00");
+  const [endTime, setEndTime] = React.useState("23:59");
+
   React.useEffect(() => {
-    volatility(today).then((response) => {
-      console.log(response);
-      getData(response.y.y);
-    });
-  }, [today]);
+    if (startDate === endDate) {
+      if (startTime >= endTime) {
+        console.log("error");
+      } else {
+        if (startDate === today) {
+          volatilityrdb(startTime, endTime).then((response) => {
+            console.log(response);
+            getData(response.y.y);
+          });
+        }
+        if (startDate === yesterday) {
+          volatilityhdb(yesterday, startTime, endTime).then((response) => {
+            console.log(response);
+            getData(response.y.y);
+          });
+        }
+        if (startDate === twodaysago) {
+          volatilityhdb(twodaysago, startTime, endTime).then((response) => {
+            console.log(response);
+            getData(response.y.y);
+          });
+        }
+      }
+    } else {
+      if (startDate > endDate) {
+        console.log("error");
+      } else {
+        if (startDate === yesterday && endDate === today) {
+          let arr1 = [];
+          let arr2 = [];
+          volatilityhdb(yesterday, startTime, "23:59:59").then((response) => {
+            console.log(response);
+            for (let i in response.y.y) {
+              arr1.push(response.y.y[i]);
+            }
+          });
+          volatilityrdb("00:00:00", endTime).then((response) => {
+            console.log(response);
+            for (let i in response.y.y) {
+              arr2.push(response.y.y[i]);
+            }
+          });
+          let comb = [];
+          setTimeout(() => {
+            for (let i in arr1) {
+              comb.push(arr1[i].concat(arr2[i]));
+            }
+            getData(comb);
+          }, 2000);
+        }
+      }
+    }
+  }, [endDate, endTime, startDate, startTime, today, twodaysago, yesterday]);
 
   const [categories, getCategories] = React.useState([]);
   React.useEffect(() => {
-    volatility(today).then((response) => {
-      console.log(response);
-      let arr = [];
-      
-      for (let i in response.x) {
-        let hours = Math.floor(response.x[i].i / 60);
-        let mins = Math.floor(response.x[i].i - (hours * 60));
+    let arr = [];
+    if (startDate === endDate) {
+      if (startTime >= endTime) {
+        console.log("error");
+      } else {
+        if (startDate === today) {
+          volatilityrdb(startTime, endTime).then((response) => {
+            arr.push(response.x);
+          });
+        }
+        if (startDate === yesterday) {
+          volatilityhdb(yesterday, startTime, endTime).then((response) => {
+            arr.push(response.x);
+          });
+        }
+        if (startDate === twodaysago) {
+          volatilityhdb(twodaysago, startTime, endTime).then((response) => {
+            arr.push(response.x);
+          });
+        }
+      }
+    } else {
+      if (startDate > endDate) {
+        console.log("error");
+      } else {
+        let arr1 = [];
+        let arr2 = [];
+        if (startDate === yesterday && endDate === today) {
+          volatilityhdb(yesterday, startTime, "23:59:59").then((response) => {
+            arr1.push(response.x);
+          });
+          volatilityrdb("00:00:00", endTime).then((response) => {
+            arr2.push(response.x);
+          });
+          console.log(arr1);
+          setTimeout(() => {
+            for (let i in arr1) {
+            arr.push(arr1[i].concat(arr2[i]));
+            }
+            console.log(arr);
+          }, 2000);
+        }
+      }
+    }
+    let times = [];
+    setTimeout(() => {
+      for (let i in arr[0]) {
+        let hours = Math.floor(arr[0][i].i / 60);
+        let mins = Math.floor(arr[0][i].i - hours * 60);
         if (mins === 0) {
           mins = "00";
         }
-        arr.push(hours + ":" + mins);
+        times.push(hours + ":" + mins);
       }
-      console.log(arr[21]);
-      getCategories(arr);
-    });
-  }, [today]);
+      getCategories(times);
+    }, 2000);
+  }, [endDate, endTime, startDate, startTime, today]);
 
   const Series = [
     {
@@ -86,7 +188,18 @@ export const Volatility = () => {
         show: false,
       },
     },
-    colors: ['#e6194B', '#f58231', '#ffe119', '#bfef45', '#3cb44b', '#42d4f4', '#4363d8', '#911eb4', '#f032e6', '#000000'],
+    colors: [
+      "#e6194B",
+      "#f58231",
+      "#ffe119",
+      "#bfef45",
+      "#3cb44b",
+      "#42d4f4",
+      "#4363d8",
+      "#911eb4",
+      "#f032e6",
+      "#000000",
+    ],
     stroke: {
       width: 3,
       curve: "smooth",
@@ -141,7 +254,18 @@ export const Volatility = () => {
         },
       },
     },
-    colors: ['#e6194B', '#f58231', '#ffe119', '#bfef45', '#3cb44b', '#42d4f4', '#4363d8', '#911eb4', '#f032e6', '#000000'],
+    colors: [
+      "#e6194B",
+      "#f58231",
+      "#ffe119",
+      "#bfef45",
+      "#3cb44b",
+      "#42d4f4",
+      "#4363d8",
+      "#911eb4",
+      "#f032e6",
+      "#000000",
+    ],
     legend: {
       show: false,
     },
@@ -168,20 +292,75 @@ export const Volatility = () => {
   };
   return (
     <div>
-      <Chart
-        type="line"
-        series={Series}
-        options={Options}
-        width="100%"
-        height="360px"
-      />
-      <Chart
-        type="area"
-        series={Series}
-        options={subOptions}
-        width="100%"
-        height="30%"
-      />
+      <div class="row" style={{ marginTop: "20px" }}>
+        <div class="col-sm-6">
+          <p style={{ fontSize: "20px" }}>Start Date/Time</p>
+
+          <select
+            className="form-select"
+            value={startDate}
+            onChange={(event) => {
+              setStartDate(event.target.value);
+            }}
+          >
+            <option value={today}>{today1}</option>
+            <option value={yesterday}>{yesterday1}</option>
+            <option value={twodaysago}>{twodaysago1}</option>
+          </select>
+
+          <input
+            type="time"
+            step="1"
+            value={startTime}
+            className="form-control"
+            placeholder="Time"
+            onChange={(event) => {
+              setStartTime(event.target.value);
+            }}
+            style={{ textAlign: "center" }}
+          />
+        </div>
+        <div class="col-sm-6">
+          <p style={{ fontSize: "20px" }}>End Date/Time</p>
+          <select
+            className="form-select"
+            value={endDate}
+            onChange={(event) => {
+              setEndDate(event.target.value);
+            }}
+          >
+            <option value={today}>{today1}</option>
+            <option value={yesterday}>{yesterday1}</option>
+            <option value={twodaysago}>{twodaysago1}</option>
+          </select>
+
+          <input
+            type="time"
+            step="1"
+            value={endTime}
+            className="form-control"
+            placeholder="Time"
+            onChange={(event) => {
+              setEndTime(event.target.value);
+            }}
+            style={{ textAlign: "center" }}
+          />
+        </div>
+        <Chart
+          type="line"
+          series={Series}
+          options={Options}
+          width="100%"
+          height="360px"
+        />
+        {/* <Chart
+          type="area"
+          series={Series}
+          options={subOptions}
+          width="100%"
+          height="30%"
+        /> */}
+      </div>
     </div>
   );
 };

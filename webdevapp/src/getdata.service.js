@@ -155,13 +155,34 @@ export async function PriceChange() {
   }
 }
 
-export async function volatility(date) {
+export async function volatilityrdb(st, et) {
   try {
     let res = await axios.post(
       url,
       {
-        arguments: { st:"00:00", et:"23:59" },
+        arguments: { st: st, et: et },
         function_name: ".qrestfunc.volatilityrdb",
+      },
+      {
+        headers: {
+          accept,
+          authorization,
+        },
+      }
+    );
+    return res.data.result;
+  } catch (error) {
+    console.log(error);
+  }
+}
+
+export async function volatilityhdb(dt, st, et) {
+  try {
+    let res = await axios.post(
+      url,
+      {
+        arguments: { dt: dt, st: st, et: et },
+        function_name: ".qrestfunc.volatilityhdb",
       },
       {
         headers: {
