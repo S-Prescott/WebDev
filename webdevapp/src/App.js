@@ -34,6 +34,8 @@ function App() {
   const twoDaysAgo =
     Moment().subtract(2, 'day').format("Do MMM YYYY")
   const [isShown, setIsShown] = useState(false);
+  const [isShown1, setIsShown1] = useState(false);
+  const [isShown2, setIsShown2] = useState(false);
   return (
     <div className="App">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -231,17 +233,17 @@ function App() {
             <div id="ValueCache" class="col-4">
               Latest Price Movement
               <button 
-                style={{border: 'none', backgroundColor:"inherit"}}
+                class="cacheb"
                 onMouseEnter={() => setIsShown(true)}
                 onMouseLeave={() => setIsShown(false)}>
                 <AiOutlineInfoCircle />
               </button>
               {isShown && (
-                // <div class="overlay">
-                  <div class="cashebutton">
-                    Dynamic table showing latest price, change in price, and a visual indicator showing direction of price movement. 
+                <div class="overlay">
+                  <div class="cachebutton">
+                    Dynamic table showing latest price, change in price, and a visual indicator showing direction of price movement.  Table updates every 4 seconds. 
                   </div>
-                // </div>
+                </div>
               )}
               <Lastvalue />
             </div>
@@ -250,14 +252,16 @@ function App() {
             <div class="col-md-8" id="min-max">
               Price Range By Date
               <button 
-                style={{border: 'none', backgroundColor:"inherit"}}
-                onMouseEnter={() => setIsShown(true)}
-                onMouseLeave={() => setIsShown(false)}>
+                class="minmaxb"
+                onMouseEnter={() => setIsShown1(true)}
+                onMouseLeave={() => setIsShown1(false)}>
                 <AiOutlineInfoCircle />
               </button>
-              {isShown && (
-                <div class="minmaxbutton">
-                  Info relating to the dynamic latest price movement table. 
+              {isShown1 && (
+                <div class="overlay">
+                  <div class="minmaxbutton">
+                    Summary boxes displaying the price range of each insrument for a given day in the last 3 days. 
+                  </div>
                 </div>
               )}
               <Minmax />
@@ -267,14 +271,16 @@ function App() {
 
           Highest Traded Instrument
           <button 
-                style={{border: 'none', backgroundColor:"inherit"}}
-                onMouseEnter={() => setIsShown(true)}
-                onMouseLeave={() => setIsShown(false)}>
+                class="highb"
+                onMouseEnter={() => setIsShown2(true)}
+                onMouseLeave={() => setIsShown2(false)}>
                 <AiOutlineInfoCircle />
               </button>
-              {isShown && (
-                <div class="highbutton">
-                  Info relating to the dynami. 
+              {isShown2 && (
+                <div class="overlay">
+                  <div class="highbutton">
+                    Table listing the top 3 most traded instrument over a given date/time range.  You can use the drop-down date selector and time picker to specify a range of your choice. 
+                  </div>
                 </div>
               )}
           <Summary />

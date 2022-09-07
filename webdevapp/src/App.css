@@ -274,34 +274,40 @@ div#sum-card{
 }
 
 
-.cashebutton{
-  opacity:0.8;
+.cachebutton{
+  opacity:1;
   position: fixed;
   left: 50%;
-  transform: translate(-50%, 0);
+  top: 50%;
+  transform: translate(-50%, -50%);
   border: 1px solid black;
   background-color: rgb(168, 179, 179);
+  z-index: 999 !important;
 }
 
 .minmaxbutton{
-  opacity:0.8;
+  opacity:1;
   position: fixed;
   left: 50%;
-  transform: translate(-50%, 0);
+  top: 50%;
+  transform: translate(-50%, -50%);
   border: 1px solid black;
   background-color: rgb(168, 179, 179);
+  z-index: 999 !important;
 }
 
 .highbutton{
-  opacity:0.8;
+  opacity:1;
   position: fixed;
   left: 50%;
-  transform: translate(-50%, 0);
+  top: 50%;
+  transform: translate(-50%, -50%);
   border: 1px solid black;
   background-color: rgb(168, 179, 179);
+  z-index: 999 !important;
 }
 
-/* .overlay{
+.overlay{
   opacity:0.8;
   background-color:black;
   position:fixed;
@@ -309,5 +315,26 @@ div#sum-card{
   height:100%;
   top:0px;
   left:0px;
-  z-index:1000;
-} */
+  z-index: 1 !important;
+}
+
+.cacheb{
+  border: none;
+  background-color: transparent;
+  position: relative;
+  z-index: 1000 !important;
+}
+
+.minmaxb{
+  border: none;
+  background-color: transparent;
+  position: relative;
+  z-index: 1000 !important;
+}
+
+.highb{
+  border: none;
+  background-color: transparent;
+  position: relative;
+  z-index: 1000 !important;
+}
