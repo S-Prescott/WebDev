@@ -277,12 +277,14 @@ div#sum-card{
 .cachebutton{
   opacity:1;
   position: fixed;
-  left: 50%;
-  top: 50%;
+  left: 80%;
+  top: 40%;
   transform: translate(-50%, -50%);
   border: 1px solid black;
   background-color: rgb(168, 179, 179);
   z-index: 999 !important;
+  text-align: left;
+  padding: 5px;
 }
 
 .minmaxbutton{
@@ -294,6 +296,8 @@ div#sum-card{
   border: 1px solid black;
   background-color: rgb(168, 179, 179);
   z-index: 999 !important;
+  text-align: left;
+  padding: 5px;
 }
 
 .highbutton{
@@ -305,9 +309,49 @@ div#sum-card{
   border: 1px solid black;
   background-color: rgb(168, 179, 179);
   z-index: 999 !important;
+  text-align: left;
 }
 
-.overlay{
+.volatilitybutton{
+  opacity:1;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  background-color: rgb(168, 179, 179);
+  z-index: 999 !important;
+  text-align: left;
+  padding: 5px;
+}
+
+.currentbutton{
+  opacity:1;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  background-color: rgb(168, 179, 179);
+  z-index: 999 !important;
+  text-align: left;
+  padding: 5px;
+}
+
+.runningbutton{
+  opacity:1;
+  position: fixed;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  border: 1px solid black;
+  background-color: rgb(168, 179, 179);
+  z-index: 999 !important;
+  text-align: left;
+  padding: 5px;
+}
+
+/* .overlay{
   opacity:0.8;
   background-color:black;
   position:fixed;
@@ -316,7 +360,7 @@ div#sum-card{
   top:0px;
   left:0px;
   z-index: 1 !important;
-}
+} */
 
 .cacheb{
   border: none;
@@ -333,6 +377,27 @@ div#sum-card{
 }
 
 .highb{
+  border: none;
+  background-color: transparent;
+  position: relative;
+  z-index: 1000 !important;
+}
+
+.volatilityb{
+  border: none;
+  background-color: transparent;
+  position: relative;
+  z-index: 1000 !important;
+}
+
+.currentb{
+  border: none;
+  background-color: transparent;
+  position: relative;
+  z-index: 1000 !important;
+}
+
+.runningb{
   border: none;
   background-color: transparent;
   position: relative;

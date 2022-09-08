@@ -36,6 +36,9 @@ function App() {
   const [isShown, setIsShown] = useState(false);
   const [isShown1, setIsShown1] = useState(false);
   const [isShown2, setIsShown2] = useState(false);
+  const [isShown3, setIsShown3] = useState(false);
+  const [isShown4, setIsShown4] = useState(false);
+  const [isShown5, setIsShown5] = useState(false);
   return (
     <div className="App">
       <nav class="navbar navbar-expand-lg navbar-light bg-light">
@@ -179,7 +182,24 @@ function App() {
               className="col-md-8 border" style={{height:"600px"}}
               // style={{ display: "none" }}
             >
-              Instrument Volatility
+              Instrument volatility
+              <button 
+                class="volatilityb"
+                onMouseEnter={() => setIsShown3(true)}
+                onMouseLeave={() => setIsShown3(false)}>
+                <AiOutlineInfoCircle />
+              </button>
+              {isShown3 && (
+                <div class="overlay">
+                  <div class="volatilitybutton">
+                    Graph showing the volatility of each instrument over a given time period.
+                    <br/>
+                    - Use the drop-down selectors to specify a date/time range
+                    <br/>
+                    - Instruments can be toggled using the interactive legend  
+                  </div>
+                </div>
+              )}
               <Volatility />
             </div>
             <div
@@ -188,6 +208,23 @@ function App() {
               style={{ display: "none" }}
             >
               Running Average Price: {today}
+              <button 
+                class="runningb"
+                onMouseEnter={() => setIsShown4(true)}
+                onMouseLeave={() => setIsShown4(false)}>
+                <AiOutlineInfoCircle />
+              </button>
+              {isShown4 && (
+                <div class="overlay">
+                  <div class="runningbutton">
+                    Graph displaying the running average price of each instrument over a given day.
+                    <br/>
+                    - Use the slider beneath the graph to select a time range
+                    <br/>
+                    - Instruments can be toggled using the interactive legend
+                  </div>
+                </div>
+              )}
               <MovingAverageToday />
             </div>
             <div
@@ -196,6 +233,23 @@ function App() {
               style={{ display: "none" }}
             >
               Running Average Price: {yesterday}
+              <button 
+                class="runningb"
+                onMouseEnter={() => setIsShown4(true)}
+                onMouseLeave={() => setIsShown4(false)}>
+                <AiOutlineInfoCircle />
+              </button>
+              {isShown4 && (
+                <div class="overlay">
+                  <div class="runningbutton">
+                    Graph displaying the running average price of each instrument over a given day.
+                    <br/>
+                    - Use the slider beneath the graph to select a time range
+                    <br/>
+                    - Instruments can be toggled using the interactive legend 
+                  </div>
+                </div>
+              )}
               <MovingAverageYesterday />
             </div>
             <div
@@ -204,6 +258,23 @@ function App() {
               style={{ display: "none" }}
             >
               Running Average Price: {twoDaysAgo}
+              <button 
+                class="runningb"
+                onMouseEnter={() => setIsShown4(true)}
+                onMouseLeave={() => setIsShown4(false)}>
+                <AiOutlineInfoCircle />
+              </button>
+              {isShown4 && (
+                <div class="overlay">
+                  <div class="runningbutton">
+                    Graph displaying the running average price of each instrument over a given day.
+                    <br/>
+                    - Use the slider beneath the graph to select a time range
+                    <br/>
+                    - Instruments can be toggled using the interactive legend
+                  </div>
+                </div>
+              )}
               <MovingAverageTwoDaysAgo />
             </div>
             <div
@@ -212,6 +283,23 @@ function App() {
               style={{ display: "none" }}
             >
               Price of Instrument: {today}
+              <button 
+                class="currentb"
+                onMouseEnter={() => setIsShown5(true)}
+                onMouseLeave={() => setIsShown5(false)}>
+                <AiOutlineInfoCircle />
+              </button>
+              {isShown5 && (
+                <div class="overlay">
+                  <div class="currentbutton">
+                    Graph displaying the price of each instrument over a given day.
+                    <br/>
+                    - Use the slider beneath the graph to select a time range
+                    <br/>
+                    - Instruments can be toggled using the interactive legend 
+                  </div>
+                </div>
+              )}
               <CurrentPriceToday />
             </div>
             <div
@@ -220,6 +308,23 @@ function App() {
               style={{ display: "none" }}
             >
               Price of Instrument: {yesterday}
+              <button 
+                class="currentb"
+                onMouseEnter={() => setIsShown5(true)}
+                onMouseLeave={() => setIsShown5(false)}>
+                <AiOutlineInfoCircle />
+              </button>
+              {isShown5 && (
+                <div class="overlay">
+                  <div class="currentbutton">
+                    Graph displaying the price of each instrument over a given day.
+                    <br/>
+                    - Use the slider beneath the graph to select a time range
+                    <br/>
+                    - Instruments can be toggled using the interactive legend
+                  </div>
+                </div>
+              )}
               <CurrentPriceYesterday />
             </div>
             <div
@@ -227,7 +332,24 @@ function App() {
               className="col-md-8 border"
               style={{ display: "none" }}
             >
-              Price of Instrument: {twoDaysAgo} 
+              Price of Instrument: {twoDaysAgo}
+              <button 
+                class="currentb"
+                onMouseEnter={() => setIsShown5(true)}
+                onMouseLeave={() => setIsShown5(false)}>
+                <AiOutlineInfoCircle />
+              </button>
+              {isShown5 && (
+                <div class="overlay">
+                  <div class="currentbutton">
+                    Graph displaying the price of each instrument over a given day.
+                    <br/>
+                    - Use the slider beneath the graph to select a time range
+                    <br/>
+                    - Instruments can be toggled using the interactive legend 
+                  </div>
+                </div>
+              )}
               <CurrentPriceTwoDaysAgo />
             </div>
             <div id="ValueCache" class="col-4">
@@ -279,7 +401,9 @@ function App() {
               {isShown2 && (
                 <div class="overlay">
                   <div class="highbutton">
-                    Table listing the top 3 most traded instrument over a given date/time range.  You can use the drop-down date selector and time picker to specify a range of your choice. 
+                    Table listing the top 3 most traded Instruments over a given date/time range.  
+                    <br/>
+                    - Use the drop-down date selector and time picker to specify a range of your choice. 
                   </div>
                 </div>
               )}
