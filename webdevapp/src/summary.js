@@ -307,15 +307,15 @@ export const Summary = () => {
               <th style={{ textAlign: "center", background:"#14934b", fontSize:"20px"}}> Volume </th>
             </tr>
             <tr id="tabledata">
-              <td style={{ textAlign: "center", fontSize:"20px"}}>{data.sym1}</td>
+              <td style={{ textAlign: "left", paddingLeft: "15%", fontSize:"20px"}}>{"1. " + data.sym1}</td>
               <td style={{ textAlign: "center", fontSize:"20px"}}>{data.volume1}</td>
             </tr>
             <tr id="tabledata">
-              <td style={{ textAlign: "center", fontSize:"20px"}}>{data.sym2}</td>
+              <td style={{ textAlign: "left", paddingLeft: "15%", fontSize:"20px"}}>{"2. " + data.sym2}</td>
               <td style={{ textAlign: "center", fontSize:"20px"}}>{data.volume2}</td>
             </tr>
             <tr id="tabledata">
-              <td style={{ textAlign: "center", fontSize:"20px"}}>{data.sym3}</td>
+              <td style={{ textAlign: "left", paddingLeft: "15%", fontSize:"20px"}}>{"3. " + data.sym3}</td>
               <td style={{ textAlign: "center", fontSize:"20px"}}>{data.volume3}</td>
             </tr>
           </tbody>

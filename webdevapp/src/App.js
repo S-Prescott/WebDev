@@ -66,7 +66,7 @@ function App() {
               {/* The onclick data of each of these need to be updated to represent the different days of data which need to be shown */}
               <div class="dropdown-content">
                 <div class="dropright ">
-                  <a onClick={toggleVolatilityGToday}>Volatility</a>
+                  <a onClick={toggleVolatilityGToday}>Instrument Volatility</a>
                   {/* <div class="dropdown-menu">
                     <h6 class="dropdown-header">Volatility Options</h6>
                     <div class="dropdown-divider"></div>
@@ -84,7 +84,7 @@ function App() {
                     data-toggle="dropdown"
                     // onClick={toggleCurrentPriceToday}
                   >
-                    Current Price
+                    Instrument Price
                   </a>
                   <div class="dropdown-menu dropdown-menu-right">
                     <h6 class="dropdown-header">Select Date</h6>
@@ -118,7 +118,7 @@ function App() {
                     data-toggle="dropdown"
                     onClick={toggleMovingAvgGToday}
                   >
-                    Moving Average
+                    Running Average Price
                   </a>
                   <div class="dropdown-menu">
                     <h6 class="dropdown-header">Select Date</h6>
@@ -179,7 +179,7 @@ function App() {
               className="col-md-8 border" style={{height:"600px"}}
               // style={{ display: "none" }}
             >
-              Volatility for {today}
+              Instrument Volatility
               <Volatility />
             </div>
             <div
@@ -187,7 +187,7 @@ function App() {
               className="col-md-8 border"
               style={{ display: "none" }}
             >
-              Moving Average for {today}
+              Running Average Price: {today}
               <MovingAverageToday />
             </div>
             <div
@@ -195,7 +195,7 @@ function App() {
               className="col-md-8 border"
               style={{ display: "none" }}
             >
-              Moving Average for {yesterday}
+              Running Average Price: {yesterday}
               <MovingAverageYesterday />
             </div>
             <div
@@ -203,7 +203,7 @@ function App() {
               className="col-md-8 border"
               style={{ display: "none" }}
             >
-              Moving Average for {twoDaysAgo}
+              Running Average Price: {twoDaysAgo}
               <MovingAverageTwoDaysAgo />
             </div>
             <div
@@ -211,7 +211,7 @@ function App() {
               className="col-md-8 border"
               style={{ display: "none" }}
             >
-              Current Price for {today}
+              Price of Instrument: {today}
               <CurrentPriceToday />
             </div>
             <div
@@ -219,7 +219,7 @@ function App() {
               className="col-md-8 border"
               style={{ display: "none" }}
             >
-              Current Price for {yesterday}
+              Price of Instrument: {yesterday}
               <CurrentPriceYesterday />
             </div>
             <div
@@ -227,7 +227,7 @@ function App() {
               className="col-md-8 border"
               style={{ display: "none" }}
             >
-              Current Price for {twoDaysAgo} 
+              Price of Instrument: {twoDaysAgo} 
               <CurrentPriceTwoDaysAgo />
             </div>
             <div id="ValueCache" class="col-4">
@@ -269,7 +269,7 @@ function App() {
         
         <div id="mostTradedSym" class="col-4" style={{ display: "block" }}>
 
-          Highest Traded Instrument
+          Highest Traded Instruments
           <button 
                 class="highb"
                 onMouseEnter={() => setIsShown2(true)}
