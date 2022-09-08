@@ -70,7 +70,7 @@ export const Volatility = () => {
               comb.push(arr1[i].concat(arr2[i]));
             }
             getData(comb);
-          }, 2000);
+          }, 1000);
         }
         if (startDate === twodaysago && endDate === yesterday) {
           let arr1 = [];
@@ -93,7 +93,7 @@ export const Volatility = () => {
               comb.push(arr1[i].concat(arr2[i]));
             }
             getData(comb);
-          }, 2000);
+          }, 1000);
         }
         if (startDate === twodaysago && endDate === today) {
           let arr1 = [];
@@ -123,7 +123,7 @@ export const Volatility = () => {
               comb.push(arr1[i].concat(arr2[i],arr3[i]));
             }
             getData(comb);
-          }, 2000);
+          }, 1000);
         }
       }
     }
@@ -172,7 +172,7 @@ export const Volatility = () => {
             arr.push(arr1[i].concat(arr2[i]));
             }
             console.log(arr);
-          }, 2000);
+          }, 1000);
         }
         if (startDate === twodaysago && endDate === yesterday) {
           volatilityhdb(twodaysago, startTime, "23:59:59").then((response) => {
@@ -187,7 +187,7 @@ export const Volatility = () => {
             arr.push(arr1[i].concat(arr2[i]));
             }
             console.log(arr);
-          }, 2000);
+          }, 1000);
         }
         if (startDate === twodaysago && endDate === today) {
           volatilityhdb(twodaysago, startTime, "23:59:59").then((response) => {
@@ -205,7 +205,7 @@ export const Volatility = () => {
             arr.push(arr1[i].concat(arr2[i],arr3[i]));
             }
             console.log(arr);
-          }, 2000);
+          }, 1000);
         }
       }
     }
@@ -220,7 +220,7 @@ export const Volatility = () => {
         times.push(hours + ":" + mins);
       }
       getCategories(times);
-    }, 2000);
+    }, 1000);
   }, [endDate, endTime, startDate, startTime, today, twodaysago, yesterday]);
 
   const Series = [
