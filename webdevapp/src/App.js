@@ -182,7 +182,7 @@ function App() {
               className="col-md-8 border" style={{height:"600px"}}
               // style={{ display: "none" }}
             >
-              Instrument volatility
+              Instrument Volatility
               <button 
                 class="volatilityb"
                 onMouseEnter={() => setIsShown3(true)}
@@ -192,6 +192,7 @@ function App() {
               {isShown3 && (
                 <div class="overlay">
                   <div class="volatilitybutton">
+                    <center><u>Instrument Volatility</u></center>
                     Graph showing the volatility of each instrument over a given time period.
                     <br/>
                     - Use the drop-down selectors to specify a date/time range
@@ -217,6 +218,7 @@ function App() {
               {isShown4 && (
                 <div class="overlay">
                   <div class="runningbutton">
+                    <center><u>Running Average Price</u></center>
                     Graph displaying the running average price of each instrument over a given day.
                     <br/>
                     - Use the slider beneath the graph to select a time range
@@ -242,6 +244,7 @@ function App() {
               {isShown4 && (
                 <div class="overlay">
                   <div class="runningbutton">
+                    <center><u>Running Average Price</u></center>
                     Graph displaying the running average price of each instrument over a given day.
                     <br/>
                     - Use the slider beneath the graph to select a time range
@@ -267,6 +270,7 @@ function App() {
               {isShown4 && (
                 <div class="overlay">
                   <div class="runningbutton">
+                    <center><u>Running Average Price</u></center>  
                     Graph displaying the running average price of each instrument over a given day.
                     <br/>
                     - Use the slider beneath the graph to select a time range
@@ -292,6 +296,7 @@ function App() {
               {isShown5 && (
                 <div class="overlay">
                   <div class="currentbutton">
+                    <center><u>Instrument Price</u></center>
                     Graph displaying the price of each instrument over a given day.
                     <br/>
                     - Use the slider beneath the graph to select a time range
@@ -317,6 +322,7 @@ function App() {
               {isShown5 && (
                 <div class="overlay">
                   <div class="currentbutton">
+                    <center><u>Instrument Price</u></center>
                     Graph displaying the price of each instrument over a given day.
                     <br/>
                     - Use the slider beneath the graph to select a time range
@@ -342,6 +348,7 @@ function App() {
               {isShown5 && (
                 <div class="overlay">
                   <div class="currentbutton">
+                    <center><u>Instrument Price</u></center>
                     Graph displaying the price of each instrument over a given day.
                     <br/>
                     - Use the slider beneath the graph to select a time range
@@ -363,7 +370,12 @@ function App() {
               {isShown && (
                 <div class="overlay">
                   <div class="cachebutton">
-                    Dynamic table showing latest price, change in price, and a visual indicator showing direction of price movement.  Table updates every 4 seconds. 
+                    <center><u>Latest Price Movement</u></center>
+                    Dynamic table showing latest price, change in price, and a visual indicator showing direction of price movement for each instrument.
+                    <br/>
+                    - Change in price calculated between last 2 executed trades
+                    <br/>
+                    - Table updates every 2 seconds
                   </div>
                 </div>
               )}
@@ -382,7 +394,10 @@ function App() {
               {isShown1 && (
                 <div class="overlay">
                   <div class="minmaxbutton">
-                    Summary boxes displaying the price range of each insrument for a given day in the last 3 days. 
+                    <center><u>Price Range By Date</u></center>
+                    Summary boxes displaying the price range of each insrument for a given day in the last 3 days.
+                    <br/>
+                    - Boxes update every 20 seconds  
                   </div>
                 </div>
               )}
@@ -401,9 +416,10 @@ function App() {
               {isShown2 && (
                 <div class="overlay">
                   <div class="highbutton">
+                    <center><u>Highest Traded Instruments</u></center>
                     Table listing the top 3 most traded Instruments over a given date/time range.  
                     <br/>
-                    - Use the drop-down date selector and time picker to specify a range of your choice. 
+                    - Use the drop-down selectors to specify a date/time range 
                   </div>
                 </div>
               )}
@@ -427,8 +443,16 @@ function App() {
           ></script>
         </div>
       </body>
+      <footer class="fixedfoot">
+        <div class="row" style={{height:"15px"}}></div>
+        <div class="row">
+          <div class="col"><h6 id="serverConnection" style={{textAlign:"left", marginLeft:"2.5rem", color:"white"}}>server connection: checking</h6></div>
+          <div class="col"><h6 style={{textAlign:"right", marginRight:"2.5rem", color:"white"}}>All Times in UTC</h6></div>
+        </div>
+        <div class="row" style={{height:"15px"}}></div>
+      </footer>
       <footer>
-        <h4 id="serverConnection">server connection: checking</h4>
+        <h4>Placeholder</h4>
       </footer>
     </div>
    

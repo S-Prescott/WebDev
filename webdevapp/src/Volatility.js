@@ -398,7 +398,7 @@ export const Volatility = () => {
 
           <input
             type="time"
-            step="1"
+            // step="1"
             value={startTime}
             className="form-control"
             placeholder="Time"
@@ -424,7 +424,7 @@ export const Volatility = () => {
 
           <input
             type="time"
-            step="1"
+            // step="1"
             value={endTime}
             className="form-control"
             placeholder="Time"
