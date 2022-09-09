@@ -91,7 +91,7 @@ div#min-max.col-md-8{
 
 .App-body {
   padding: 5vh;
-  background-color: rgb(255, 255, 255);
+  background-color: rgb(236, 236, 236);
   min-height: 150vh;
   /* display: flex; */
   flex-direction: column;
@@ -280,11 +280,12 @@ div#sum-card{
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid black;
-  background-color: rgb(168, 179, 179);
+  border: 3px solid black;
+  background-color: rgb(236, 236, 236);
   z-index: 999 !important;
   text-align: left;
   padding: 5px;
+  font-size: 22px;
 }
 
 .minmaxbutton{
@@ -293,11 +294,12 @@ div#sum-card{
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid black;
-  background-color: rgb(168, 179, 179);
+  border: 3px solid black;
+  background-color: rgb(236, 236, 236);
   z-index: 999 !important;
   text-align: left;
   padding: 5px;
+  font-size: 22px;
 }
 
 .highbutton{
@@ -306,10 +308,12 @@ div#sum-card{
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid black;
-  background-color: rgb(168, 179, 179);
+  border: 3px solid black;
+  background-color: rgb(236, 236, 236);
   z-index: 999 !important;
   text-align: left;
+  padding: 5px;
+  font-size: 22px;
 }
 
 .volatilitybutton{
@@ -318,11 +322,12 @@ div#sum-card{
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid black;
-  background-color: rgb(168, 179, 179);
+  border: 3px solid black;
+  background-color: rgb(236, 236, 236);
   z-index: 999 !important;
   text-align: left;
   padding: 5px;
+  font-size: 22px;
 }
 
 .currentbutton{
@@ -331,11 +336,12 @@ div#sum-card{
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid black;
-  background-color: rgb(168, 179, 179);
+  border: 3px solid black;
+  background-color: rgb(236, 236, 236);
   z-index: 999 !important;
   text-align: left;
   padding: 5px;
+  font-size: 22px;
 }
 
 .runningbutton{
@@ -344,11 +350,12 @@ div#sum-card{
   left: 50%;
   top: 50%;
   transform: translate(-50%, -50%);
-  border: 1px solid black;
-  background-color: rgb(168, 179, 179);
+  border: 3px solid black;
+  background-color: rgb(236, 236, 236);
   z-index: 999 !important;
   text-align: left;
   padding: 5px;
+  font-size: 22px;
 }
 
 /* .overlay{
@@ -367,41 +374,47 @@ div#sum-card{
   background-color: transparent;
   position: relative;
   z-index: 1000 !important;
+  color: rgb(42 48 137);
 }
 
 .minmaxb{
   border: none;
   background-color: transparent;
   position: relative;
-  z-index: 1000 !important;
+  z-index: 998 !important;
+  color: rgb(42 48 137);
 }
 
 .highb{
   border: none;
   background-color: transparent;
   position: relative;
-  z-index: 1000 !important;
+  z-index: 998 !important;
+  color: rgb(42 48 137);
 }
 
 .volatilityb{
   border: none;
   background-color: transparent;
   position: relative;
-  z-index: 1000 !important;
+  z-index: 998 !important;
+  color: rgb(42 48 137);
 }
 
 .currentb{
   border: none;
   background-color: transparent;
   position: relative;
-  z-index: 1000 !important;
+  z-index: 998 !important;
+  color: rgb(42 48 137);
 }
 
 .runningb{
   border: none;
   background-color: transparent;
   position: relative;
-  z-index: 1000 !important;
+  z-index: 998 !important;
+  color: rgb(42 48 137);
 }
 
 .fixedfoot{

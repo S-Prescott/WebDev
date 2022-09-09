@@ -28,19 +28,19 @@ export const Minmax = () => {
     });
   }, [date]);
 
-  React.useEffect(() => {
-    const interval = setInterval(() => {
-      getminmaxdata(date).then((response) => {
-        // console.log(response);
-        getData(response);
-        });
-        }, 20000);
-      }, [date]);
+  // React.useEffect(() => {
+  //   const interval = setInterval(() => {
+  //     getminmaxdata(date).then((response) => {
+  //       // console.log(response);
+  //       getData(response);
+  //       });
+  //       }, 20000);
+  //     }, [date]);
 
   return (
     <main>
-      
-      <select
+      <center>
+      <select style={{width:"275px"}}
         className="form-select"
         value={date} 
         onChange={(event) => {
@@ -51,7 +51,7 @@ export const Minmax = () => {
         <option value={yesterday}>{yesterday1}</option>
         <option value={twodaysago}>{twodaysago1}</option>
       </select>
-      
+      </center>
         <div className="item-container">
           {data.map((item) => (
             <div className="card">
