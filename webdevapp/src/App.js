@@ -438,11 +438,16 @@ function App() {
         </div>
       </body>
       <footer class="fixedfoot">
-        block
+        <div class="row" style={{height:"15px"}}></div>
+        <div class="row">
+          <div class="col"><h6 id="serverConnection" style={{textAlign:"left", marginLeft:"2.5rem"}}>server connection: checking</h6></div>
+          <div class="col"><h6 style={{textAlign:"right", marginRight:"2.5rem"}}>All Other Times in UTC</h6></div>
+        </div>
+        <div class="row" style={{height:"15px"}}></div>
       </footer>
-      <footer>
+      {/* <footer>
         <h4 id="serverConnection">server connection: checking</h4>
-      </footer>
+      </footer> */}
     </div>
    
   );
