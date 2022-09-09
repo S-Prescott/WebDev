@@ -303,6 +303,7 @@ export const Volatility = () => {
     xaxis: {
       type: "category",
       categories: categories,
+      tickAmount: 24,
       title: {
         text: "",
       },
