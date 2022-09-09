@@ -182,7 +182,7 @@ function App() {
               className="col-md-8 border" style={{height:"600px"}}
               // style={{ display: "none" }}
             >
-              Instrument volatility
+              Instrument Volatility
               <button 
                 class="volatilityb"
                 onMouseEnter={() => setIsShown3(true)}
