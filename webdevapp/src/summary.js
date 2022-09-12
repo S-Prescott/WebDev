@@ -261,7 +261,7 @@ export const Summary = () => {
 
           <input
             type="time"
-            step="1"
+            // step="1"
             value={startTime}
             className="form-control"
             placeholder="Time"
@@ -287,7 +287,7 @@ export const Summary = () => {
 
           <input
             type="time"
-            step="1"
+            // step="1"
             value={endTime}
             className="form-control"
             placeholder="Time"
