@@ -59,10 +59,10 @@ export const Lastvalue = () => {
       <table class="table table-bordered table-light" >
         <tbody id="lastvaluetable">
           <tr>
-            <th style={{ textAlign: "center" }}> Instrument</th>
-            <th style={{ textAlign: "center" }}> Price ($)</th>
-            <th style={{ textAlign: "center" }}> Change ($)</th>
-            <th style={{ textAlign: "center" }}> </th>
+            <th style={{ textAlign: "center",background:"#14934b" }}> Instrument</th>
+            <th style={{ textAlign: "center",background:"#14934b" }}> Price ($)</th>
+            <th style={{ textAlign: "center",background:"#14934b" }}> Change ($)</th>
+            <th style={{ textAlign: "center",background:"#14934b" }}> </th>
           </tr>
           {data.map((item) => (
             <tr id="tabledata">
