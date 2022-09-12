@@ -1,4 +1,5 @@
 import axios from "axios";
+import PageNotFound from './404-page.js'
 const url = "https://81.150.99.19:8032/executeFunction";
 const accept = "*/*";
 const authorization = "Basic dXNlcjpwYXNz";
@@ -27,6 +28,7 @@ export async function hightrade(date) {
     return res.data.result;
   } catch (error) {
     console.error(error);
+    return {PageNotFound}
   }
 }
 
@@ -48,6 +50,9 @@ export async function hightraderdb(st, et) {
     return res.data.result;
   } catch (error) {
     console.error(error);
+    return (
+      <div>{PageNotFound}</div>
+    )
   }
 }
 
@@ -69,6 +74,7 @@ export async function hightradehdb(date, st, et) {
     return res.data.result;
   } catch (error) {
     console.error(error);
+    return {PageNotFound}
   }
 }
 
@@ -91,6 +97,7 @@ export async function getminmaxdata(date) {
       return res.data.result;
     } catch (error) {
       console.error(error);
+      return {PageNotFound}
     }
   }
   if (date === yesterday) {
@@ -111,6 +118,7 @@ export async function getminmaxdata(date) {
       return res.data.result;
     } catch (error) {
       console.error(error);
+      return {PageNotFound}
     }
   } else {
     try {
@@ -130,6 +138,7 @@ export async function getminmaxdata(date) {
       return res.data.result;
     } catch (error) {
       console.error(error);
+      return {PageNotFound}
     }
   }
 }
@@ -152,6 +161,7 @@ export async function PriceChange() {
     return res.data.result;
   } catch (error) {
     console.log(error);
+    return {PageNotFound}
   }
 }
 
@@ -173,6 +183,7 @@ export async function volatilityrdb(st, et) {
     return res.data.result;
   } catch (error) {
     console.log(error);
+    return {PageNotFound}
   }
 }
 
@@ -194,6 +205,7 @@ export async function volatilityhdb(dt, st, et) {
     return res.data.result;
   } catch (error) {
     console.log(error);
+    return {PageNotFound}
   }
 }
 
@@ -215,6 +227,7 @@ export async function currentPriceToday() {
     return res.data.result;
   } catch (error) {
     console.log(error);
+    return {PageNotFound}
   }
 }
 
@@ -236,6 +249,7 @@ export async function currentPriceYesterday() {
     return res.data.result;
   } catch (error) {
     console.log(error);
+    return {PageNotFound}
   }
 }
 
@@ -257,6 +271,7 @@ export async function currentPriceTwoDaysAgo() {
     return res.data.result;
   } catch (error) {
     console.log(error);
+    return {PageNotFound}
   }
 }
 
@@ -278,6 +293,7 @@ export async function movingAverageToday() {
     return res.data.result;
   } catch (error) {
     console.log(error);
+    return {PageNotFound}
   }
 }
 
@@ -299,6 +315,7 @@ export async function movingAverageYesterday() {
     return res.data.result;
   } catch (error) {
     console.log(error);
+    return {PageNotFound}
   }
 }
 
@@ -320,5 +337,6 @@ export async function movingAverageTwoDaysAgo() {
     return res.data.result;
   } catch (error) {
     console.log(error);
+    return {PageNotFound}
   }
 }
