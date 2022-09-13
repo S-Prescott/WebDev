@@ -425,3 +425,7 @@ div#sum-card{
   height: 30px;
   z-index: 1000 !important;
 }
+
+.apexcharts-legend{
+    align-items: flex-start;
+}
