@@ -429,3 +429,7 @@ div#sum-card{
 .apexcharts-legend{
     align-items: flex-start;
 }
+
+.sumtab{
+  height: 600px !important;
+}

@@ -51,7 +51,7 @@ export const Lastvalue = () => {
         dateTimeNow();
 
       });
-    }, 4000);
+    }, 2000);
   }, [today]);
 
   return (

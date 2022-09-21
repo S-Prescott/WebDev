@@ -390,7 +390,7 @@ export const Volatility = () => {
             onChange={(event) => {
               setStartDate(event.target.value);
             }}
-          >
+          >,
             <option value={today}>{today1}</option>
             <option value={yesterday}>{yesterday1}</option>
             <option value={twodaysago}>{twodaysago1}</option>

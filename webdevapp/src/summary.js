@@ -242,9 +242,10 @@ export const Summary = () => {
     }
   }, [endDate, endTime, startDate, startTime, today, twodaysago, yesterday]);
 
+
   return (
     <main>
-      <div class="row" style={{ marginTop: "20px" }}>
+      <div class="row" style={{ marginTop: "40px", marginBottom: "20px", marginLeft: "10px", marginRight: "10px" }}>
         <div class="col-sm-6">
           <p style={{ fontSize: "20px" }}>Start Date/Time</p>
           <select
@@ -261,7 +262,7 @@ export const Summary = () => {
 
           <input
             type="time"
-            // step="1"
+            step="1"
             value={startTime}
             className="form-control"
             placeholder="Time"
@@ -287,7 +288,7 @@ export const Summary = () => {
 
           <input
             type="time"
-            // step="1"
+            step="1"
             value={endTime}
             className="form-control"
             placeholder="Time"
@@ -332,3 +333,4 @@ export const Summary = () => {
     </main>
   );
 };
+
